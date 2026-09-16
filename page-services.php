@@ -18,6 +18,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'How the Angel Network Operates', 'angel-network' ),
     'subtitle' => esc_html__( 'An institutional step-by-step roadmap for accredited investors and high-growth entrepreneurs.', 'angel-network' ),
     'badge'    => esc_html__( 'Platform Mechanics', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

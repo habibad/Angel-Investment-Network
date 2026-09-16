@@ -20,6 +20,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'About Angel Investment Network', 'angel-network' ),
     'subtitle' => esc_html__( 'Canada’s institutional bridge connecting high-conviction angel investors with ambitious founders driving technological and industrial transformation.', 'angel-network' ),
     'badge'    => esc_html__( 'Our Syndicate Story', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

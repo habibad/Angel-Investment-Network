@@ -20,6 +20,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'Venture Insights & Angel Intelligence', 'angel-network' ),
     'subtitle' => esc_html__( 'Market analyses, valuation benchmarks, and angel syndicate playbooks from top Canadian capital allocators.', 'angel-network' ),
     'badge'    => esc_html__( 'The Research Desk', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

@@ -21,6 +21,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'Contact Syndicate Support & Inquiries', 'angel-network' ),
     'subtitle' => esc_html__( 'Have questions about platform diligence, accreditation verification, or corporate syndication? Connect with our dedicated team.', 'angel-network' ),
     'badge'    => esc_html__( 'Get in Touch', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

@@ -20,6 +20,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'Explore Verified Investment Dealflow', 'angel-network' ),
     'subtitle' => esc_html__( 'Discover high-potential early-stage companies raising seed and growth capital across technology, healthcare, and industrial sectors.', 'angel-network' ),
     'badge'    => esc_html__( 'Accredited Dealflow Hub', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

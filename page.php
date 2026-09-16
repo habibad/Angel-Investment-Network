@@ -17,6 +17,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => get_the_title(),
     'subtitle' => '',
     'badge'    => esc_html__( 'Platform Documentation', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 
