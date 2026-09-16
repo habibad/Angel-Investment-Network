@@ -14,7 +14,7 @@ get_header();
 $opportunities = array_slice( angel_get_opportunities(), 0, 2 );
 ?>
 
-<section class="py-24 bg-slate-50 border-b border-slate-200 text-center">
+<section class="py-24 bg-slate-50 text-center">
     <div class="container mx-auto max-w-2xl">
         <span class="badge badge-primary text-sm px-4 py-1.5 mb-4">404 Error</span>
         <h1 class="text-4xl sm:text-5xl font-heading font-extrabold text-primary mb-4">

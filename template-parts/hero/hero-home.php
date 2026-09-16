@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
 ?>
 
-<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 pb-20 lg:pt-16 lg:pb-28 border-b border-slate-200">
+<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 pb-20 lg:pt-16 lg:pb-28">
     <!-- Subtle Ambient Background Glows -->
     <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
     <div class="absolute bottom-0 left-10 w-80 h-80 bg-accent-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $industries = angel_get_industries();
 ?>
 
-<section class="py-20 bg-white border-b border-slate-200">
+<section class="py-20 bg-white">
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>

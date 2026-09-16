@@ -25,7 +25,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 ] ); 
 ?>
 
-<section class="py-20 bg-slate-50 border-b border-slate-200">
+<section class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <div class="grid lg:grid-cols-12 gap-12">
             <!-- Contact Form Column -->

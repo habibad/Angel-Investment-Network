@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $brands = angel_get_media_brands();
 ?>
 
-<section class="py-12 bg-white border-b border-slate-200">
+<section class="py-12 bg-white">
     <div class="container mx-auto">
         <p class="text-center text-xs font-heading font-bold uppercase tracking-widest text-slate-400 mb-8">
             <?php esc_html_e( 'Recognized & Featured Across Premier Financial Media', 'angel-network' ); ?>

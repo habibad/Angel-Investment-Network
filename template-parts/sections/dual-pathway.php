@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<section class="py-20 bg-slate-50 border-b border-slate-200">
+<section class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="badge badge-primary mb-3"><?php esc_html_e( 'The Dual Ecosystem', 'angel-network' ); ?></span>

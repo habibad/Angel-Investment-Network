@@ -26,7 +26,7 @@ $articles      = angel_get_blog_posts();
 <?php get_template_part( 'template-parts/sections/trust-marquee' ); ?>
 
 <!-- 3. Featured Investment Opportunities Grid with Filter Engine -->
-<section id="opportunities" class="py-20 bg-slate-50 border-b border-slate-200">
+<section id="opportunities" class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
@@ -107,7 +107,7 @@ $articles      = angel_get_blog_posts();
 </section>
 
 <!-- 4. Platform Aggregate Key Statistics Bar -->
-<section class="py-16 bg-primary text-white border-b border-primary-light">
+<section class="py-16 bg-primary text-white">
     <div class="container mx-auto">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
             <?php foreach ( $stats as $stat ) : ?>
@@ -127,7 +127,7 @@ $articles      = angel_get_blog_posts();
 <?php get_template_part( 'template-parts/sections/dual-pathway' ); ?>
 
 <!-- 6. Verified Investor Showcase -->
-<section id="investors" class="py-20 bg-white border-b border-slate-200">
+<section id="investors" class="py-20 bg-white">
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
@@ -163,7 +163,7 @@ $articles      = angel_get_blog_posts();
 <?php get_template_part( 'template-parts/sections/benefits' ); ?>
 
 <!-- 10. Latest Venture Insights & Market Analysis -->
-<section class="py-20 bg-white border-b border-slate-200">
+<section class="py-20 bg-white">
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>

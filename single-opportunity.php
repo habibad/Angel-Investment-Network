@@ -35,7 +35,7 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
 ?>
 
 <!-- Opportunity Breadcrumb & Sub-Hero -->
-<div class="bg-primary text-white py-12 lg:py-16 border-b border-primary-light relative overflow-hidden">
+<div class="bg-primary text-white py-12 lg:py-16 relative overflow-hidden">
     <div class="container mx-auto">
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-xs text-slate-300 mb-6">
@@ -86,7 +86,7 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
 </div>
 
 <!-- Main Pitch Detail Body -->
-<section class="py-16 bg-slate-50 border-b border-slate-200">
+<section class="py-16 bg-slate-50">
     <div class="container mx-auto">
         <div class="grid lg:grid-cols-12 gap-10">
             <!-- Left Column: Details, Highlights & Financial Narrative (8 cols) -->

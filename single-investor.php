@@ -29,7 +29,7 @@ if ( ! $investor && ! empty( $all_investors ) ) {
 }
 ?>
 
-<div class="bg-primary text-white py-12 lg:py-16 border-b border-primary-light">
+<div class="bg-primary text-white py-12 lg:py-16">
     <div class="container mx-auto max-w-4xl">
         <nav class="flex items-center gap-2 text-xs text-slate-300 mb-6">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-white transition-colors">Home</a>
@@ -63,7 +63,7 @@ if ( ! $investor && ! empty( $all_investors ) ) {
     </div>
 </div>
 
-<section class="py-16 bg-slate-50 border-b border-slate-200">
+<section class="py-16 bg-slate-50">
     <div class="container mx-auto max-w-4xl space-y-8">
         <!-- Investment Criteria Matrix -->
         <div class="card p-8 bg-white border border-slate-200">

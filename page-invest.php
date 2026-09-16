@@ -25,7 +25,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 ?>
 
 <!-- Opportunities Marketplace Hub -->
-<section class="py-16 bg-slate-50 border-b border-slate-200">
+<section class="py-16 bg-slate-50">
     <div class="container mx-auto">
         <!-- Filter Controls Bar -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-12">
@@ -89,7 +89,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 </section>
 
 <!-- Investor Criteria & Accreditation Section -->
-<section id="criteria" class="py-16 bg-white border-b border-slate-200">
+<section id="criteria" class="py-16 bg-white">
     <div class="container mx-auto max-w-4xl">
         <div class="text-center mb-10">
             <span class="badge badge-primary mb-2"><?php esc_html_e( 'Compliance & Eligibility', 'angel-network' ); ?></span>

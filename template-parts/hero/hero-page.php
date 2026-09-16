@@ -46,7 +46,7 @@ if ( empty( $bg_image ) ) {
 }
 ?>
 
-<section class="relative bg-slate-950 text-white py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-slate-800">
+<section class="relative bg-slate-950 text-white py-16 sm:py-20 lg:py-24 overflow-hidden">
     <!-- Contextual Background Image & Split Contrast Overlay -->
     <div class="absolute inset-0 -z-0">
         <img 

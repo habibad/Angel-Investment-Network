@@ -21,7 +21,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 ] ); 
 ?>
 
-<section class="py-16 bg-white border-b border-slate-200">
+<section class="py-16 bg-white">
     <div class="container mx-auto max-w-4xl">
         <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-6">
             <?php

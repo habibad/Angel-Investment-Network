@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $testimonials = angel_get_testimonials();
 ?>
 
-<section class="py-20 bg-slate-50 border-b border-slate-200">
+<section class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="badge badge-accent mb-3"><?php esc_html_e( 'Proven Track Record', 'angel-network' ); ?></span>

@@ -23,7 +23,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 ?>
 
 <!-- Step-by-Step Roadmaps -->
-<section class="py-20 bg-white border-b border-slate-200">
+<section class="py-20 bg-white">
     <div class="container mx-auto">
         <!-- The Investor Workflow -->
         <div class="mb-20">
@@ -114,7 +114,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 </section>
 
 <!-- Pricing Tiers Table -->
-<section class="py-20 bg-slate-50 border-b border-slate-200">
+<section class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="badge badge-gold mb-3"><?php esc_html_e( 'Transparent Rates', 'angel-network' ); ?></span>

@@ -94,8 +94,13 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
         </a>
     </nav>
 
-    <!-- Header Actions (Login / Join Modal Triggers) -->
+    <!-- Header Actions (Language Switcher / Login / Join Modal Triggers) -->
     <div class="hidden lg:flex items-center gap-3">
+        <!-- Language Switcher -->
+        <div class="header-language-switcher flex items-center">
+            <?php echo do_shortcode( '[gtranslate]' ); ?>
+        </div>
+
         <button 
             type="button" 
             data-open-modal="auth-modal" 
@@ -155,6 +160,19 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
     </div>
 
     <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2 px-2">
+        <!-- Mobile Language Switcher -->
+        <div class="mobile-language-switcher flex items-center justify-between px-2 py-1 mb-1 bg-slate-50 rounded-lg border border-slate-200">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <?php esc_html_e( 'Language', 'angel-network' ); ?>
+            </span>
+            <div class="w-auto">
+                <?php echo do_shortcode( '[gtranslate]' ); ?>
+            </div>
+        </div>
+
         <button 
             type="button" 
             data-open-modal="auth-modal" 

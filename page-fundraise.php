@@ -23,7 +23,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 ?>
 
 <!-- Pitch Preparation Checklist -->
-<section class="py-20 bg-white border-b border-slate-200">
+<section class="py-20 bg-white">
     <div class="container mx-auto">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-6">
@@ -101,7 +101,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 </section>
 
 <!-- Founder Testimonials -->
-<section class="py-20 bg-slate-50 border-b border-slate-200">
+<section class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="badge badge-primary mb-3"><?php esc_html_e( 'Success Stories', 'angel-network' ); ?></span>
