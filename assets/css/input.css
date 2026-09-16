@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #123F3D;
+    background-color: #FAFAF7;
+  }
+  
+  body {
+    background-color: #FAFAF7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #123F3D;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Newsreader', Georgia, serif;
+    color: #123F3D;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Restrained, Luxury Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center text-sm font-sans font-medium transition-all duration-200 focus:outline-none cursor-pointer tracking-normal;
+  }
+
+  .btn-primary {
+    @apply bg-brand-teal hover:bg-brand-teal-hover text-white rounded-md px-6 py-3 shadow-quiet transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-brand-subtle text-brand-dark border border-brand-border rounded-md px-6 py-3 transition-colors;
+  }
+
+  .btn-link {
+    @apply text-brand-teal hover:text-brand-teal-hover font-semibold inline-flex items-center gap-1.5 transition-colors;
+  }
+
+  .btn-sm {
+    @apply text-xs px-4 py-2 rounded;
+  }
+
+  /* Quiet Editorial Badges */
+  .badge-editorial {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[11px] font-sans font-semibold uppercase tracking-widest text-brand-teal bg-brand-teal-light border border-brand-teal/10;
+  }
+
+  .badge-quiet {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-sans font-medium text-brand-muted bg-brand-subtle border border-brand-border;
+  }
+
+  /* Quiet Panels & Cards */
+  .editorial-card {
+    @apply bg-white rounded-lg border border-brand-border transition-all duration-300;
+  }
+
+  /* Input fields */
+  .form-input-quiet {
+    @apply w-full px-4 py-2.5 bg-white border border-brand-border rounded text-brand-dark text-sm placeholder:text-brand-light focus:border-brand-teal focus:ring-1 focus:ring-brand-teal focus:outline-none transition-colors;
+  }
+}

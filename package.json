@@ -1,0 +1,22 @@
+{
+  "name": "angel-network",
+  "version": "1.0.0",
+  "description": "Custom WordPress Theme for Angel Investment Network using Tailwind CSS v3",
+  "scripts": {
+    "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --watch",
+    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --minify"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "tailwindcss",
+    "angel-investment"
+  ],
+  "author": "Antigravity Team",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}
