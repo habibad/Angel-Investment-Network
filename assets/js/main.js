@@ -9,14 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroGetStartedBtn = document.getElementById('hero-get-started-btn');
 
     if (heroObjectiveSelector && heroGetStartedBtn) {
+        const homeUrl = window.angelNetworkConfig?.homeUrl || '/';
         heroObjectiveSelector.addEventListener('change', (e) => {
             const val = e.target.value;
             if (val === 'fundraise') {
-                heroGetStartedBtn.href = window.angelNetworkConfig?.restUrl ? '/fundraise/' : '#fundraise';
+                heroGetStartedBtn.href = `${homeUrl}fundraise/`;
                 heroGetStartedBtn.textContent = 'Apply for Funding →';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'entrepreneur');
             } else {
-                heroGetStartedBtn.href = window.angelNetworkConfig?.restUrl ? '/invest/' : '#invest';
+                heroGetStartedBtn.href = `${homeUrl}invest/`;
                 heroGetStartedBtn.textContent = 'Explore Opportunities →';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'investor');
             }

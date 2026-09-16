@@ -40,7 +40,7 @@ function angel_get_demo_opportunities() {
             'minimum_investment' => 25000,
             'currency'           => 'CAD',
             'funding_type'       => 'Equity / SAFE',
-            'image'              => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80',
+            'image'              => 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=900&q=80',
             'founder_name'       => 'Elena Vance',
             'founder_role'       => 'Founder & CEO (Ex-Tesla Engineer)',
             'founder_avatar'     => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',

@@ -5,65 +5,85 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #123F3D;
-    background-color: #FAFAF7;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0F172A;
   }
   
   body {
-    background-color: #FAFAF7;
+    background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #123F3D;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Newsreader', Georgia, serif;
-    color: #123F3D;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0A2540;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 }
 
 @layer components {
-  /* Restrained, Luxury Buttons */
+  /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center text-sm font-sans font-medium transition-all duration-200 focus:outline-none cursor-pointer tracking-normal;
+    @apply inline-flex items-center justify-center font-semibold text-sm rounded-lg px-5 py-2.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer;
   }
 
   .btn-primary {
-    @apply bg-brand-teal hover:bg-brand-teal-hover text-white rounded-md px-6 py-3 shadow-quiet transition-colors;
+    @apply bg-primary hover:bg-primary-light text-white shadow-sm hover:shadow focus:ring-primary;
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-hover text-white shadow-sm hover:shadow focus:ring-accent;
+  }
+
+  .btn-outline-primary {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+
+  .btn-outline-white {
+    @apply border border-white/30 text-white hover:bg-white hover:text-primary focus:ring-white;
   }
 
   .btn-secondary {
-    @apply bg-white hover:bg-brand-subtle text-brand-dark border border-brand-border rounded-md px-6 py-3 transition-colors;
+    @apply bg-slate-100 hover:bg-slate-200 text-slate-800 focus:ring-slate-400;
   }
 
-  .btn-link {
-    @apply text-brand-teal hover:text-brand-teal-hover font-semibold inline-flex items-center gap-1.5 transition-colors;
+  .btn-lg {
+    @apply text-base px-6 py-3.5 rounded-xl;
   }
 
   .btn-sm {
-    @apply text-xs px-4 py-2 rounded;
+    @apply text-xs px-3.5 py-1.5 rounded-md;
   }
 
-  /* Quiet Editorial Badges */
-  .badge-editorial {
-    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[11px] font-sans font-semibold uppercase tracking-widest text-brand-teal bg-brand-teal-light border border-brand-teal/10;
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
   }
 
-  .badge-quiet {
-    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-sans font-medium text-brand-muted bg-brand-subtle border border-brand-border;
+  .badge-accent {
+    @apply bg-accent-50 text-accent-700 border border-accent-200;
   }
 
-  /* Quiet Panels & Cards */
-  .editorial-card {
-    @apply bg-white rounded-lg border border-brand-border transition-all duration-300;
+  .badge-gold {
+    @apply bg-gold-50 text-gold-700 border border-gold-200;
+  }
+
+  .badge-primary {
+    @apply bg-primary-50 text-primary-700 border border-primary-200;
+  }
+
+  .badge-slate {
+    @apply bg-slate-100 text-slate-700 border border-slate-200;
+  }
+
+  /* Card Containers */
+  .card {
+    @apply bg-white rounded-xl border border-slate-200 shadow-subtle hover:shadow-card-hover transition-all duration-300;
   }
 
   /* Input fields */
-  .form-input-quiet {
-    @apply w-full px-4 py-2.5 bg-white border border-brand-border rounded text-brand-dark text-sm placeholder:text-brand-light focus:border-brand-teal focus:ring-1 focus:ring-brand-teal focus:outline-none transition-colors;
+  .form-input {
+    @apply w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 text-sm focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-150;
   }
 }

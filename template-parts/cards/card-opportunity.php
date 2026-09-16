@@ -1,8 +1,8 @@
 <?php
 /**
- * Opportunity Card Component - Light Editorial Direction
+ * Opportunity Card Component
  *
- * @param array $args (deal, is_lead)
+ * @param array $deal (Passed in via template part args or loop context)
  * @package AngelNetwork
  */
 
@@ -10,160 +10,129 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$deal    = isset( $args['deal'] ) ? $args['deal'] : [];
-$is_lead = ! empty( $args['is_lead'] );
+$deal = isset( $args['deal'] ) ? $args['deal'] : [];
 
 if ( empty( $deal ) ) {
     return;
 }
+
+$percent = angel_calc_percentage( $deal['amount_raised'], $deal['total_required'] );
+$badge_class = angel_get_stage_badge_class( $deal['stage'] );
 ?>
 
-<?php if ( $is_lead ) : ?>
-    <!-- LEAD OPPORTUNITY: Prominent Editorial Presentation -->
-    <article class="group relative bg-white border border-brand-border rounded overflow-hidden flex flex-col lg:flex-row lg:col-span-12 transition-all duration-300 hover:border-brand-teal/40">
-        <!-- Prominent Image (Left) -->
-        <div class="relative w-full lg:w-7/12 aspect-[16/10] lg:aspect-auto overflow-hidden bg-brand-subtle">
-            <img 
-                src="<?php echo esc_url( $deal['image'] ); ?>" 
-                alt="<?php echo esc_attr( $deal['title'] ); ?>" 
-                loading="lazy"
-                class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-102"
-            >
-            <div class="absolute top-4 left-4 flex items-center gap-2">
-                <span class="badge-editorial bg-white/95 backdrop-blur-xs text-brand-dark border-brand-border">
-                    Featured Allocation
-                </span>
-                <span class="badge-quiet bg-white/90 backdrop-blur-xs">
-                    <?php echo esc_html( $deal['industry'] ); ?>
-                </span>
-            </div>
+<article 
+    class="opportunity-item card group flex flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1"
+    data-sector="<?php echo esc_attr( $deal['industry_slug'] ); ?>"
+>
+    <!-- Deal Image with Zoom & Badges -->
+    <div class="relative h-52 w-full overflow-hidden bg-slate-100">
+        <img 
+            src="<?php echo esc_url( $deal['image'] ); ?>" 
+            alt="<?php echo esc_attr( $deal['title'] ); ?>" 
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        >
+        <!-- Top Overlay Badges -->
+        <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+            <span class="badge <?php echo esc_attr( $badge_class ); ?> shadow-sm">
+                <?php echo esc_html( $deal['stage'] ); ?>
+            </span>
+            <span class="badge badge-slate bg-white/95 text-slate-800 backdrop-blur-xs font-semibold shadow-sm">
+                <?php echo esc_html( $deal['industry'] ); ?>
+            </span>
         </div>
-
-        <!-- Editorial Content (Right) -->
-        <div class="w-full lg:w-5/12 p-8 lg:p-10 flex flex-col justify-between">
-            <div>
-                <!-- Location & Stage Meta -->
-                <div class="flex items-center gap-3 text-xs font-sans text-brand-light mb-3">
-                    <span><?php echo esc_html( $deal['location'] ); ?></span>
-                    <span>•</span>
-                    <span><?php echo esc_html( $deal['stage'] ); ?></span>
-                </div>
-
-                <!-- Title & Company -->
-                <p class="text-xs font-sans font-semibold uppercase tracking-wider text-brand-teal mb-1.5">
-                    <?php echo esc_html( $deal['company_name'] ); ?>
-                </p>
-                <h3 class="font-serif text-2xl lg:text-3xl text-brand-dark leading-snug tracking-tight mb-4 group-hover:text-brand-teal transition-colors">
-                    <a href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>">
-                        <?php echo esc_html( $deal['title'] ); ?>
-                    </a>
-                </h3>
-
-                <!-- Short Editorial Description -->
-                <p class="text-sm font-sans text-brand-muted leading-relaxed line-clamp-3 mb-6">
-                    <?php echo esc_html( $deal['description'] ); ?>
-                </p>
-            </div>
-
-            <!-- Financial Metrics Strip -->
-            <div class="pt-6 border-t border-brand-border">
-                <div class="grid grid-cols-2 gap-6 mb-6">
-                    <div>
-                        <span class="block text-[11px] uppercase tracking-wider text-brand-light mb-1">
-                            <?php esc_html_e( 'Funding Required', 'angel-network' ); ?>
-                        </span>
-                        <span class="font-serif text-xl font-bold text-brand-dark">
-                            <?php echo esc_html( angel_format_currency( $deal['total_required'], $deal['currency'], true ) ); ?>
-                        </span>
-                    </div>
-                    <div>
-                        <span class="block text-[11px] uppercase tracking-wider text-brand-light mb-1">
-                            <?php esc_html_e( 'Minimum Check', 'angel-network' ); ?>
-                        </span>
-                        <span class="font-serif text-xl font-bold text-brand-dark">
-                            <?php echo esc_html( angel_format_currency( $deal['minimum_investment'], $deal['currency'] ) ); ?>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <span class="text-xs text-brand-light">Led by <?php echo esc_html( $deal['founder_name'] ); ?></span>
-                    <a href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>" class="btn-link text-xs group-hover:translate-x-0.5 transition-transform">
-                        <span><?php esc_html_e( 'Review Investment Details', 'angel-network' ); ?></span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </div>
+        
+        <!-- Bottom Overlay Location -->
+        <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/70 text-white text-xs font-medium backdrop-blur-xs">
+            <?php echo angel_get_svg_icon( 'location', 'w-3.5 h-3.5 text-accent' ); ?>
+            <span><?php echo esc_html( $deal['location'] ); ?></span>
         </div>
-    </article>
+    </div>
 
-<?php else : ?>
-    <!-- SUPPORTING OPPORTUNITY: Balanced Quiet Card -->
-    <article class="group relative bg-white border border-brand-border rounded overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-brand-teal/40">
+    <!-- Content Body -->
+    <div class="p-6 flex-1 flex flex-col justify-between">
         <div>
-            <!-- Image Crop -->
-            <div class="relative w-full aspect-[16/10] overflow-hidden bg-brand-subtle">
-                <img 
-                    src="<?php echo esc_url( $deal['image'] ); ?>" 
-                    alt="<?php echo esc_attr( $deal['title'] ); ?>" 
-                    loading="lazy"
-                    class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-103"
-                >
-                <div class="absolute top-3 left-3 flex items-center gap-1.5">
-                    <span class="badge-quiet bg-white/95 backdrop-blur-xs font-semibold text-[10px]">
-                        <?php echo esc_html( $deal['industry'] ); ?>
-                    </span>
-                </div>
-            </div>
+            <!-- Company Name -->
+            <p class="deal-company text-xs font-semibold tracking-wider text-slate-500 uppercase mb-1">
+                <?php echo esc_html( $deal['company_name'] ); ?>
+            </p>
 
-            <!-- Content -->
-            <div class="p-6">
-                <div class="flex items-center gap-2 text-xs font-sans text-brand-light mb-2">
-                    <span><?php echo esc_html( $deal['location'] ); ?></span>
-                    <span>•</span>
-                    <span><?php echo esc_html( $deal['stage'] ); ?></span>
-                </div>
+            <!-- Deal Title -->
+            <h3 class="deal-title text-lg font-heading font-bold text-primary group-hover:text-primary-light transition-colors line-clamp-2 leading-snug mb-2.5">
+                <a href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>">
+                    <?php echo esc_html( $deal['title'] ); ?>
+                </a>
+            </h3>
 
-                <p class="text-[11px] font-sans font-semibold uppercase tracking-wider text-brand-teal mb-1">
-                    <?php echo esc_html( $deal['company_name'] ); ?>
-                </p>
+            <!-- Description Excerpt -->
+            <p class="deal-desc text-sm text-slate-600 line-clamp-2 leading-relaxed mb-4">
+                <?php echo esc_html( $deal['description'] ); ?>
+            </p>
 
-                <h3 class="font-serif text-xl text-brand-dark leading-snug tracking-tight mb-3 group-hover:text-brand-teal transition-colors line-clamp-2">
-                    <a href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>">
-                        <?php echo esc_html( $deal['title'] ); ?>
-                    </a>
-                </h3>
-
-                <p class="text-xs font-sans text-brand-muted leading-relaxed line-clamp-2 mb-4">
-                    <?php echo esc_html( $deal['description'] ); ?>
-                </p>
-            </div>
+            <!-- Key Highlights / Milestones -->
+            <?php if ( ! empty( $deal['highlights'] ) ) : ?>
+                <ul class="space-y-1.5 mb-5 border-t border-slate-100 pt-3">
+                    <?php foreach ( array_slice( $deal['highlights'], 0, 2 ) as $highlight ) : ?>
+                        <li class="flex items-start gap-2 text-xs text-slate-600">
+                            <span class="text-accent mt-0.5"><?php echo angel_get_svg_icon( 'check', 'w-3.5 h-3.5' ); ?></span>
+                            <span class="line-clamp-1"><?php echo esc_html( $highlight ); ?></span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
 
-        <!-- Financial Metrics & Arrow -->
-        <div class="px-6 pb-6 pt-4 border-t border-brand-border/70 mt-auto">
-            <div class="grid grid-cols-2 gap-4 mb-4 text-left">
+        <!-- Financial Metrics & Progress -->
+        <div class="border-t border-slate-100 pt-4 mt-auto">
+            <!-- Progress Bar -->
+            <div class="mb-3">
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1.5">
+                    <span class="text-slate-500"><?php esc_html_e( 'Funding Progress', 'angel-network' ); ?></span>
+                    <span class="text-accent"><?php echo esc_html( $percent ); ?>% <?php esc_html_e( 'Committed', 'angel-network' ); ?></span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-accent rounded-full transition-all duration-500" style="width: <?php echo esc_attr( $percent ); ?>%"></div>
+                </div>
+            </div>
+
+            <!-- Numbers Grid -->
+            <div class="grid grid-cols-2 gap-3 py-2 bg-slate-50/80 rounded-lg p-2.5 mb-4 text-center">
                 <div>
-                    <span class="block text-[10px] uppercase tracking-wider text-brand-light">Required</span>
-                    <span class="font-serif text-base font-bold text-brand-dark">
+                    <span class="block text-[11px] text-slate-500 font-medium"><?php esc_html_e( 'Target Capital', 'angel-network' ); ?></span>
+                    <span class="text-sm font-heading font-bold text-primary">
                         <?php echo esc_html( angel_format_currency( $deal['total_required'], $deal['currency'], true ) ); ?>
                     </span>
                 </div>
-                <div>
-                    <span class="block text-[10px] uppercase tracking-wider text-brand-light">Min. Check</span>
-                    <span class="font-serif text-base font-bold text-brand-dark">
+                <div class="border-l border-slate-200">
+                    <span class="block text-[11px] text-slate-500 font-medium"><?php esc_html_e( 'Min. Check Size', 'angel-network' ); ?></span>
+                    <span class="text-sm font-heading font-bold text-slate-800">
                         <?php echo esc_html( angel_format_currency( $deal['minimum_investment'], $deal['currency'] ) ); ?>
                     </span>
                 </div>
             </div>
 
-            <div class="flex items-center justify-between text-xs pt-2">
-                <span class="text-[11px] text-brand-light"><?php echo esc_html( $deal['funding_type'] ); ?></span>
-                <a href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>" class="btn-link text-xs group-hover:translate-x-0.5 transition-transform">
-                    <span>View Deal</span>
-                    <span>→</span>
+            <!-- Founder Info & View Button -->
+            <div class="flex items-center justify-between pt-1">
+                <div class="flex items-center gap-2.5">
+                    <img 
+                        src="<?php echo esc_url( $deal['founder_avatar'] ); ?>" 
+                        alt="<?php echo esc_attr( $deal['founder_name'] ); ?>" 
+                        class="w-8 h-8 rounded-full object-cover border border-slate-200"
+                    >
+                    <div class="flex flex-col">
+                        <span class="text-xs font-semibold text-slate-800"><?php echo esc_html( $deal['founder_name'] ); ?></span>
+                        <span class="text-[10px] text-slate-500"><?php echo esc_html( $deal['founder_role'] ); ?></span>
+                    </div>
+                </div>
+
+                <a 
+                    href="<?php echo esc_url( home_url( '/opportunity/' . $deal['slug'] . '/' ) ); ?>" 
+                    class="btn btn-outline-primary btn-sm flex items-center gap-1 group-hover:bg-primary group-hover:text-white"
+                >
+                    <span><?php esc_html_e( 'View Pitch', 'angel-network' ); ?></span>
+                    <?php echo angel_get_svg_icon( 'arrow-right', 'w-3.5 h-3.5' ); ?>
                 </a>
             </div>
         </div>
-    </article>
-<?php endif; ?>
+    </div>
+</article>

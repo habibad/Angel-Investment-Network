@@ -26,3 +26,6 @@ require_once ANGEL_THEME_DIR . '/inc/customizer.php';
 
 // Demo Data Layer (Phase 1 Data Repository)
 require_once ANGEL_THEME_DIR . '/inc/demo-data.php';
+
+// Custom Route Handlers
+require_once ANGEL_THEME_DIR . '/inc/routes.php';

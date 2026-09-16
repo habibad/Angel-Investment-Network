@@ -1,6 +1,6 @@
 <?php
 /**
- * Minimal Trust & Media Strip - Editorial Redesign
+ * Trust & Media Marquee Component
  *
  * @package AngelNetwork
  */
@@ -9,31 +9,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$brands = [
-    'Forbes',
-    'Bloomberg',
-    'Financial Times',
-    'TechCrunch',
-    'The Times',
-    'BBC News',
-    'Globe & Mail'
-];
+$brands = angel_get_media_brands();
 ?>
 
-<section class="py-14 bg-brand-canvas border-y border-brand-border">
+<section class="py-12 bg-white border-b border-slate-200">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
-            <p class="text-xs font-sans text-brand-light font-medium tracking-wide shrink-0 text-center md:text-left">
-                <?php esc_html_e( 'Trusted by forward-thinking companies and featured in', 'angel-network' ); ?>
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center md:justify-end gap-x-10 gap-y-3 opacity-60 hover:opacity-90 transition-opacity">
-                <?php foreach ( $brands as $brand ) : ?>
-                    <span class="font-serif text-base tracking-tight text-brand-dark cursor-default select-none">
-                        <?php echo esc_html( $brand ); ?>
-                    </span>
-                <?php endforeach; ?>
-            </div>
+        <p class="text-center text-xs font-heading font-bold uppercase tracking-widest text-slate-400 mb-8">
+            <?php esc_html_e( 'Recognized & Featured Across Premier Financial Media', 'angel-network' ); ?>
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center text-center opacity-70 hover:opacity-100 transition-opacity">
+            <?php foreach ( $brands as $brand ) : ?>
+                <span class="text-slate-500 font-heading font-extrabold text-base sm:text-lg tracking-tighter hover:text-primary transition-colors cursor-default whitespace-nowrap">
+                    <?php echo esc_html( $brand['name'] ); ?>
+                </span>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

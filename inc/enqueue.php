@@ -33,10 +33,10 @@ add_filter( 'wp_resource_hints', 'angel_preconnect_fonts', 10, 2 );
 function angel_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' );
 
-    // Enqueue Editorial Serif (Playfair Display) + Modern Sans (Plus Jakarta Sans & Inter)
+    // Enqueue Google Fonts (Plus Jakarta Sans & Inter)
     wp_enqueue_style(
         'angel-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap',
         [],
         null
     );
@@ -75,7 +75,7 @@ function angel_scripts() {
         true
     );
 
-    // Enqueue Filter Engine Script
+    // Enqueue Filter Engine Script (for Opportunity filtering)
     wp_enqueue_script(
         'angel-filter-engine',
         get_template_directory_uri() . '/assets/js/filter-engine.js',
@@ -98,11 +98,14 @@ function angel_scripts() {
         'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
         'restUrl'       => esc_url_raw( rest_url( 'angel/v1' ) ),
         'nonce'         => wp_create_nonce( 'angel_public_nonce' ),
+        'homeUrl'       => esc_url_raw( home_url( '/' ) ),
         'currency'      => 'CAD',
         'currencySymbol'=> 'CA$',
         'i18n'          => [
             'all'           => esc_html__( 'All Sectors', 'angel-network' ),
             'noDealsFound'  => esc_html__( 'No investment opportunities match the selected criteria.', 'angel-network' ),
+            'investorTitle' => esc_html__( 'Connect as an Investor', 'angel-network' ),
+            'founderTitle'  => esc_html__( 'Apply as an Entrepreneur', 'angel-network' ),
         ]
     ] );
 }

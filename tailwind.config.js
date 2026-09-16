@@ -10,73 +10,86 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1.25rem',
+        DEFAULT: '1rem',
         sm: '1.5rem',
         lg: '2rem',
-        xl: '3rem',
-        '2xl': '4rem',
+        xl: '2.5rem',
+        '2xl': '3rem',
       },
       screens: {
         sm: '640px',
         md: '768px',
         lg: '1024px',
         xl: '1280px',
-        '2xl': '1400px',
+        '2xl': '1440px',
       },
     },
     extend: {
       colors: {
-        // Luxury Private Investment Palette
-        brand: {
-          canvas: '#FAFAF7',        // Warm Ivory / Soft Neutral (85-90% of page)
-          surface: '#FFFFFF',       // Pure white card/panel
-          subtle: '#F4F4EE',        // Very subtle background tint
-          dark: '#123F3D',          // Darkest forest charcoal (primary text)
-          teal: '#0A4A46',          // Deep muted forest teal (primary brand)
-          'teal-hover': '#073532',  // Deep hover
-          'teal-light': '#E9F2F1',  // Soft brand wash
-          impact: '#0A3D36',        // Dark impact section background
-          sand: '#C59B27',          // Restrained warm sand / muted gold accent
-          'sand-light': '#FAF5E8',  // Soft gold tint
-          border: '#E8E8E3',        // Ultra-quiet hairline border
-          'border-dark': '#C9C9C2', // Active input / border
-          muted: '#66706F',         // Secondary descriptive text
-          light: '#8F9998',         // Subtle captions & dates
-        },
         primary: {
-          DEFAULT: '#0A4A46',
-          light: '#123F3D',
-          dark: '#073532',
+          50: '#F0F5FA',
+          100: '#E1EBF5',
+          200: '#C3D7EB',
+          300: '#94B8DC',
+          400: '#5F92CA',
+          500: '#3B73B4',
+          600: '#235694',
+          700: '#163E70',
+          800: '#0F2C52',
+          900: '#0A2540',
+          950: '#06182B',
+          DEFAULT: '#0A2540',
+          light: '#16365C',
+          dark: '#06182B',
         },
         accent: {
-          DEFAULT: '#0A4A46',
-          hover: '#073532',
-          light: '#E9F2F1',
+          50: '#EBFBF4',
+          100: '#CEF7E3',
+          200: '#A1ECC9',
+          300: '#67DBA8',
+          400: '#2EC283',
+          500: '#00A86B',
+          600: '#00875A',
+          700: '#006B47',
+          800: '#005439',
+          900: '#004630',
+          DEFAULT: '#00875A',
+          hover: '#006644',
+          light: '#E3FCEF',
         },
         gold: {
-          DEFAULT: '#C59B27',
-          light: '#FAF5E8',
+          50: '#FFFBEB',
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#F59E0B',
+          600: '#D97706',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
+          DEFAULT: '#D97706',
+        },
+        surface: {
+          light: '#F8FAFC',
+          card: '#FFFFFF',
+          dark: '#0A192F',
+          darker: '#06101E',
         }
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Newsreader', 'Georgia', 'serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['Playfair Display', 'Newsreader', 'Georgia', 'serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        'quiet': '0 1px 2px 0 rgba(18, 63, 61, 0.03)',
-        'panel': '0 4px 20px -2px rgba(18, 63, 61, 0.05)',
-        'float-quiet': '0 12px 28px -4px rgba(18, 63, 61, 0.08)',
+        'subtle': '0 1px 3px 0 rgba(15, 23, 42, 0.05)',
+        'card': '0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
+        'card-hover': '0 20px 30px -8px rgba(15, 23, 42, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.04)',
+        'float': '0 25px 50px -12px rgba(10, 37, 64, 0.18)',
       },
-      letterSpacing: {
-        'tightest': '-0.03em',
-        'tighter': '-0.02em',
-        'widest-plus': '0.12em',
-      },
-      aspectRatio: {
-        '4/3': '4 / 3',
-        '16/10': '16 / 10',
-        '3/2': '3 / 2',
+      borderRadius: {
+        'xl': '14px',
+        '2xl': '20px',
       }
     },
   },
