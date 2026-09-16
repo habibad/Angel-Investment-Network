@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </main><!-- #primary-content -->
 
 <footer class="w-full">
-    <?php get_template_part( 'template-parts/footer/footer-nav' ); ?>
     <?php get_template_part( 'template-parts/footer/disclaimer' ); ?>
+    <?php get_template_part( 'template-parts/footer/footer-nav' ); ?>
 </footer>
 
 <!-- Authentication Modal (Login / Register) -->
