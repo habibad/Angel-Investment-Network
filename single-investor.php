@@ -94,7 +94,7 @@ if ( ! $investor && ! empty( $all_investors ) ) {
             </div>
 
             <div>
-                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Background & Syndicate Track Record</span>
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Background & Investment Track Record</span>
                 <p class="text-sm text-slate-700 leading-relaxed">
                     <?php echo esc_html( $investor['experience'] ); ?>
                 </p>

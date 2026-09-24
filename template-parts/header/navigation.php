@@ -67,7 +67,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                     </a>
                     <a href="<?php echo esc_url( home_url( '/fundraise/#pricing' ) ); ?>" class="flex flex-col p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
                         <span class="text-sm font-semibold text-slate-800"><?php esc_html_e( 'Listing Tiers & Pricing', 'angel-network' ); ?></span>
-                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Standard, Pro & Global Syndicate options', 'angel-network' ); ?></span>
+                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Standard, Pro & Global Network options', 'angel-network' ); ?></span>
                     </a>
                 </div>
             </div>

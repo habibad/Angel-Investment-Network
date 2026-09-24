@@ -39,7 +39,7 @@ $read_time = angel_estimate_reading_time( $content );
             </div>
 
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-primary tracking-tight leading-tight mb-6">
-                <?php echo esc_html( $title ? $title : 'The 2026 Angel Syndicate Playbook: Navigating Seed Valuations' ); ?>
+                <?php echo esc_html( $title ? $title : 'The 2026 Angel Investment Playbook: Navigating Seed Valuations' ); ?>
             </h1>
 
             <!-- Author byline -->
@@ -51,7 +51,7 @@ $read_time = angel_estimate_reading_time( $content );
                 >
                 <div>
                     <p class="text-sm font-heading font-bold text-primary"><?php echo esc_html( $author ? $author : 'Marcus Sterling' ); ?></p>
-                    <p class="text-xs text-slate-500">Managing Partner, Sterling Syndicate & Venture Contributor</p>
+                    <p class="text-xs text-slate-500">Managing Partner, Sterling Capital & Venture Contributor</p>
                 </div>
             </div>
         </header>
@@ -77,9 +77,9 @@ $read_time = angel_estimate_reading_time( $content );
                 <p>
                     Historically, Canadian tech startups raised early capital at post-money valuations hovering between $8M and $12M with minimal revenue proof. Today, angels expect pre-money valuations in the $4M to $7M bracket, accompanied by clear annual recurring revenue (ARR) indicators or verified corporate pilot letters of intent (LOIs).
                 </p>
-                <h2 class="text-2xl font-heading font-bold text-primary mt-8 mb-4">2. The Strategic Advantage of Syndicate Rounds</h2>
+                <h2 class="text-2xl font-heading font-bold text-primary mt-8 mb-4">2. The Strategic Advantage of Co-Investment Rounds</h2>
                 <p>
-                    Rather than negotiating with a single institutional lead whose decision matrix might require 3 months of committee reviews, syndicate platforms enable 5 to 15 accredited angels to combine check sizes ($25K to $100K each) to close a $1M seed round within 30 to 45 days.
+                    Rather than negotiating with a single institutional lead whose decision matrix might require 3 months of committee reviews, angel platforms enable 5 to 15 accredited angels to combine check sizes ($25K to $100K each) to close a $1M seed round within 30 to 45 days.
                 </p>
                 <blockquote class="p-4 my-6 border-l-4 border-accent bg-slate-50 italic text-slate-700 rounded-r-lg">
                     &ldquo;The best angels don’t just write checks—they open enterprise sales doors, facilitate regulatory relationships, and anchor future institutional Series A rounds.&rdquo;
@@ -101,7 +101,7 @@ $read_time = angel_estimate_reading_time( $content );
             <div>
                 <h3 class="text-base font-heading font-bold text-primary">About the Author</h3>
                 <p class="text-xs text-slate-600 leading-relaxed mt-1 mb-3">
-                    Marcus is an active angel syndicate lead based in Toronto who has deployed over $18M across 28 seed-stage ventures. He writes extensively on valuation models, governance, and early-stage scaling.
+                    Marcus is an active angel investment lead based in Toronto who has deployed over $18M across 28 seed-stage ventures. He writes extensively on valuation models, governance, and early-stage scaling.
                 </p>
                 <button type="button" data-open-modal="auth-modal" data-modal-tab="register" class="btn btn-outline-primary btn-sm">
                     Connect with Angel Network

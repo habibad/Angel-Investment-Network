@@ -40,7 +40,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                         🔒 256-Bit SSL Encrypted
                     </div>
                     <div class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
-                        ✓ NACO Syndicate Standards
+                        ✓ NACO Investment Standards
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <ul class="space-y-3 text-sm text-slate-400">
                     <li><a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Browse Dealflow', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/invest/#criteria' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Accreditation Guide', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Syndicate Diligence', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Due Diligence Standards', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/invest/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>

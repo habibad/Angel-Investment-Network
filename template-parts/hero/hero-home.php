@@ -25,7 +25,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6">
                     <span class="inline-block w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                     <span class="text-xs font-heading font-bold uppercase tracking-wider text-primary">
-                        <?php echo esc_html( $region_label ); ?> Angel Syndicate & Venture Network
+                        <?php echo esc_html( $region_label ); ?> Angel Investment & Venture Network
                     </span>
                 </div>
 
@@ -36,19 +36,19 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
 
                 <!-- Subtitle -->
                 <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                    We bridge the funding gap between ambitious Canadian enterprises and accredited investors who deliver smart capital, sector expertise, and high-velocity syndication.
+                    We bridge the funding gap between ambitious Canadian enterprises and accredited investors who deliver smart capital, sector expertise, and high-velocity growth.
                 </p>
 
                 <!-- Dual Intent Entry Point (Invest vs Fundraise) -->
-                <div class="w-full max-w-xl p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-8">
-                    <div class="flex flex-col sm:flex-row items-center gap-3">
-                        <div class="flex items-center gap-2 w-full sm:w-auto px-3 py-2 bg-slate-50 rounded-xl border border-slate-200">
+                <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-8">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <div class="flex items-center gap-2 w-full sm:w-auto px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 shrink-0">
                             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
                                 <?php esc_html_e( 'I want to', 'angel-network' ); ?>:
                             </span>
                             <select 
                                 id="hero-objective-select" 
-                                class="bg-transparent text-sm font-heading font-bold text-primary focus:outline-none cursor-pointer pr-4"
+                                class="bg-transparent text-sm font-heading font-bold text-primary focus:outline-none cursor-pointer pr-3"
                             >
                                 <option value="invest"><?php esc_html_e( 'Invest in Startups', 'angel-network' ); ?></option>
                                 <option value="fundraise"><?php esc_html_e( 'Raise Capital (Fundraise)', 'angel-network' ); ?></option>
@@ -58,9 +58,9 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                         <a 
                             id="hero-get-started-btn" 
                             href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" 
-                            class="btn btn-primary btn-lg w-full sm:w-auto sm:flex-1 text-center font-bold"
+                            class="btn btn-primary btn-lg w-full sm:w-auto px-6 py-3 sm:py-3.5 text-center font-bold whitespace-nowrap inline-flex items-center justify-center gap-2"
                         >
-                            <?php esc_html_e( 'Explore Opportunities →', 'angel-network' ); ?>
+                            <span><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></span>&nbsp;&rarr;
                         </a>
                     </div>
                 </div>

@@ -156,7 +156,7 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
                 <div class="card p-6 bg-white border border-slate-200 shadow-md sticky top-24">
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
                         <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Round Status</span>
-                        <span class="badge badge-accent font-bold">Actively Syndicating</span>
+                        <span class="badge badge-accent font-bold">Actively Raising</span>
                     </div>
 
                     <!-- Progress Bar -->

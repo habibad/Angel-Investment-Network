@@ -19,7 +19,7 @@ $stats = angel_get_stats();
 get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'About Investment Network', 'angel-network' ),
     'subtitle' => esc_html__( 'Canada’s institutional bridge connecting high-conviction investors with ambitious founders driving technological and industrial transformation.', 'angel-network' ),
-    'badge'    => esc_html__( 'Our Syndicate Story', 'angel-network' ),
+    'badge'    => esc_html__( 'Our Network Story', 'angel-network' ),
     'bg_image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
@@ -38,7 +38,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                         Founded with a singular mission, the Investment Network eliminates bureaucratic venture intermediaries by establishing a direct, transparent channel between experienced capital allocators and early-stage startup leaders.
                     </p>
                     <p>
-                        Unlike traditional funds weighed down by 2-and-20 fee structures and protracted decision horizons, angel syndicates move with agility. We provide the governance infrastructure, standardized due diligence materials, and private deal room security that enable accredited angels to write high-conviction checks within weeks, not quarters.
+                        Unlike traditional funds weighed down by 2-and-20 fee structures and protracted decision horizons, angel investor networks move with agility. We provide the governance infrastructure, standardized due diligence materials, and private deal room security that enable accredited angels to write high-conviction checks within weeks, not quarters.
                     </p>
                     <p>
                         Today, our network represents more than 15,200 verified investors and has facilitated over CA$ 420 million in direct early-stage equity, convertible notes, and SAFEs across Canadian technology hubs from Vancouver to Halifax.

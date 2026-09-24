@@ -34,7 +34,7 @@ $opportunities = array_slice( angel_get_opportunities(), 0, 2 );
         </div>
 
         <div class="border-t border-slate-200 pt-12 text-left">
-            <h3 class="text-lg font-heading font-bold text-primary mb-6 text-center">Explore Active Syndicate Opportunities</h3>
+            <h3 class="text-lg font-heading font-bold text-primary mb-6 text-center">Explore Active Investment Opportunities</h3>
             <div class="grid sm:grid-cols-2 gap-6">
                 <?php foreach ( $opportunities as $deal ) : ?>
                     <?php get_template_part( 'template-parts/cards/card-opportunity', null, [ 'deal' => $deal ] ); ?>

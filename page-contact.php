@@ -11,15 +11,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$support_email = get_theme_mod( 'angel_support_email', 'syndicate@angelinvestmentnetwork.local' );
+$support_email = get_theme_mod( 'angel_support_email', 'support@investmentnetwork.local' );
 $phone_number  = get_theme_mod( 'angel_phone_number', '+1 (800) 555-ANGEL' );
 ?>
 
 <!-- Subpage Hero -->
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
-    'title'    => esc_html__( 'Contact Syndicate Support & Inquiries', 'angel-network' ),
-    'subtitle' => esc_html__( 'Have questions about platform diligence, accreditation verification, or corporate syndication? Connect with our dedicated team.', 'angel-network' ),
+    'title'    => esc_html__( 'Contact Network Support & Inquiries', 'angel-network' ),
+    'subtitle' => esc_html__( 'Have questions about platform diligence, accreditation verification, or corporate investment? Connect with our dedicated team.', 'angel-network' ),
     'badge'    => esc_html__( 'Get in Touch', 'angel-network' ),
     'bg_image' => 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
 ] ); 
@@ -33,7 +33,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 <h2 class="text-2xl font-heading font-extrabold text-primary mb-2">Send an Inquiry</h2>
                 <p class="text-xs text-slate-500 mb-8">Our compliance and onboarding coordinators respond within 1 business day.</p>
 
-                <form action="#" method="POST" class="space-y-5" onsubmit="event.preventDefault(); alert('Inquiry received. Our syndicate coordinator will connect with you shortly.');">
+                <form action="#" method="POST" class="space-y-5" onsubmit="event.preventDefault(); alert('Inquiry received. Our coordinator will connect with you shortly.');">
                     <!-- Inquiry Type Selector -->
                     <div>
                         <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Inquiry Type</label>
@@ -66,7 +66,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-medium text-slate-700 mb-1">Company / Syndicate Name</label>
+                            <label class="block text-xs font-medium text-slate-700 mb-1">Company / Organization Name</label>
                             <input type="text" placeholder="AeroPure Technologies" class="form-input">
                         </div>
                         <div>
@@ -89,7 +89,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
             <!-- Regional Coordinates & Hubs -->
             <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-                    <h3 class="text-lg font-heading font-bold text-primary">Direct Syndicate Desks</h3>
+                    <h3 class="text-lg font-heading font-bold text-primary">Direct Investment Desks</h3>
 
                     <div class="flex items-start gap-4">
                         <div class="w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center shrink-0">

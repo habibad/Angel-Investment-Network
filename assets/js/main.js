@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const val = e.target.value;
             if (val === 'fundraise') {
                 heroGetStartedBtn.href = `${homeUrl}fundraise/`;
-                heroGetStartedBtn.textContent = 'Apply for Funding →';
+                heroGetStartedBtn.innerHTML = '<span>Apply for Funding</span>&nbsp;&rarr;';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'entrepreneur');
             } else {
                 heroGetStartedBtn.href = `${homeUrl}invest/`;
-                heroGetStartedBtn.textContent = 'Explore Opportunities →';
+                heroGetStartedBtn.innerHTML = '<span>Explore Opportunities</span>&nbsp;&rarr;';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'investor');
             }
         });

@@ -19,7 +19,7 @@ function angel_customize_register( $wp_customize ) {
 
     // Support Email
     $wp_customize->add_setting( 'angel_support_email', [
-        'default'           => 'syndicate@angelinvestmentnetwork.local',
+        'default'           => 'support@investmentnetwork.local',
         'sanitize_callback' => 'sanitize_email',
     ] );
     $wp_customize->add_control( 'angel_support_email', [
@@ -34,7 +34,7 @@ function angel_customize_register( $wp_customize ) {
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'angel_region_label', [
-        'label'    => esc_html__( 'Regional Syndicate Territory', 'angel-network' ),
+        'label'    => esc_html__( 'Regional Authority Territory', 'angel-network' ),
         'section'  => 'angel_platform_options',
         'type'     => 'text',
     ] );

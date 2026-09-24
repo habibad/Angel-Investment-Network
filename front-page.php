@@ -36,7 +36,7 @@ $articles      = angel_get_blog_posts();
                     <?php esc_html_e( 'Featured Investment Opportunities', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Browse verified seed and growth-stage startup pitches actively syndicating capital across North America.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Browse verified seed and growth-stage startup pitches actively raising capital across North America.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -136,7 +136,7 @@ $articles      = angel_get_blog_posts();
                     <?php esc_html_e( 'Meet Active Private Angels', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Connect with verified individuals, family offices, and syndicate leads actively seeking high-conviction allocations.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Connect with verified individuals, family offices, and lead investors actively seeking high-conviction allocations.', 'angel-network' ); ?>
                 </p>
             </div>
             <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">
@@ -172,7 +172,7 @@ $articles      = angel_get_blog_posts();
                     <?php esc_html_e( 'Venture Insights & Market Analysis', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Quarterly valuation benchmarks, SAFE term sheet guidance, and sector theses from leading angel syndicate leads.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Quarterly valuation benchmarks, SAFE term sheet guidance, and sector theses from leading angel investment leaders.', 'angel-network' ); ?>
                 </p>
             </div>
             <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">

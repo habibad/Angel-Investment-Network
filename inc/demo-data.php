@@ -198,7 +198,7 @@ function angel_get_demo_investors() {
         [
             'id'               => 201,
             'name'             => 'Christina S.',
-            'role_title'       => 'Active Investor & Syndicate Lead',
+            'role_title'       => 'Active Investor & Lead Partner',
             'location'         => 'Toronto, ON',
             'country'          => 'Canada',
             'avatar'           => 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=240&q=80',
@@ -223,7 +223,7 @@ function angel_get_demo_investors() {
             'max_ticket'       => 1000000,
             'industries'       => ['FinTech', 'AI / DeepTech', 'Manufacturing'],
             'stage_focus'      => ['Seed', 'Series A'],
-            'experience'       => 'Over 18 years in private equity and direct early-stage syndication. Specializes in scale-up governance and M&A advisory.',
+            'experience'       => 'Over 18 years in private equity and direct early-stage investment. Specializes in scale-up governance and M&A advisory.',
             'verified'         => true,
             'accredited'       => true
         ],
@@ -263,7 +263,7 @@ function angel_get_demo_industries() {
             'title'     => 'CleanTech & Energy',
             'icon'      => 'leaf',
             'count'     => 86,
-            'highlight' => 'High Syndicate Demand'
+            'highlight' => 'High Investor Demand'
         ],
         [
             'slug'      => 'ai',
@@ -355,11 +355,11 @@ function angel_get_demo_testimonials() {
         ],
         [
             'id'          => 2,
-            'quote'       => 'As an angel syndicate coordinator, filtering high-signal opportunities from low-conviction ideas used to consume 80% of our week. This network provides standardized financial metrics, transparent cap table asks, and verified founder backgrounds. We have completed 6 investments this year alone.',
+            'quote'       => 'As an angel investment coordinator, filtering high-signal opportunities from low-conviction ideas used to consume 80% of our week. This network provides standardized financial metrics, transparent cap table asks, and verified founder backgrounds. We have completed 6 investments this year alone.',
             'author_name' => 'Stewart Mackey',
-            'author_role' => 'Syndicate Lead, Pacific Rim Angels',
+            'author_role' => 'Managing Director, Pacific Rim Angels',
             'author_img'  => 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80',
-            'raised_amt'  => '6 Deals Syndicated',
+            'raised_amt'  => '6 Deals Funded',
             'rating'      => 5,
             'location'    => 'Vancouver, BC'
         ],
@@ -389,7 +389,7 @@ function angel_get_demo_stats() {
         [
             'label' => 'Accredited Investors',
             'value' => '15,200+',
-            'sub'   => 'Active Private Angels & Syndicates'
+            'sub'   => 'Active Private Angels & Institutional Investors'
         ],
         [
             'label' => 'Funded Enterprises',
@@ -427,7 +427,7 @@ function angel_get_demo_blog_posts() {
     return [
         [
             'id'          => 301,
-            'title'       => 'The 2026 Angel Syndicate Playbook: Navigating Seed Valuations in High-Interest Regimes',
+            'title'       => 'The 2026 Angel Investment Playbook: Navigating Seed Valuations in High-Interest Regimes',
             'slug'        => 'navigating-seed-valuations-2026',
             'excerpt'     => 'An in-depth analysis of valuation compression, SAFE note interest adjustments, and how top angels structure downside-protected terms.',
             'category'    => 'Market Insights',
@@ -452,13 +452,13 @@ function angel_get_demo_blog_posts() {
         [
             'id'          => 303,
             'title'       => 'CleanTech & Modular Infrastructure: Why Angels Are Moving Away from Pure Software',
-            'slug'        => 'cleantech-hardware-angel-syndication',
+            'slug'        => 'cleantech-hardware-angel-investment',
             'excerpt'     => 'Why hardware-enabled recurring models and industrial decarbonization are attracting the largest angel rounds of the decade.',
             'category'    => 'Sector Deep Dive',
             'date'        => 'August 29, 2026',
             'read_time'   => '5 min read',
             'author_name' => 'Dr. Aris Thorne',
-            'author_role' => 'Angel Syndicate Lead',
+            'author_role' => 'Angel Investment Lead',
             'image'       => 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
         ],
     ];

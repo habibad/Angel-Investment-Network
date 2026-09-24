@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 The Standards That Define Our Network
             </h2>
             <p class="text-slate-400 text-base leading-relaxed">
-                We combine the rigorous diligence of traditional venture syndicates with the speed and reach of a modern financial technology platform.
+                We combine the rigorous diligence of traditional venture capital with the speed and reach of a modern financial technology platform.
             </p>
         </div>
 
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo angel_get_svg_icon( 'activity', 'w-6 h-6' ); ?>
                 </div>
                 <h3 class="text-lg font-heading font-bold text-white mb-2">
-                    Rapid Syndication
+                    Rapid Deployment
                 </h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
                     Average time from pitch publication to lead investor meeting is just 14 days, with 68% of verified rounds reaching close within 45 days.

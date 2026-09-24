@@ -95,7 +95,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 
                 <div class="card p-6 border border-slate-200 bg-slate-50/50">
                     <span class="text-3xl font-heading font-extrabold text-primary mb-4 block">03</span>
-                    <h3 class="text-base font-heading font-bold text-primary mb-2">Syndicate Exposure</h3>
+                    <h3 class="text-base font-heading font-bold text-primary mb-2">Investor Exposure</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
                         Your listing is published across our network of 15,200+ angels, matching with investors whose criteria fit your sector.
                     </p>
@@ -154,7 +154,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                     Most Popular
                 </span>
                 <div>
-                    <h3 class="text-lg font-heading font-bold text-primary mb-2">Pro Syndicate</h3>
+                    <h3 class="text-lg font-heading font-bold text-primary mb-2">Pro Network</h3>
                     <p class="text-xs text-slate-500 mb-6">For fast-moving ventures seeking lead angel commitment.</p>
                     <div class="mb-6">
                         <span class="text-3xl font-heading font-extrabold text-primary">CA$ 449</span>
@@ -165,7 +165,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                         <li class="flex items-center gap-2">✓ Targeted email blast to sector angels</li>
                         <li class="flex items-center gap-2">✓ Unlimited data room document hosting</li>
                         <li class="flex items-center gap-2">✓ Priority 12-hour compliance screening</li>
-                        <li class="flex items-center gap-2">✓ Dedicated syndicate support advisor</li>
+                        <li class="flex items-center gap-2">✓ Dedicated investment support advisor</li>
                     </ul>
                 </div>
                 <button type="button" data-open-modal="auth-modal" data-modal-tab="register" data-modal-role="entrepreneur" class="btn btn-accent w-full">
@@ -177,13 +177,13 @@ get_template_part( 'template-parts/hero/hero-page', null, [
             <div class="card p-8 bg-white border border-slate-200 flex flex-col justify-between">
                 <div>
                     <h3 class="text-lg font-heading font-bold text-primary mb-2">Global Executive</h3>
-                    <p class="text-xs text-slate-500 mb-6">For Series A and cross-border US/UK syndications.</p>
+                    <p class="text-xs text-slate-500 mb-6">For Series A and cross-border US/UK investments.</p>
                     <div class="mb-6">
                         <span class="text-3xl font-heading font-extrabold text-primary">CA$ 899</span>
                         <span class="text-xs text-slate-400">/ 365 days listing</span>
                     </div>
                     <ul class="space-y-3 text-xs text-slate-600 mb-8">
-                        <li class="flex items-center gap-2">✓ Cross-border North America & UK syndication</li>
+                        <li class="flex items-center gap-2">✓ Cross-border North America & UK investment distribution</li>
                         <li class="flex items-center gap-2">✓ Verified Institutional Founder Badge</li>
                         <li class="flex items-center gap-2">✓ Premium editorial feature in newsletter</li>
                         <li class="flex items-center gap-2">✓ Direct introductions to 10 matching family offices</li>

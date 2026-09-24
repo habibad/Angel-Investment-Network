@@ -16,7 +16,7 @@ get_header();
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'Raise Angel Capital for Your Venture', 'angel-network' ),
-    'subtitle' => esc_html__( 'Present your company directly to 15,200+ accredited Canadian and international investors ready to syndicate high-conviction checks.', 'angel-network' ),
+    'subtitle' => esc_html__( 'Present your company directly to 15,200+ accredited Canadian and international investors ready to deploy high-conviction checks.', 'angel-network' ),
     'badge'    => esc_html__( 'Founder Fundraising Portal', 'angel-network' ),
     'bg_image' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
 ] ); 
@@ -86,7 +86,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-4/3">
                     <img 
                         src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" 
-                        alt="Founder Pitching to Syndicate" 
+                        alt="Founder Pitching to Investors" 
                         class="w-full h-full object-cover"
                     >
                 </div>

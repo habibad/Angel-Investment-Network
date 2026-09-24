@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-700">
                             <span class="text-accent"><?php echo angel_get_svg_icon( 'check', 'w-4 h-4' ); ?></span>
-                            <span>Syndicate distribution across provincial angel networks</span>
+                            <span>Capital distribution across provincial angel networks</span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-700">
                             <span class="text-accent"><?php echo angel_get_svg_icon( 'check', 'w-4 h-4' ); ?></span>
