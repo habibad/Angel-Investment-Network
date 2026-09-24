@@ -2,7 +2,7 @@
 /**
  * Header Template
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

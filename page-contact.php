@@ -2,7 +2,7 @@
 /**
  * Template Name: Contact Us
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

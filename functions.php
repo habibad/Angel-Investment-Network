@@ -1,8 +1,8 @@
 <?php
 /**
- * Angel Investment Network - Theme Functions and Definitions
+ * Investment Network - Theme Functions and Definitions
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

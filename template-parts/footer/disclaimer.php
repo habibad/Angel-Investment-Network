@@ -3,7 +3,7 @@
  * Regulatory Disclaimer Alert Template Part
  * Displays as an interactive compliance alert banner above the footer on page load
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,10 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
             <!-- Disclaimer Body Copy -->
             <div class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-36 overflow-y-auto pr-2">
                 <p>
-                    <?php esc_html_e( 'Angel Investment Network is an online platform facilitating direct private introductions between accredited investors and businesses seeking capital. Any equity, debt, or convertible loan financing transactions consummated as a result of contacts made via this platform constitute "exempt distributions" under Canadian provincial securities commission frameworks (including National Instrument 45-106 and Ontario Securities Commission Rule 45-501).', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Investment Network is an online platform facilitating direct private introductions between accredited investors and businesses seeking capital. Any equity, debt, or convertible loan financing transactions consummated as a result of contacts made via this platform constitute "exempt distributions" under Canadian provincial securities commission frameworks (including National Instrument 45-106 and Ontario Securities Commission Rule 45-501).', 'angel-network' ); ?>
                 </p>
                 <p>
-                    <?php esc_html_e( 'There is no formal government-regulated "Prospectus Offering" in effect for listings presented on this platform. Angel investing carries significant financial risk, including potential illiquidity, lack of dividends, dilution, and total loss of invested capital. All participants must conduct independent financial, legal, and operational due diligence prior to entering into binding investment agreements.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'There is no formal government-regulated "Prospectus Offering" in effect for listings presented on this platform. investing carries significant financial risk, including potential illiquidity, lack of dividends, dilution, and total loss of invested capital. All participants must conduct independent financial, legal, and operational due diligence prior to entering into binding investment agreements.', 'angel-network' ); ?>
                 </p>
             </div>
 

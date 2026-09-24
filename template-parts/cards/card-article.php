@@ -3,7 +3,7 @@
  * Article Card Component
  *
  * @param array $article
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

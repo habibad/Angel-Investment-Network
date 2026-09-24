@@ -2,7 +2,7 @@
 /**
  * Testimonials & Verified Case Studies Section Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

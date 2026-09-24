@@ -2,7 +2,7 @@
 /**
  * Platform Benefits & Standards Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

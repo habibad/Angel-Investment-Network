@@ -2,7 +2,7 @@
 /**
  * Enqueue scripts and styles
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

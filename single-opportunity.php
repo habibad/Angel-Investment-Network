@@ -2,7 +2,7 @@
 /**
  * Single Opportunity / Pitch Detail Template
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

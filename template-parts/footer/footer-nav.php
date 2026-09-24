@@ -2,7 +2,7 @@
 /**
  * Footer Navigation & Trust Badges Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,16 +23,16 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                     </div>
                     <div class="flex flex-col">
                         <span class="font-heading font-extrabold text-xl text-white tracking-tight">
-                            Angel<span class="text-accent">Network</span>
+                            Investment<span class="text-accent">Network</span>
                         </span>
                         <span class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
-                            <?php echo esc_html( $region_label ); ?> Syndicate
+                            <?php echo esc_html( $region_label ); ?> Authority
                         </span>
                     </div>
                 </a>
 
                 <p class="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
-                    Canada’s premier angel investment and venture capital network connecting accredited private investors with ambitious startups across CleanTech, AI, HealthTech, and B2B SaaS.
+                    Cuba’s premier investment and venture capital network connecting accredited private investors with ambitious startups across CleanTech, AI, HealthTech, and B2B SaaS.
                 </p>
 
                 <div class="flex items-center gap-3">
@@ -88,7 +88,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
         <!-- Bottom Copyright & Payment Trust Logos -->
         <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400">
             <div class="flex flex-wrap items-center gap-6">
-                <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Angel Investment Network Inc. All rights reserved.</span>
+                <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Investment Network Inc. All rights reserved.</span>
                 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Privacy Policy', 'angel-network' ); ?></a>
                 <a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Terms of Service', 'angel-network' ); ?></a>
             </div>

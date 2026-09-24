@@ -2,7 +2,7 @@
 /**
  * Bottom Conversion CTA Banner Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

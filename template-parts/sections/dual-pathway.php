@@ -2,7 +2,7 @@
 /**
  * Dual Pathway Section Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -7,7 +7,7 @@
  * In Phase 2, these functions will transparently query Custom Post Types (CPTs)
  * and WP user meta without modifying template files.
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -191,14 +191,14 @@ function angel_get_demo_opportunities() {
 }
 
 /**
- * Returns structured angel investors
+ * Returns structured investors
  */
 function angel_get_demo_investors() {
     return [
         [
             'id'               => 201,
             'name'             => 'Christina S.',
-            'role_title'       => 'Active Angel Investor & Syndicate Lead',
+            'role_title'       => 'Active Investor & Syndicate Lead',
             'location'         => 'Toronto, ON',
             'country'          => 'Canada',
             'avatar'           => 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=240&q=80',
@@ -345,7 +345,7 @@ function angel_get_demo_testimonials() {
     return [
         [
             'id'          => 1,
-            'quote'       => 'My capital raise was on a fast deal-by-deal structure. Within 28 days of publishing our verified pitch, I connected with 4 qualified Canadian angel investors who not only closed our $850K round but opened direct distribution doors with national retail chains. The platform worked exactly as designed.',
+            'quote'       => 'My capital raise was on a fast deal-by-deal structure. Within 28 days of publishing our verified pitch, I connected with 4 qualified Canadian investors who not only closed our $850K round but opened direct distribution doors with national retail chains. The platform worked exactly as designed.',
             'author_name' => 'Luke Guthrie',
             'author_role' => 'Founder & CEO, TerraLogix Systems',
             'author_img'  => 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80',

@@ -2,7 +2,7 @@
 /**
  * Template Name: Fundraise Hub
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ get_header();
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => esc_html__( 'Raise Angel Capital for Your Venture', 'angel-network' ),
-    'subtitle' => esc_html__( 'Present your company directly to 15,200+ accredited Canadian and international angel investors ready to syndicate high-conviction checks.', 'angel-network' ),
+    'subtitle' => esc_html__( 'Present your company directly to 15,200+ accredited Canadian and international investors ready to syndicate high-conviction checks.', 'angel-network' ),
     'badge'    => esc_html__( 'Founder Fundraising Portal', 'angel-network' ),
     'bg_image' => 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80',
 ] ); 

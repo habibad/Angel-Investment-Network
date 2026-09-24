@@ -3,7 +3,7 @@
  * Opportunity Card Component
  *
  * @param array $deal (Passed in via template part args or loop context)
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

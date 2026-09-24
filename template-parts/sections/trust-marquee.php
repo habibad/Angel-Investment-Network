@@ -2,7 +2,7 @@
 /**
  * Trust & Media Marquee Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

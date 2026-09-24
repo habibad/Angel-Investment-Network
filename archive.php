@@ -2,7 +2,7 @@
 /**
  * Archive & Category Template
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

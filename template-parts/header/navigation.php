@@ -2,7 +2,7 @@
 /**
  * Primary Navigation Template Part
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,11 +21,11 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
             </div>
             <div class="flex flex-col">
                 <span class="font-heading font-extrabold text-xl leading-tight text-primary tracking-tight">
-                    Angel<span class="text-accent">Network</span>
+                    Investment<span class="text-accent">Network</span>
                 </span>
                 <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase flex items-center gap-1">
                     <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent"></span>
-                    <?php echo esc_html( $region_label ); ?> Syndicate
+                    <?php echo esc_html( $region_label ); ?> Authority
                 </span>
             </div>
         </a>

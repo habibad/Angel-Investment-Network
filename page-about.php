@@ -2,7 +2,7 @@
 /**
  * Template Name: About Us
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,8 +17,8 @@ $stats = angel_get_stats();
 <!-- Subpage Hero -->
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
-    'title'    => esc_html__( 'About Angel Investment Network', 'angel-network' ),
-    'subtitle' => esc_html__( 'Canada’s institutional bridge connecting high-conviction angel investors with ambitious founders driving technological and industrial transformation.', 'angel-network' ),
+    'title'    => esc_html__( 'About Investment Network', 'angel-network' ),
+    'subtitle' => esc_html__( 'Canada’s institutional bridge connecting high-conviction investors with ambitious founders driving technological and industrial transformation.', 'angel-network' ),
     'badge'    => esc_html__( 'Our Syndicate Story', 'angel-network' ),
     'bg_image' => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
 ] ); 
@@ -35,13 +35,13 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 </h2>
                 <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                     <p>
-                        Founded with a singular mission, the Angel Investment Network eliminates bureaucratic venture intermediaries by establishing a direct, transparent channel between experienced capital allocators and early-stage startup leaders.
+                        Founded with a singular mission, the Investment Network eliminates bureaucratic venture intermediaries by establishing a direct, transparent channel between experienced capital allocators and early-stage startup leaders.
                     </p>
                     <p>
                         Unlike traditional funds weighed down by 2-and-20 fee structures and protracted decision horizons, angel syndicates move with agility. We provide the governance infrastructure, standardized due diligence materials, and private deal room security that enable accredited angels to write high-conviction checks within weeks, not quarters.
                     </p>
                     <p>
-                        Today, our network represents more than 15,200 verified angel investors and has facilitated over CA$ 420 million in direct early-stage equity, convertible notes, and SAFEs across Canadian technology hubs from Vancouver to Halifax.
+                        Today, our network represents more than 15,200 verified investors and has facilitated over CA$ 420 million in direct early-stage equity, convertible notes, and SAFEs across Canadian technology hubs from Vancouver to Halifax.
                     </p>
                 </div>
             </div>
@@ -56,7 +56,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 </div>
                 <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-2xl shadow-xl max-w-xs border border-primary-light">
                     <p class="text-2xl font-heading font-extrabold text-accent">100% Direct</p>
-                    <p class="text-xs text-slate-300 mt-1">Zero carry, zero broker commission on angel investments.</p>
+                    <p class="text-xs text-slate-300 mt-1">Zero carry, zero broker commission on investments.</p>
                 </div>
             </div>
         </div>

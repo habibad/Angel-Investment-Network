@@ -3,7 +3,7 @@
  * Testimonial Card Component
  *
  * @param array $testimonial
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

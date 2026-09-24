@@ -2,7 +2,7 @@
 /**
  * 404 Error Page Template
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

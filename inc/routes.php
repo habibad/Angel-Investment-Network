@@ -2,7 +2,7 @@
 /**
  * Custom Route & URL Rewrite Management
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

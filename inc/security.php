@@ -2,7 +2,7 @@
 /**
  * Security, Hardening & Defensive Headers
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

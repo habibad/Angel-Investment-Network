@@ -2,7 +2,7 @@
 /**
  * Authentication Modal (Login / Register with Role Selector)
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

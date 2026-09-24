@@ -2,7 +2,7 @@
 /**
  * Template Name: Invest Hub
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -100,7 +100,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 
         <div class="space-y-6 text-sm text-slate-600 leading-relaxed bg-slate-50 p-8 rounded-2xl border border-slate-200">
             <p>
-                Under Canadian securities regulations, opportunities listed on the Angel Investment Network are private placements offered pursuant to exemptions from prospectus requirements (such as the <strong>Accredited Investor Exemption</strong> under National Instrument 45-106).
+                Under Canadian securities regulations, opportunities listed on the Investment Network are private placements offered pursuant to exemptions from prospectus requirements (such as the <strong>Accredited Investor Exemption</strong> under National Instrument 45-106).
             </p>
             <p>
                 An individual is generally considered an accredited investor if they satisfy one of the following criteria:

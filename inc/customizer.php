@@ -2,7 +2,7 @@
 /**
  * Theme Customizer Settings
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

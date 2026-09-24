@@ -2,7 +2,7 @@
 /**
  * Main Template Fallback (Blog Index)
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

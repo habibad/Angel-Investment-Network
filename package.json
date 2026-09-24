@@ -1,7 +1,7 @@
 {
   "name": "angel-network",
   "version": "1.0.0",
-  "description": "Custom WordPress Theme for Angel Investment Network using Tailwind CSS v3",
+  "description": "Custom WordPress Theme for Investment Network using Tailwind CSS v3",
   "scripts": {
     "dev": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --watch",
     "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/tailwind.css --minify"

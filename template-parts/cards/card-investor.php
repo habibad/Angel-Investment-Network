@@ -3,7 +3,7 @@
  * Investor Card Component
  *
  * @param array $investor
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

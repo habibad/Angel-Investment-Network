@@ -2,7 +2,7 @@
 /**
  * Template Name: Services & How It Works
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

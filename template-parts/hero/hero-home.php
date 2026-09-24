@@ -2,7 +2,7 @@
 /**
  * Homepage Hero Section Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,7 +36,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
 
                 <!-- Subtitle -->
                 <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
-                    We bridge the funding gap between ambitious Canadian enterprises and accredited angel investors who deliver smart capital, sector expertise, and high-velocity syndication.
+                    We bridge the funding gap between ambitious Canadian enterprises and accredited investors who deliver smart capital, sector expertise, and high-velocity syndication.
                 </p>
 
                 <!-- Dual Intent Entry Point (Invest vs Fundraise) -->
@@ -88,7 +88,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
                     <img 
                         src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" 
-                        alt="Angel Investment Network Boardroom" 
+                        alt="Investment Network Boardroom" 
                         class="w-full h-full object-cover opacity-80"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>

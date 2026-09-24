@@ -5,7 +5,7 @@
  * Right side: Clean, focused contextual photography
  *
  * @param array $args (title, subtitle, badge, bg_image)
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -2,7 +2,7 @@
 /**
  * Industry Sectors Directory Grid Component
  *
- * @package AngelNetwork
+ * @package InvestmentNetwork
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

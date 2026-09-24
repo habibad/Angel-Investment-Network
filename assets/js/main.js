@@ -1,6 +1,6 @@
 /**
  * Main Application Script
- * Angel Investment Network
+ * Investment Network
  */
 
 document.addEventListener('DOMContentLoaded', () => {
