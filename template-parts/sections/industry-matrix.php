@@ -14,7 +14,7 @@ $industries = angel_get_industries();
 
 <section class="py-20 bg-white">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
             <div>
                 <span class="badge badge-accent mb-3"><?php esc_html_e( 'Venture Sectors', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
@@ -30,7 +30,7 @@ $industries = angel_get_industries();
             </a>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6" data-reveal-group>
             <?php foreach ( $industries as $sector ) : ?>
                 <a 
                     href="<?php echo esc_url( home_url( '/invest/?sector=' . $sector['slug'] ) ); ?>" 

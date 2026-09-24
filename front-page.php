@@ -29,7 +29,7 @@ $articles      = angel_get_blog_posts();
 <section id="opportunities" class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <!-- Section Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 reveal-on-scroll">
             <div>
                 <span class="badge badge-accent mb-3"><?php esc_html_e( 'Vetted Dealflow', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
@@ -57,7 +57,7 @@ $articles      = angel_get_blog_posts();
         </div>
 
         <!-- Quick Filter Pills -->
-        <div class="flex flex-wrap items-center gap-2 mb-10 overflow-x-auto pb-2">
+        <div class="flex flex-wrap items-center gap-2 mb-10 overflow-x-auto pb-2 reveal-on-scroll">
             <button type="button" data-filter-sector="all" class="px-4 py-2 rounded-full text-xs font-heading font-bold border transition-colors cursor-pointer bg-primary text-white border-primary shadow-xs">
                 <?php esc_html_e( 'All Sectors', 'angel-network' ); ?>
             </button>
@@ -79,7 +79,7 @@ $articles      = angel_get_blog_posts();
         </div>
 
         <!-- Opportunities Grid -->
-        <div id="opportunities-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="opportunities-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-group>
             <?php foreach ( $opportunities as $deal ) : ?>
                 <?php get_template_part( 'template-parts/cards/card-opportunity', null, [ 'deal' => $deal ] ); ?>
             <?php endforeach; ?>
@@ -98,7 +98,7 @@ $articles      = angel_get_blog_posts();
         </div>
 
         <!-- Hub Action -->
-        <div class="mt-14 text-center">
+        <div class="mt-14 text-center reveal-on-scroll">
             <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="btn btn-primary btn-lg">
                 <span><?php esc_html_e( 'View All Investment Pitches →', 'angel-network' ); ?></span>
             </a>
@@ -109,7 +109,7 @@ $articles      = angel_get_blog_posts();
 <!-- 4. Platform Aggregate Key Statistics Bar -->
 <section class="py-16 bg-primary text-white">
     <div class="container mx-auto">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10" data-reveal-group>
             <?php foreach ( $stats as $stat ) : ?>
                 <div class="pt-6 lg:pt-0 px-4">
                     <p class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight mb-2">
@@ -129,7 +129,7 @@ $articles      = angel_get_blog_posts();
 <!-- 6. Verified Investor Showcase -->
 <section id="investors" class="py-20 bg-white">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
             <div>
                 <span class="badge badge-primary mb-3"><?php esc_html_e( 'Accredited Network', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
@@ -145,7 +145,7 @@ $articles      = angel_get_blog_posts();
             </a>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-group>
             <?php foreach ( $investors as $investor ) : ?>
                 <?php get_template_part( 'template-parts/cards/card-investor', null, [ 'investor' => $investor ] ); ?>
             <?php endforeach; ?>
@@ -165,7 +165,7 @@ $articles      = angel_get_blog_posts();
 <!-- 10. Latest Venture Insights & Market Analysis -->
 <section class="py-20 bg-white">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
             <div>
                 <span class="badge badge-primary mb-3"><?php esc_html_e( 'Research Desk', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
@@ -181,7 +181,7 @@ $articles      = angel_get_blog_posts();
             </a>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-group>
             <?php foreach ( $articles as $article ) : ?>
                 <?php get_template_part( 'template-parts/cards/card-article', null, [ 'article' => $article ] ); ?>
             <?php endforeach; ?>

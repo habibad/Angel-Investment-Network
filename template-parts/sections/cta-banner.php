@@ -17,7 +17,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
     <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute -left-20 -top-20 w-96 h-96 bg-primary-light/40 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="container mx-auto relative z-10 text-center max-w-3xl">
+    <div class="container mx-auto relative z-10 text-center max-w-3xl reveal-scale">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-heading font-semibold tracking-wider text-accent uppercase mb-6">
             <span><?php echo esc_html( $region_label ); ?>’s Leading Venture Marketplace</span>
         </div>

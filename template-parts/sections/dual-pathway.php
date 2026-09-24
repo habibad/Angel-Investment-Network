@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="py-20 bg-slate-50">
     <div class="container mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
             <span class="badge badge-primary mb-3"><?php esc_html_e( 'The Dual Ecosystem', 'angel-network' ); ?></span>
             <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary mb-4">
                 Tailored for Both Sides of the Venture Table
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12" data-reveal-group>
             <!-- Pathway 1: For Investors -->
             <div class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-10 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-full -z-0 group-hover:scale-110 transition-transform"></div>

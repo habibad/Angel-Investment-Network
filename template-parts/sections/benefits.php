@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="container mx-auto relative z-10">
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
             <span class="badge badge-accent bg-accent/20 text-accent-300 border-accent/30 mb-3">
                 <?php esc_html_e( 'Institutional Governance', 'angel-network' ); ?>
             </span>
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8" data-reveal-group>
             <!-- Pillar 1 -->
             <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-accent/40 transition-colors">
                 <div class="w-12 h-12 rounded-xl bg-accent/20 text-accent flex items-center justify-center mb-5">

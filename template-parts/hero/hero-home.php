@@ -22,25 +22,25 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
             <!-- Left Column: Copy & Dual Intent Selector -->
             <div class="lg:col-span-7 flex flex-col items-start text-left">
                 <!-- Tagline Badge -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6 hero-fade-up delay-100">
                     <span class="inline-block w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                     <span class="text-xs font-heading font-bold uppercase tracking-wider text-primary">
-                        <?php echo esc_html( $region_label ); ?> Angel Investment & Venture Network
+                        <?php echo esc_html( $region_label ); ?> Investment Network & Venture Network
                     </span>
                 </div>
 
                 <!-- Main Headline -->
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-primary tracking-tight leading-[1.1] mb-6">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-primary tracking-tight leading-[1.1] mb-6 hero-fade-up delay-200">
                     Connecting Visionary Founders with <span class="text-accent underline decoration-accent/30 underline-offset-8">Strategic Capital</span>
                 </h1>
 
                 <!-- Subtitle -->
-                <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8">
+                <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8 hero-fade-up delay-300">
                     We bridge the funding gap between ambitious Canadian enterprises and accredited investors who deliver smart capital, sector expertise, and high-velocity growth.
                 </p>
 
                 <!-- Dual Intent Entry Point (Invest vs Fundraise) -->
-                <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-8">
+                <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-8 hero-pop-in delay-400">
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <div class="flex items-center gap-2 w-full sm:w-auto px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 shrink-0">
                             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
@@ -66,7 +66,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 </div>
 
                 <!-- Trust Micro-metrics -->
-                <div class="flex flex-wrap items-center gap-6 text-xs text-slate-500 font-medium">
+                <div class="flex flex-wrap items-center gap-6 text-xs text-slate-500 font-medium hero-fade-up delay-500">
                     <div class="flex items-center gap-2">
                         <?php echo angel_get_svg_icon( 'verified', 'w-4 h-4 text-accent' ); ?>
                         <span><strong>15,200+</strong> Accredited Angels</span>
@@ -85,7 +85,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
             <!-- Right Column: Visual Composition with Floating Interactive Cards -->
             <div class="lg:col-span-5 relative flex items-center justify-center">
                 <!-- Centerpiece Visual Canvas -->
-                <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+                <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 hero-scale-in delay-200">
                     <img 
                         src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" 
                         alt="Investment Network Boardroom" 
@@ -111,7 +111,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 </div>
 
                 <!-- Floating Card 1: Top Angel Badge (Top Right) -->
-                <div class="absolute -top-4 -right-4 sm:-right-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-subtle z-20">
+                <div class="absolute -top-4 -right-4 sm:-right-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-subtle z-20 hero-pop-in delay-500">
                     <img 
                         src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" 
                         alt="Christina S." 
@@ -128,7 +128,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 </div>
 
                 <!-- Floating Card 2: Pitch Milestone (Middle Left) -->
-                <div class="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1.5 z-20 max-w-[220px]">
+                <div class="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1.5 z-20 max-w-[220px] hero-pop-in-center delay-650">
                     <div class="flex items-center justify-between">
                         <span class="badge badge-gold text-[10px] py-0.5 px-2 font-bold">Series Seed</span>
                         <span class="text-[10px] text-slate-400 font-semibold">70% Funded</span>

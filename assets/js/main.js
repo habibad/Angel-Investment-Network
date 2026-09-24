@@ -24,6 +24,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Scroll Reveal & Motion Engine (IntersectionObserver)
+    const revealTargets = document.querySelectorAll('.reveal-on-scroll, .reveal-scale, [data-reveal-group]');
+
+    if ('IntersectionObserver' in window && revealTargets.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    
+                    if (el.hasAttribute('data-reveal-group')) {
+                        // Stagger reveal each child card/item with a smooth progressive delay
+                        const children = el.children;
+                        Array.from(children).forEach((child, index) => {
+                            setTimeout(() => {
+                                child.classList.add('is-revealed');
+                            }, index * 90);
+                        });
+                        el.classList.add('is-revealed');
+                    } else {
+                        el.classList.add('is-revealed');
+                    }
+
+                    obs.unobserve(el);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealTargets.forEach(el => {
+            if (el.hasAttribute('data-reveal-group')) {
+                // Prepare direct children with reveal-on-scroll
+                Array.from(el.children).forEach(child => {
+                    child.classList.add('reveal-on-scroll');
+                });
+            }
+            revealObserver.observe(el);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        document.querySelectorAll('.reveal-on-scroll, .reveal-scale').forEach(el => el.classList.add('is-revealed'));
+    }
+
     // Interactive Testimonial or Stats animation counter if intersection observer is supported
     const statCounters = document.querySelectorAll('[data-counter-target]');
     if ('IntersectionObserver' in window && statCounters.length > 0) {
@@ -32,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
                     obs.unobserve(el);
-                    // Element is now visible
                     el.classList.add('is-revealed');
                 }
             });
