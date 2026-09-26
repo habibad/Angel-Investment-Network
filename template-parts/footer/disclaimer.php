@@ -29,15 +29,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div>
                         <div class="flex flex-wrap items-center gap-2">
                             <h4 class="font-heading font-bold text-white uppercase tracking-wider text-xs sm:text-sm">
-                                <?php esc_html_e( 'Regulatory Notice & Private Securities Disclaimer', 'angel-network' ); ?>
+                                <?php esc_html_e( 'Important Investment Notice', 'angel-network' ); ?>
                             </h4>
                             <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold/20 text-gold border border-gold/30">
-                                <?php esc_html_e( 'Compliance Alert', 'angel-network' ); ?>
+                                <?php esc_html_e( 'Disclosure', 'angel-network' ); ?>
                             </span>
                         </div>
-                        <span class="text-[11px] text-slate-400 font-medium">
-                            <?php esc_html_e( 'National Instrument 45-106 & Ontario Securities Commission Rule 45-501', 'angel-network' ); ?>
-                        </span>
                     </div>
                 </div>
 
@@ -46,19 +43,22 @@ if ( ! defined( 'ABSPATH' ) ) {
                     type="button" 
                     id="dismiss-disclaimer-btn" 
                     class="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-gold shrink-0"
-                    aria-label="<?php esc_attr_e( 'Close regulatory alert', 'angel-network' ); ?>"
+                    aria-label="<?php esc_attr_e( 'Close investment notice', 'angel-network' ); ?>"
                 >
                     <?php echo angel_get_svg_icon( 'close', 'w-5 h-5' ); ?>
                 </button>
             </div>
 
             <!-- Disclaimer Body Copy -->
-            <div class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-36 overflow-y-auto pr-2">
+            <div class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-40 overflow-y-auto pr-2">
                 <p>
-                    <?php esc_html_e( 'Investment Network is an online platform facilitating direct private introductions between accredited investors and businesses seeking capital. Any equity, debt, or convertible loan financing transactions consummated as a result of contacts made via this platform constitute "exempt distributions" under Canadian provincial securities commission frameworks (including National Instrument 45-106 and Ontario Securities Commission Rule 45-501).', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Investment Network is an online platform designed to introduce investors to business owners seeking capital. Information published on the platform is provided for general informational purposes and does not constitute investment, financial, legal, or tax advice. A listing does not represent an offer, recommendation, endorsement, or guarantee of any investment.', 'angel-network' ); ?>
                 </p>
                 <p>
-                    <?php esc_html_e( 'There is no formal government-regulated "Prospectus Offering" in effect for listings presented on this platform. investing carries significant financial risk, including potential illiquidity, lack of dividends, dilution, and total loss of invested capital. All participants must conduct independent financial, legal, and operational due diligence prior to entering into binding investment agreements.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Private investments involve substantial risk, including limited liquidity, dilution, uncertain returns, and the possible loss of all invested capital. Investment Network does not guarantee the accuracy or completeness of information submitted by users or the future performance of any business.', 'angel-network' ); ?>
+                </p>
+                <p>
+                    <?php esc_html_e( 'Investors and business owners are responsible for conducting independent financial, legal, tax, and operational reviews before entering into any agreement. Each participant must also ensure compliance with the laws and regulations applicable to the participant and the proposed transaction, including cross-border investment, sanctions, currency-transfer, and foreign-ownership requirements.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2.5 mt-2.5 border-t border-slate-800">
                 <div class="flex items-center gap-2 text-[11px] text-slate-400">
                     <span class="inline-block w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                    <span><?php esc_html_e( 'Mandatory Risk Disclosure • Accredited Investors & Founders', 'angel-network' ); ?></span>
+                    <span><?php esc_html_e( 'General Risk Disclosure • Investors & Business Owners', 'angel-network' ); ?></span>
                 </div>
 
                 <div class="flex items-center gap-2">
@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         id="acknowledge-disclaimer-btn" 
                         class="btn btn-sm btn-accent text-xs px-4 py-1.5 rounded-lg font-bold shadow hover:shadow-md transition-all cursor-pointer"
                     >
-                        <?php esc_html_e( 'I Understand & Acknowledge', 'angel-network' ); ?>
+                        <?php esc_html_e( 'I Understand', 'angel-network' ); ?>
                     </button>
                 </div>
             </div>
@@ -88,8 +88,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     type="button" 
     id="reopen-disclaimer-btn" 
     class="fixed bottom-4 left-4 z-40 hidden items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shadow-xl text-[11px] font-semibold transition-all duration-200 cursor-pointer group"
-    aria-label="<?php esc_attr_e( 'View Regulatory Notice', 'angel-network' ); ?>"
+    aria-label="<?php esc_attr_e( 'View Investment Notice', 'angel-network' ); ?>"
 >
     <span class="text-gold group-hover:scale-110 transition-transform"><?php echo angel_get_svg_icon( 'shield', 'w-3.5 h-3.5' ); ?></span>
-    <span><?php esc_html_e( 'Regulatory Notice', 'angel-network' ); ?></span>
+    <span><?php esc_html_e( 'Investment Notice', 'angel-network' ); ?></span>
 </button>

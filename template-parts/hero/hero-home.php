@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$region_label = get_theme_mod( 'angel_region_label', 'Canada' );
+$region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
-<section class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 pb-20 lg:pt-16 lg:pb-28">
+<section id="hero-home" class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 pb-20 lg:pt-16 lg:pb-28">
     <!-- Subtle Ambient Background Glows -->
     <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
     <div class="absolute bottom-0 left-10 w-80 h-80 bg-accent-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
@@ -25,22 +25,22 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 border border-primary-200 mb-6 hero-fade-up delay-100">
                     <span class="inline-block w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                     <span class="text-xs font-heading font-bold uppercase tracking-wider text-primary">
-                        <?php echo esc_html( $region_label ); ?> Investment Network & Venture Network
+                        <?php esc_html_e( 'Cuban Investment Network', 'angel-network' ); ?>
                     </span>
                 </div>
 
                 <!-- Main Headline -->
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-primary tracking-tight leading-[1.1] mb-6 hero-fade-up delay-200">
-                    Connecting Visionary Founders with <span class="text-accent underline decoration-accent/30 underline-offset-8">Strategic Capital</span>
+                    Connecting Cuban Opportunities with <span class="text-accent underline decoration-accent/30 underline-offset-8">Strategic Capital</span>
                 </h1>
 
                 <!-- Subtitle -->
                 <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mb-8 hero-fade-up delay-300">
-                    We bridge the funding gap between ambitious Canadian enterprises and accredited investors who deliver smart capital, sector expertise, and high-velocity growth.
+                    <?php esc_html_e( 'We bridge the funding gap between ambitious Cuban enterprises and global investors.', 'angel-network' ); ?>
                 </p>
 
                 <!-- Dual Intent Entry Point (Invest vs Fundraise) -->
-                <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-8 hero-pop-in delay-400">
+                <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-4 hero-pop-in delay-400">
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <div class="flex items-center gap-2 w-full sm:w-auto px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 shrink-0">
                             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
@@ -62,22 +62,6 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                         >
                             <span><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></span>&nbsp;&rarr;
                         </a>
-                    </div>
-                </div>
-
-                <!-- Trust Micro-metrics -->
-                <div class="flex flex-wrap items-center gap-6 text-xs text-slate-500 font-medium hero-fade-up delay-500">
-                    <div class="flex items-center gap-2">
-                        <?php echo angel_get_svg_icon( 'verified', 'w-4 h-4 text-accent' ); ?>
-                        <span><strong>15,200+</strong> Accredited Angels</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <?php echo angel_get_svg_icon( 'shield', 'w-4 h-4 text-primary' ); ?>
-                        <span>Securities Exempt Distribution Compliant</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <?php echo angel_get_svg_icon( 'check', 'w-4 h-4 text-accent' ); ?>
-                        <span>CA$ 420M+ Capital Facilitated</span>
                     </div>
                 </div>
             </div>
@@ -122,8 +106,8 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                             <span class="text-xs font-bold text-slate-800">Christina S.</span>
                             <?php echo angel_get_svg_icon( 'verified', 'w-3.5 h-3.5 text-accent' ); ?>
                         </div>
-                        <span class="text-[10px] text-slate-400">Managing Angel • Toronto</span>
-                        <span class="text-[11px] font-bold text-accent font-heading">CA$ 25K - 500K Check</span>
+                        <span class="text-[10px] text-slate-400">Verified Angel Investor</span>
+                        <span class="text-[11px] font-bold text-accent font-heading">$25K - $500K Check</span>
                     </div>
                 </div>
 
@@ -137,7 +121,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                     <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
                         <div class="h-full bg-accent rounded-full" style="width: 70%;"></div>
                     </div>
-                    <span class="text-[10px] text-slate-500">CA$ 1.05M of CA$ 1.5M Goal</span>
+                    <span class="text-[10px] text-slate-500">$1.05M of $1.5M Goal</span>
                 </div>
             </div>
         </div>

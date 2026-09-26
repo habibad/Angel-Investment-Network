@@ -24,45 +24,126 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Reveal & Motion Engine (IntersectionObserver)
+    // =========================================================================
+    // Bidirectional Scroll Motion & Reveal Engine (Scroll Down & Scroll Up)
+    // =========================================================================
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollDirection = 'down';
+    let isTicking = false;
+
+    const siteHeader = document.getElementById('site-header');
+    const heroSection = document.getElementById('hero-home') || document.querySelector('section');
+
+    const updateScrollMetrics = () => {
+        const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const diff = currentScrollY - lastScrollY;
+
+        // Detect scroll direction with hysteresis
+        if (Math.abs(diff) >= 4) {
+            scrollDirection = diff > 0 ? 'down' : 'up';
+            document.documentElement.setAttribute('data-scroll-dir', scrollDirection);
+
+            // Meaningful Header elevation reaction on scroll up
+            if (siteHeader) {
+                if (currentScrollY > 70) {
+                    if (scrollDirection === 'up') {
+                        siteHeader.classList.add('header-scroll-up');
+                        siteHeader.classList.remove('header-scroll-down');
+                    } else {
+                        siteHeader.classList.add('header-scroll-down');
+                        siteHeader.classList.remove('header-scroll-up');
+                    }
+                } else {
+                    siteHeader.classList.remove('header-scroll-up', 'header-scroll-down');
+                }
+            }
+        }
+
+        // Re-trigger hero entrance if returning back to top
+        if (heroSection) {
+            if (currentScrollY <= 60 && scrollDirection === 'up') {
+                heroSection.classList.add('hero-re-enter');
+            } else if (currentScrollY > 400) {
+                heroSection.classList.remove('hero-re-enter');
+            }
+        }
+
+        lastScrollY = Math.max(0, currentScrollY);
+        isTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!isTicking) {
+            window.requestAnimationFrame(updateScrollMetrics);
+            isTicking = true;
+        }
+    }, { passive: true });
+
+    document.documentElement.setAttribute('data-scroll-dir', 'down');
+
+    // Continuous Bidirectional IntersectionObserver
     const revealTargets = document.querySelectorAll('.reveal-on-scroll, .reveal-scale, [data-reveal-group]');
 
     if ('IntersectionObserver' in window && revealTargets.length > 0) {
-        const revealObserver = new IntersectionObserver((entries, obs) => {
+        // Initialize children of group containers
+        revealTargets.forEach(el => {
+            if (el.hasAttribute('data-reveal-group')) {
+                Array.from(el.children).forEach(child => {
+                    child.classList.add('reveal-on-scroll');
+                });
+            }
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const el = entry.target;
+
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-                    
+                    // Mark directional entry class
+                    if (scrollDirection === 'up') {
+                        el.classList.add('from-top');
+                        el.classList.remove('from-bottom');
+                    } else {
+                        el.classList.add('from-bottom');
+                        el.classList.remove('from-top');
+                    }
+
                     if (el.hasAttribute('data-reveal-group')) {
-                        // Stagger reveal each child card/item with a smooth progressive delay
-                        const children = el.children;
-                        Array.from(children).forEach((child, index) => {
+                        const children = Array.from(el.children);
+                        children.forEach((child, index) => {
+                            const delay = scrollDirection === 'up'
+                                ? (children.length - 1 - index) * 50
+                                : index * 75;
                             setTimeout(() => {
                                 child.classList.add('is-revealed');
-                            }, index * 90);
+                            }, Math.min(delay, 350));
                         });
                         el.classList.add('is-revealed');
                     } else {
                         el.classList.add('is-revealed');
                     }
+                } else {
+                    // When element scrolls well outside the viewport (120px buffer),
+                    // reset so it smoothly re-animates when user scrolls back in either direction!
+                    const rect = el.getBoundingClientRect();
+                    const viewHeight = window.innerHeight || document.documentElement.clientHeight;
 
-                    obs.unobserve(el);
+                    if (rect.bottom < -120 || rect.top > viewHeight + 120) {
+                        el.classList.remove('is-revealed', 'from-top', 'from-bottom');
+                        if (el.hasAttribute('data-reveal-group')) {
+                            Array.from(el.children).forEach(child => {
+                                child.classList.remove('is-revealed');
+                            });
+                        }
+                    }
                 }
             });
         }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -40px 0px'
+            threshold: 0.05,
+            rootMargin: '20px 0px 20px 0px'
         });
 
-        revealTargets.forEach(el => {
-            if (el.hasAttribute('data-reveal-group')) {
-                // Prepare direct children with reveal-on-scroll
-                Array.from(el.children).forEach(child => {
-                    child.classList.add('reveal-on-scroll');
-                });
-            }
-            revealObserver.observe(el);
-        });
+        revealTargets.forEach(el => revealObserver.observe(el));
     } else {
         // Fallback for browsers without IntersectionObserver
         document.querySelectorAll('.reveal-on-scroll, .reveal-scale').forEach(el => el.classList.add('is-revealed'));

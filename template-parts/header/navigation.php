@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$region_label = get_theme_mod( 'angel_region_label', 'Canada' );
+$region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
 <div class="flex items-center justify-between w-full h-20">
@@ -25,7 +25,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 </span>
                 <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase flex items-center gap-1">
                     <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent"></span>
-                    <?php echo esc_html( $region_label ); ?> Authority
+                    <?php echo esc_html( $region_label ); ?>
                 </span>
             </div>
         </a>

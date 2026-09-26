@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="container mx-auto relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
             <span class="badge badge-accent bg-accent/20 text-accent-300 border-accent/30 mb-3">
-                <?php esc_html_e( 'Institutional Governance', 'angel-network' ); ?>
+                <?php esc_html_e( 'Network Standards', 'angel-network' ); ?>
             </span>
             <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-4">
-                The Standards That Define Our Network
+                <?php esc_html_e( 'The Principles That Guide Our Network', 'angel-network' ); ?>
             </h2>
             <p class="text-slate-400 text-base leading-relaxed">
-                We combine the rigorous diligence of traditional venture capital with the speed and reach of a modern financial technology platform.
+                <?php esc_html_e( 'Our approach emphasizes clear information, consistent review processes, responsible practices, and direct communication between business owners and investors.', 'angel-network' ); ?>
             </p>
         </div>
 
@@ -35,10 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo angel_get_svg_icon( 'shield', 'w-6 h-6' ); ?>
                 </div>
                 <h3 class="text-lg font-heading font-bold text-white mb-2">
-                    Accredited Only
+                    <?php esc_html_e( 'Verified Investors', 'angel-network' ); ?>
                 </h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Investors must attest to sophisticated investor status under provincial and federal securities exempt distribution rules before accessing private financials.
+                    <?php esc_html_e( 'Investors create profiles outlining their interests, experience, and investment preferences before accessing private opportunities.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -48,10 +48,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo angel_get_svg_icon( 'sparkles', 'w-6 h-6' ); ?>
                 </div>
                 <h3 class="text-lg font-heading font-bold text-white mb-2">
-                    Confidential Rooms
+                    <?php esc_html_e( 'Confidential Deal Rooms', 'angel-network' ); ?>
                 </h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Founder cap tables, patent filings, and unit economics are protected behind electronic NDAs and explicit founder permissions.
+                    <?php esc_html_e( 'Business plans, financial information, and supporting documents are shared securely with approved investors.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -61,10 +61,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo angel_get_svg_icon( 'credit-card', 'w-6 h-6' ); ?>
                 </div>
                 <h3 class="text-lg font-heading font-bold text-white mb-2">
-                    Direct Terms
+                    <?php esc_html_e( 'Direct Connections', 'angel-network' ); ?>
                 </h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Zero intermediary fees, zero carried interest, and zero hidden platform broker cuts. 100% of investor capital goes straight to the company.
+                    <?php esc_html_e( 'Business owners and investors communicate directly, enabling transparent discussions without unnecessary intermediaries.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -74,10 +74,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo angel_get_svg_icon( 'activity', 'w-6 h-6' ); ?>
                 </div>
                 <h3 class="text-lg font-heading font-bold text-white mb-2">
-                    Rapid Deployment
+                    <?php esc_html_e( 'Efficient Introductions', 'angel-network' ); ?>
                 </h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Average time from pitch publication to lead investor meeting is just 14 days, with 68% of verified rounds reaching close within 45 days.
+                    <?php esc_html_e( 'The network connects promising Cuban businesses with investors whose interests align with their sector, development stage, and objectives.', 'angel-network' ); ?>
                 </p>
             </div>
         </div>

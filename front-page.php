@@ -22,21 +22,18 @@ $articles      = angel_get_blog_posts();
 <!-- 1. Hero Section -->
 <?php get_template_part( 'template-parts/hero/hero-home' ); ?>
 
-<!-- 2. Trust & Media Marquee -->
-<?php get_template_part( 'template-parts/sections/trust-marquee' ); ?>
-
 <!-- 3. Featured Investment Opportunities Grid with Filter Engine -->
 <section id="opportunities" class="py-20 bg-slate-50">
     <div class="container mx-auto">
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 reveal-on-scroll">
             <div>
-                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Vetted Dealflow', 'angel-network' ); ?></span>
+                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Opportunities', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
                     <?php esc_html_e( 'Featured Investment Opportunities', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Browse verified seed and growth-stage startup pitches actively raising capital across North America.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Browse verified seed and growth-stage startup pitches actively raising capital.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -106,24 +103,7 @@ $articles      = angel_get_blog_posts();
     </div>
 </section>
 
-<!-- 4. Platform Aggregate Key Statistics Bar -->
-<section class="py-16 bg-primary text-white">
-    <div class="container mx-auto">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-white/10" data-reveal-group>
-            <?php foreach ( $stats as $stat ) : ?>
-                <div class="pt-6 lg:pt-0 px-4">
-                    <p class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight mb-2">
-                        <?php echo esc_html( $stat['value'] ); ?>
-                    </p>
-                    <p class="text-sm font-semibold text-accent mb-1"><?php echo esc_html( $stat['label'] ); ?></p>
-                    <p class="text-xs text-slate-300"><?php echo esc_html( $stat['sub'] ); ?></p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- 5. Dual Pathway Section (For Investors vs For Entrepreneurs) -->
+<!-- 5. Dual Pathway Section (For Investors vs For Business) -->
 <?php get_template_part( 'template-parts/sections/dual-pathway' ); ?>
 
 <!-- 6. Verified Investor Showcase -->
@@ -133,10 +113,10 @@ $articles      = angel_get_blog_posts();
             <div>
                 <span class="badge badge-primary mb-3"><?php esc_html_e( 'Accredited Network', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
-                    <?php esc_html_e( 'Meet Active Private Angels', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Meet Active Investors', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Connect with verified individuals, family offices, and lead investors actively seeking high-conviction allocations.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Connect with investors actively seeking promising investment opportunities.', 'angel-network' ); ?>
                 </p>
             </div>
             <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">
@@ -156,8 +136,8 @@ $articles      = angel_get_blog_posts();
 <!-- 7. Industry Matrix Section -->
 <?php get_template_part( 'template-parts/sections/industry-matrix' ); ?>
 
-<!-- 8. Testimonials & Verified Case Studies -->
-<?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+<!-- 8. Testimonials & Verified Case Studies (Hidden until we get some members in) -->
+<?php // get_template_part( 'template-parts/sections/testimonials' ); ?>
 
 <!-- 9. Institutional Benefits & Diligence Standards -->
 <?php get_template_part( 'template-parts/sections/benefits' ); ?>
@@ -169,10 +149,10 @@ $articles      = angel_get_blog_posts();
             <div>
                 <span class="badge badge-primary mb-3"><?php esc_html_e( 'Research Desk', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
-                    <?php esc_html_e( 'Venture Insights & Market Analysis', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Investment Insights & Market Analysis', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Quarterly valuation benchmarks, SAFE term sheet guidance, and sector theses from leading angel investment leaders.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Explore market trends, sector opportunities, investment considerations, and practical guidance for evaluating businesses operating in or connected to Cuba.', 'angel-network' ); ?>
                 </p>
             </div>
             <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">

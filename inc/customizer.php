@@ -28,13 +28,13 @@ function angel_customize_register( $wp_customize ) {
         'type'     => 'email',
     ] );
 
-    // Regional Label (e.g. Canada, North America)
+    // Regional Label (e.g. Cuba, Latin America)
     $wp_customize->add_setting( 'angel_region_label', [
-        'default'           => 'Canada',
+        'default'           => 'Cuba',
         'sanitize_callback' => 'sanitize_text_field',
     ] );
     $wp_customize->add_control( 'angel_region_label', [
-        'label'    => esc_html__( 'Regional Authority Territory', 'angel-network' ),
+        'label'    => esc_html__( 'Regional Territory', 'angel-network' ),
         'section'  => 'angel_platform_options',
         'type'     => 'text',
     ] );

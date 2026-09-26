@@ -18,10 +18,10 @@ $industries = angel_get_industries();
             <div>
                 <span class="badge badge-accent mb-3"><?php esc_html_e( 'Venture Sectors', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
-                    <?php esc_html_e( 'Targeted Investment Sectors', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Explore Investment Opportunities by Sector', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Connect across diverse growth verticals curated to meet specific angel risk-reward profiles and thesis requirements.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Discover opportunities across high-growth industries, organized to help investors identify businesses aligned with their expertise, investment criteria, and risk-return objectives.', 'angel-network' ); ?>
                 </p>
             </div>
             <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">

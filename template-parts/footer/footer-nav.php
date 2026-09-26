@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$region_label = get_theme_mod( 'angel_region_label', 'Canada' );
+$region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
 <div class="py-16 bg-slate-900 text-slate-300 border-t border-slate-800">
@@ -23,16 +23,16 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                     </div>
                     <div class="flex flex-col">
                         <span class="font-heading font-extrabold text-xl text-white tracking-tight">
-                            Investment<span class="text-accent">Network</span>
+                            Investment<span class="text-accent">Network</span> Cuba
                         </span>
-                        <span class="text-[10px] font-semibold text-slate-400 tracking-wider uppercase">
-                            <?php echo esc_html( $region_label ); ?> Authority
+                        <span class="text-[10px] font-semibold text-accent tracking-wider uppercase">
+                            <?php esc_html_e( 'Connecting Cuba with the World', 'angel-network' ); ?>
                         </span>
                     </div>
                 </a>
 
                 <p class="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
-                    Cuba’s premier investment and venture capital network connecting accredited private investors with ambitious startups across CleanTech, AI, HealthTech, and B2B SaaS.
+                    <?php esc_html_e( 'A platform connecting investors with Cuban business owners seeking capital, expertise, and international partnerships.', 'angel-network' ); ?>
                 </p>
 
                 <div class="flex items-center gap-3">
@@ -40,7 +40,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                         🔒 256-Bit SSL Encrypted
                     </div>
                     <div class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
-                        ✓ NACO Investment Standards
+                        ✓ International Standards
                     </div>
                 </div>
             </div>
@@ -51,23 +51,23 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                     <?php esc_html_e( 'Invest', 'angel-network' ); ?>
                 </h4>
                 <ul class="space-y-3 text-sm text-slate-400">
-                    <li><a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Browse Dealflow', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/invest/#criteria' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Accreditation Guide', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Due Diligence Standards', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/invest/#criteria' ) ); ?>" data-open-modal="auth-modal" data-modal-tab="register" data-modal-role="investor" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor Registration', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investment Process', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/invest/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 
-            <!-- Column 2: Fundraise -->
+            <!-- Column 2: Business Owners -->
             <div>
                 <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-5">
-                    <?php esc_html_e( 'Fundraise', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Business Owners', 'angel-network' ); ?>
                 </h4>
                 <ul class="space-y-3 text-sm text-slate-400">
-                    <li><a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Pitch Your Startup', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#pricing' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Listing Tiers & Rates', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Founder Valuation Guide', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Fundraising FAQ', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Submit Your Business', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#pricing' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Application Process', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Preparation Guide', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Business Owner FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 
@@ -79,21 +79,21 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <ul class="space-y-3 text-sm text-slate-400">
                     <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'About Us', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'How It Works', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Venture Insights', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Contact Desk', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Market Insights', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Contact Us', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Bottom Copyright & Payment Trust Logos -->
+        <!-- Bottom Copyright & Trust Logos -->
         <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400">
             <div class="flex flex-wrap items-center gap-6">
-                <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Investment Network Inc. All rights reserved.</span>
+                <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Investment Network. All rights reserved.</span>
                 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Privacy Policy', 'angel-network' ); ?></a>
                 <a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Terms of Service', 'angel-network' ); ?></a>
             </div>
 
-            <!-- Verified Payment & Affiliate Badges -->
+            <!-- Payment & Security Indicators -->
             <div class="flex items-center gap-4 text-[11px] text-slate-400 font-semibold tracking-wider uppercase">
                 <span>Visa</span>
                 <span>•</span>
@@ -103,7 +103,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Canada' );
                 <span>•</span>
                 <span>Wire Transfer</span>
                 <span>•</span>
-                <span class="text-accent font-bold">NACO Partner</span>
+                <span class="text-accent font-bold">Secure Network</span>
             </div>
         </div>
     </div>
