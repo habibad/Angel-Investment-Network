@@ -1,6 +1,7 @@
 <?php
 /**
- * Single Opportunity / Pitch Detail Template
+ * Single Opportunity / Business Listing Detail Template
+ * Conforms to Cuba Investment Network audit requirements (PDF Pages 30 & 35)
  *
  * @package InvestmentNetwork
  */
@@ -30,34 +31,42 @@ if ( ! $deal && ! empty( $all_deals ) ) {
     $deal = $all_deals[0];
 }
 
-$percent = angel_calc_percentage( $deal['amount_raised'], $deal['total_required'] );
-$badge_class = angel_get_stage_badge_class( $deal['stage'] );
+$currency       = isset( $deal['currency'] ) ? $deal['currency'] : 'USD';
+$capital_sought = isset( $deal['capital_sought'] ) ? $deal['capital_sought'] : ( isset( $deal['total_required'] ) ? $deal['total_required'] : 0 );
+$status         = isset( $deal['status'] ) ? $deal['status'] : 'Under Review';
+$status_label   = isset( $deal['status_label'] ) ? $deal['status_label'] : $status;
+$ownership      = isset( $deal['ownership_structure'] ) ? $deal['ownership_structure'] : 'Private Cuban Enterprise (MIPYME)';
+$partnership    = isset( $deal['partnership_type'] ) ? $deal['partnership_type'] : 'Direct Investment / Partnership';
+$purpose        = isset( $deal['capital_purpose'] ) ? $deal['capital_purpose'] : 'Operational expansion & equipment modernization';
+$history        = isset( $deal['operating_history'] ) ? $deal['operating_history'] : 'Operating Business';
+$last_updated   = isset( $deal['last_updated'] ) ? $deal['last_updated'] : 'September 2026';
+$info_source    = isset( $deal['info_source'] ) ? $deal['info_source'] : 'Information supplied by the business owner';
 ?>
 
 <!-- Opportunity Breadcrumb & Sub-Hero -->
 <div class="bg-primary text-white py-12 lg:py-16 relative overflow-hidden">
     <div class="container mx-auto">
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 text-xs text-slate-300 mb-6">
+        <nav class="flex items-center gap-2 text-xs text-slate-300 mb-6" aria-label="<?php esc_attr_e( 'Breadcrumb', 'angel-network' ); ?>">
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-white transition-colors">Home</a>
             <span>/</span>
             <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors">Opportunities</a>
             <span>/</span>
-            <span class="text-accent"><?php echo esc_html( $deal['title'] ); ?></span>
+            <span class="text-accent truncate max-w-xs"><?php echo esc_html( $deal['title'] ); ?></span>
         </nav>
 
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div>
                 <div class="flex flex-wrap items-center gap-2 mb-3">
-                    <span class="badge <?php echo esc_attr( $badge_class ); ?> font-bold">
-                        <?php echo esc_html( $deal['stage'] ); ?>
+                    <span class="badge badge-accent font-bold">
+                        <?php echo esc_html( $status_label ); ?>
                     </span>
                     <span class="badge badge-slate bg-white/15 text-white border-white/20">
                         <?php echo esc_html( $deal['industry'] ); ?>
                     </span>
                     <span class="text-xs text-slate-300 flex items-center gap-1 ml-2">
                         <?php echo angel_get_svg_icon( 'location', 'w-3.5 h-3.5 text-accent' ); ?>
-                        <?php echo esc_html( $deal['location'] ); ?>, <?php echo esc_html( $deal['country'] ); ?>
+                        <?php echo esc_html( $deal['location'] ); ?>, Cuba
                     </span>
                 </div>
 
@@ -65,33 +74,30 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
                     <?php echo esc_html( $deal['title'] ); ?>
                 </h1>
                 <p class="text-sm font-medium text-slate-300">
-                    <?php echo esc_html( $deal['company_name'] ); ?>
+                    <?php echo esc_html( $deal['company_name'] ); ?> &bull; <?php echo esc_html( $ownership ); ?>
                 </p>
             </div>
 
-            <!-- Quick Action -->
+            <!-- Header Action -->
             <div class="flex items-center gap-3">
-                <button 
-                    type="button" 
-                    data-open-modal="auth-modal" 
-                    data-modal-tab="register" 
-                    data-modal-role="investor"
-                    class="btn btn-accent btn-lg font-bold shadow-lg"
+                <a 
+                    href="<?php echo esc_url( home_url( '/contact/?type=investor&opportunity=' . urlencode( $deal['title'] ) ) ); ?>" 
+                    class="btn btn-accent btn-lg font-bold shadow-lg hover:shadow-xl transition-all"
                 >
-                    <?php esc_html_e( 'Request Data Room Access →', 'angel-network' ); ?>
-                </button>
+                    <?php esc_html_e( 'Request Business Introduction →', 'angel-network' ); ?>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Main Pitch Detail Body -->
+<!-- Main Detail Body -->
 <section class="py-16 bg-slate-50">
     <div class="container mx-auto">
         <div class="grid lg:grid-cols-12 gap-10">
-            <!-- Left Column: Details, Highlights & Financial Narrative (8 cols) -->
+            <!-- Left Column: Summary, Highlights, Structure (8 cols) -->
             <div class="lg:col-span-8 space-y-8">
-                <!-- Featured Cover Image -->
+                <!-- Cover Image -->
                 <div class="rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 aspect-16/9">
                     <img 
                         src="<?php echo esc_url( $deal['image'] ); ?>" 
@@ -100,23 +106,34 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
                     >
                 </div>
 
-                <!-- Executive Summary -->
+                <!-- Transparency Information Notice Box (PDF Page 35) -->
+                <div class="p-4 rounded-xl bg-white border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500 shadow-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-accent"></span>
+                        <span class="font-medium text-slate-700"><?php echo esc_html( $info_source ); ?></span>
+                    </div>
+                    <div>
+                        <span><?php printf( esc_html__( 'Last updated: %s', 'angel-network' ), esc_html( $last_updated ) ); ?></span>
+                    </div>
+                </div>
+
+                <!-- Business Overview -->
                 <div class="card p-8 bg-white border border-slate-200">
-                    <h2 class="text-xl font-heading font-bold text-primary mb-4 flex items-center gap-2">
-                        <span>Executive Summary</span>
+                    <h2 class="text-xl font-heading font-bold text-primary mb-4">
+                        <?php esc_html_e( 'Business Overview', 'angel-network' ); ?>
                     </h2>
                     <p class="text-sm sm:text-base text-slate-700 leading-relaxed mb-6">
                         <?php echo esc_html( $deal['description'] ); ?>
                     </p>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        The company has engineered a proprietary competitive moat backed by defensible intellectual property and strategic pilot engagements. With an expanding customer pipeline and verified unit economics, capital deployed in this round directly accelerates manufacturing scale and North American commercial distribution.
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <?php esc_html_e( 'The enterprise operates in accordance with Cuban private enterprise regulations (MIPYME framework). Direct capital and strategic partnership support are requested to scale operational capacity and modernize commercial infrastructure.', 'angel-network' ); ?>
                     </p>
                 </div>
 
-                <!-- Key Traction Milestones -->
+                <!-- Key Highlights & Milestones -->
                 <div class="card p-8 bg-white border border-slate-200">
                     <h2 class="text-xl font-heading font-bold text-primary mb-4">
-                        Investment Highlights & Milestones
+                        <?php esc_html_e( 'Operating Highlights & Capabilities', 'angel-network' ); ?>
                     </h2>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <?php foreach ( $deal['highlights'] as $highlight ) : ?>
@@ -128,114 +145,116 @@ $badge_class = angel_get_stage_badge_class( $deal['stage'] );
                     </div>
                 </div>
 
-                <!-- Deal Structure & Terms -->
+                <!-- Operational & Partnership Parameters -->
                 <div class="card p-8 bg-white border border-slate-200">
                     <h2 class="text-xl font-heading font-bold text-primary mb-4">
-                        Deal Terms & Security Offering
+                        <?php esc_html_e( 'Proposed Partnership & Capital Structure', 'angel-network' ); ?>
                     </h2>
                     <div class="grid sm:grid-cols-3 gap-4 text-center">
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                            <span class="block text-xs text-slate-400 font-medium">Financing Instrument</span>
-                            <span class="text-sm font-heading font-bold text-primary mt-1 block"><?php echo esc_html( $deal['funding_type'] ); ?></span>
+                            <span class="block text-xs text-slate-500 font-medium uppercase tracking-wider"><?php esc_html_e( 'Partnership Type', 'angel-network' ); ?></span>
+                            <span class="text-sm font-heading font-bold text-primary mt-1 block"><?php echo esc_html( $partnership ); ?></span>
                         </div>
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                            <span class="block text-xs text-slate-400 font-medium">Securities Exemption</span>
-                            <span class="text-sm font-heading font-bold text-primary mt-1 block">NI 45-106 Accredited</span>
+                            <span class="block text-xs text-slate-500 font-medium uppercase tracking-wider"><?php esc_html_e( 'Operating History', 'angel-network' ); ?></span>
+                            <span class="text-sm font-heading font-bold text-primary mt-1 block"><?php echo esc_html( $history ); ?></span>
                         </div>
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                            <span class="block text-xs text-slate-400 font-medium">Target Close Window</span>
-                            <span class="text-sm font-heading font-bold text-primary mt-1 block">45 Days</span>
+                            <span class="block text-xs text-slate-500 font-medium uppercase tracking-wider"><?php esc_html_e( 'Listing Status', 'angel-network' ); ?></span>
+                            <span class="text-sm font-heading font-bold text-accent mt-1 block"><?php echo esc_html( $status_label ); ?></span>
                         </div>
                     </div>
+
+                    <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-600 leading-relaxed">
+                        <span class="font-bold text-slate-800 block mb-1"><?php esc_html_e( 'Use of Funds Objective:', 'angel-network' ); ?></span>
+                        <?php echo esc_html( $purpose ); ?>
+                    </div>
+                </div>
+
+                <!-- Cross-Border & Due Diligence Advisory Box (PDF Page 35 & 37) -->
+                <div class="p-6 rounded-2xl bg-slate-900 text-white border border-slate-800 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                        <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-gold">
+                            <?php esc_html_e( 'Cross-Border & Sanctions Notice', 'angel-network' ); ?>
+                        </h4>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <?php esc_html_e( 'U.S. persons face comprehensive Cuba-related legal restrictions under OFAC sanctions regulations and generally cannot invest or conduct business in Cuba without specific authorization from the U.S. government. International participants in other jurisdictions must independently verify compliance with local foreign investment, currency-transfer, and tax requirements.', 'angel-network' ); ?>
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        <?php esc_html_e( 'The platform does not verify financial statements, audit claims, or provide investment advice. All discussions and agreements take place directly between parties.', 'angel-network' ); ?>
+                    </p>
                 </div>
             </div>
 
-            <!-- Right Column: Investment Box & Founder Credentials (4 cols) -->
+            <!-- Right Column: Capital Ask & Contact Actions (4 cols) -->
             <div class="lg:col-span-4 space-y-6">
-                <!-- Sticky Investment Commitment Card -->
+                <!-- Sticky Capital Ask Card -->
                 <div class="card p-6 bg-white border border-slate-200 shadow-md sticky top-24">
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Round Status</span>
-                        <span class="badge badge-accent font-bold">Actively Raising</span>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider"><?php esc_html_e( 'Listing Status', 'angel-network' ); ?></span>
+                        <span class="badge badge-accent font-bold"><?php echo esc_html( $status_label ); ?></span>
                     </div>
 
-                    <!-- Progress Bar -->
-                    <div class="mb-5">
-                        <div class="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1.5">
-                            <span class="text-slate-500">Committed</span>
-                            <span class="text-accent font-bold"><?php echo esc_html( $percent ); ?>% of Goal</span>
-                        </div>
-                        <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                            <div class="h-full bg-accent rounded-full" style="width: <?php echo esc_attr( $percent ); ?>%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Financial Matrix -->
+                    <!-- Capital Parameters (PDF Page 35: Capital Sought, neutral currency) -->
                     <div class="space-y-3 mb-6 bg-slate-50 p-4 rounded-xl border border-slate-100">
                         <div class="flex items-center justify-between text-xs">
-                            <span class="text-slate-500">Target Capital Ask:</span>
-                            <span class="font-heading font-bold text-primary text-sm">
-                                <?php echo esc_html( angel_format_currency( $deal['total_required'], $deal['currency'] ) ); ?>
-                            </span>
-                        </div>
-                        <div class="flex items-center justify-between text-xs">
-                            <span class="text-slate-500">Capital Raised:</span>
-                            <span class="font-heading font-bold text-slate-800 text-sm">
-                                <?php echo esc_html( angel_format_currency( $deal['amount_raised'], $deal['currency'] ) ); ?>
+                            <span class="text-slate-500 font-medium"><?php esc_html_e( 'Capital Sought:', 'angel-network' ); ?></span>
+                            <span class="font-heading font-extrabold text-primary text-base">
+                                <?php echo esc_html( angel_format_currency( $capital_sought, $currency ) ); ?>
                             </span>
                         </div>
                         <div class="flex items-center justify-between text-xs pt-2 border-t border-slate-200">
-                            <span class="text-slate-500 font-semibold">Min. Check Size:</span>
-                            <span class="font-heading font-extrabold text-accent text-sm">
-                                <?php echo esc_html( angel_format_currency( $deal['minimum_investment'], $deal['currency'] ) ); ?>
+                            <span class="text-slate-500 font-medium"><?php esc_html_e( 'Min. Investment:', 'angel-network' ); ?></span>
+                            <span class="font-heading font-bold text-slate-800 text-sm">
+                                <?php echo esc_html( angel_format_currency( $deal['minimum_investment'], $currency ) ); ?>
                             </span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-2 border-t border-slate-200">
+                            <span class="text-slate-500 font-medium"><?php esc_html_e( 'Transaction Currency:', 'angel-network' ); ?></span>
+                            <span class="font-bold text-slate-700 text-xs"><?php echo esc_html( $currency ); ?></span>
                         </div>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="space-y-3">
-                        <button 
-                            type="button" 
-                            data-open-modal="auth-modal" 
-                            data-modal-tab="register" 
-                            data-modal-role="investor"
-                            class="btn btn-accent btn-lg w-full font-bold shadow-md"
+                        <a 
+                            href="<?php echo esc_url( home_url( '/contact/?type=investor&opportunity=' . urlencode( $deal['title'] ) ) ); ?>" 
+                            class="btn btn-accent btn-lg w-full font-bold shadow-md hover:shadow-lg transition-all text-center"
                         >
-                            Request Due Diligence Deck
-                        </button>
-                        <button 
-                            type="button" 
-                            data-open-modal="auth-modal" 
-                            data-modal-tab="register" 
-                            data-modal-role="investor"
-                            class="btn btn-outline-primary w-full"
+                            <?php esc_html_e( 'Request Introduction', 'angel-network' ); ?>
+                        </a>
+                        <a 
+                            href="<?php echo esc_url( home_url( '/risk-disclosure/' ) ); ?>" 
+                            class="btn btn-outline-primary btn-sm w-full text-center"
                         >
-                            Express Angel Interest
-                        </button>
+                            <?php esc_html_e( 'Read Risk Disclosure', 'angel-network' ); ?>
+                        </a>
                     </div>
 
-                    <!-- Regulatory Notice -->
-                    <p class="text-[11px] text-slate-400 leading-relaxed mt-4 text-center">
-                        Financial statements and full cap table accessible to certified accredited investors following NDA acknowledgment.
-                    </p>
+                    <!-- Report Notice (PDF Page 35) -->
+                    <div class="pt-4 mt-4 border-t border-slate-100 text-center">
+                        <a 
+                            href="<?php echo esc_url( home_url( '/contact/?subject=' . urlencode( 'Listing Notice: ' . $deal['title'] ) ) ); ?>" 
+                            class="text-[11px] text-slate-400 hover:text-red-600 transition-colors"
+                        >
+                            <?php esc_html_e( 'Report misleading claim or conflict →', 'angel-network' ); ?>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Founder Profile Box -->
+                <!-- Business Leadership Box -->
                 <div class="card p-6 bg-white border border-slate-200">
-                    <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Leadership & Founder</h3>
-                    <div class="flex items-center gap-3 mb-3">
-                        <img 
-                            src="<?php echo esc_url( $deal['founder_avatar'] ); ?>" 
-                            alt="<?php echo esc_attr( $deal['founder_name'] ); ?>" 
-                            class="w-12 h-12 rounded-full object-cover border border-slate-200"
-                        >
-                        <div>
-                            <h4 class="text-sm font-heading font-bold text-primary"><?php echo esc_html( $deal['founder_name'] ); ?></h4>
-                            <p class="text-xs text-slate-500"><?php echo esc_html( $deal['founder_role'] ); ?></p>
-                        </div>
-                    </div>
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">
+                        <?php esc_html_e( 'Enterprise Ownership', 'angel-network' ); ?>
+                    </h3>
+                    <p class="text-sm font-heading font-bold text-primary mb-1">
+                        <?php echo esc_html( $deal['company_name'] ); ?>
+                    </p>
+                    <p class="text-xs text-slate-500 mb-3"><?php echo esc_html( $deal['owner_title'] ); ?></p>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Experienced technologist and serial entrepreneur with deep technical domain expertise and executive leadership across commercial manufacturing.
+                        <?php esc_html_e( 'Registered private commercial enterprise in Cuba. Operational details and supporting materials are provided for evaluation at the business owner’s discretion.', 'angel-network' ); ?>
                     </p>
                 </div>
             </div>

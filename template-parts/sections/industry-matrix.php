@@ -39,11 +39,8 @@ $industries = angel_get_industries();
                     <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 group-hover:border-primary/20 group-hover:bg-primary group-hover:text-white flex items-center justify-center text-primary mb-3 shadow-xs transition-colors">
                         <?php echo angel_get_svg_icon( $sector['icon'], 'w-6 h-6' ); ?>
                     </div>
-                    <span class="text-sm font-heading font-bold text-slate-800 group-hover:text-primary transition-colors line-clamp-1 mb-1">
+                    <span class="text-sm font-heading font-bold text-slate-800 group-hover:text-primary transition-colors line-clamp-2">
                         <?php echo esc_html( $sector['title'] ); ?>
-                    </span>
-                    <span class="text-xs text-slate-400 font-medium">
-                        <?php echo esc_html( $sector['count'] ); ?> <?php esc_html_e( 'Deals', 'angel-network' ); ?>
                     </span>
                 </a>
             <?php endforeach; ?>

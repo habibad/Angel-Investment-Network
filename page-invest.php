@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Invest Hub
+ * Template Name: Invest Hub / Explore Opportunities
  *
  * @package InvestmentNetwork
  */
@@ -17,16 +17,42 @@ $opportunities = angel_get_opportunities();
 <!-- Subpage Hero -->
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
-    'title'    => esc_html__( 'Explore Verified Investment Dealflow', 'angel-network' ),
-    'subtitle' => esc_html__( 'Discover high-potential early-stage companies raising seed and growth capital across technology, healthcare, and industrial sectors.', 'angel-network' ),
-    'badge'    => esc_html__( 'Accredited Dealflow Hub', 'angel-network' ),
-    'bg_image' => 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1600&q=80',
+    'title'           => esc_html__( 'Explore Business Opportunities in Cuba', 'angel-network' ),
+    'subtitle'        => esc_html__( 'Discover Cuban businesses seeking capital, strategic expertise, and international partnerships across a range of sectors.', 'angel-network' ),
+    'badge'           => esc_html__( 'Cuba Investment Opportunities', 'angel-network' ),
+    'breadcrumb_text' => esc_html__( 'Investment Opportunities', 'angel-network' ),
 ] ); 
 ?>
 
-<!-- Opportunities Marketplace Hub -->
-<section class="py-16 bg-slate-50">
+<!-- Opportunities Discovery Hub -->
+<section id="opportunities" class="py-16 bg-slate-50">
     <div class="container mx-auto">
+        <!-- Pre-Launch Notice Banner -->
+        <div class="mb-10 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-accent-50 text-accent flex items-center justify-center shrink-0">
+                    <?php echo angel_get_svg_icon( 'sparkles', 'w-6 h-6' ); ?>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="badge badge-accent text-[11px] font-bold"><?php esc_html_e( 'Launch Phase', 'angel-network' ); ?></span>
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider"><?php esc_html_e( 'Initial Listing Review', 'angel-network' ); ?></span>
+                    </div>
+                    <h2 class="text-base sm:text-lg font-heading font-bold text-primary">
+                        <?php esc_html_e( 'Business Listings Currently Under Review', 'angel-network' ); ?>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                        <?php esc_html_e( 'We are onboarding Cuban enterprises and reviewing business profiles for completeness and clarity. Published summaries represent opportunities supplied directly by business owners.', 'angel-network' ); ?>
+                    </p>
+                </div>
+            </div>
+            <div class="shrink-0 flex items-center gap-3">
+                <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="btn btn-accent btn-sm font-bold whitespace-nowrap">
+                    <?php esc_html_e( 'Submit Your Business →', 'angel-network' ); ?>
+                </a>
+            </div>
+        </div>
+
         <!-- Filter Controls Bar -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-12">
             <div class="grid md:grid-cols-12 gap-4 items-center">
@@ -39,35 +65,35 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                         <input 
                             type="text" 
                             id="opportunity-search-input" 
-                            placeholder="<?php esc_attr_e( 'Search deals by keyword, location, company...', 'angel-network' ); ?>" 
+                            placeholder="<?php esc_attr_e( 'Search opportunities by sector, location, keyword...', 'angel-network' ); ?>" 
                             class="form-input pl-10"
                         >
                     </div>
                 </div>
 
                 <!-- Sector Filter Dropdown or Quick Pills -->
-                <div class="md:col-span-6 flex items-center justify-start md:justify-end gap-2 overflow-x-auto">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider hidden lg:inline">Sector:</span>
+                <div class="md:col-span-6 flex items-center justify-start md:justify-end gap-2 overflow-x-auto pb-1">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider hidden lg:inline"><?php esc_html_e( 'Sector:', 'angel-network' ); ?></span>
                     <button type="button" data-filter-sector="all" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-primary text-white border-primary shadow-xs">
-                        All
+                        <?php esc_html_e( 'All Sectors', 'angel-network' ); ?>
+                    </button>
+                    <button type="button" data-filter-sector="agriculture" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
+                        <?php esc_html_e( 'Agriculture', 'angel-network' ); ?>
                     </button>
                     <button type="button" data-filter-sector="cleantech" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
-                        CleanTech
+                        <?php esc_html_e( 'Clean Energy', 'angel-network' ); ?>
                     </button>
-                    <button type="button" data-filter-sector="ai" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
-                        AI / ML
+                    <button type="button" data-filter-sector="logistics" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
+                        <?php esc_html_e( 'Logistics', 'angel-network' ); ?>
                     </button>
-                    <button type="button" data-filter-sector="healthcare" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
-                        HealthTech
-                    </button>
-                    <button type="button" data-filter-sector="fintech" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
-                        FinTech
+                    <button type="button" data-filter-sector="manufacturing" class="px-3.5 py-2 rounded-lg text-xs font-heading font-bold border transition-colors cursor-pointer bg-white text-slate-700 border-slate-200 hover:border-slate-300">
+                        <?php esc_html_e( 'Manufacturing', 'angel-network' ); ?>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Deals Grid -->
+        <!-- Opportunities Grid -->
         <div id="opportunities-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ( $opportunities as $deal ) : ?>
                 <?php get_template_part( 'template-parts/cards/card-opportunity', null, [ 'deal' => $deal ] ); ?>
@@ -79,40 +105,67 @@ get_template_part( 'template-parts/hero/hero-page', null, [
             <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mx-auto mb-4">
                 <?php echo angel_get_svg_icon( 'search', 'w-6 h-6' ); ?>
             </div>
-            <h3 class="text-base font-heading font-bold text-primary mb-2">No Deals Found</h3>
-            <p class="text-xs text-slate-500 mb-4">Try adjusting your keyword search or clear sector filters.</p>
+            <h3 class="text-base font-heading font-bold text-primary mb-2"><?php esc_html_e( 'No Matching Opportunities', 'angel-network' ); ?></h3>
+            <p class="text-xs text-slate-500 mb-4"><?php esc_html_e( 'Try adjusting your search query or selecting a different sector filter.', 'angel-network' ); ?></p>
             <button type="button" onclick="document.querySelector('[data-filter-sector=\'all\']').click(); document.getElementById('opportunity-search-input').value = '';" class="btn btn-secondary btn-sm">
-                Reset Filters
+                <?php esc_html_e( 'Reset Filters', 'angel-network' ); ?>
             </button>
         </div>
     </div>
 </section>
 
-<!-- Investor Criteria & Accreditation Section -->
-<section id="criteria" class="py-16 bg-white">
+<!-- Investor Eligibility Section (PDF Page 8-9 Jurisdiction-Neutral) -->
+<section id="eligibility" class="py-16 bg-white border-t border-slate-200">
+    <span id="criteria" class="sr-only"></span><!-- Anchor alias for legacy links -->
     <div class="container mx-auto max-w-4xl">
         <div class="text-center mb-10">
-            <span class="badge badge-primary mb-2"><?php esc_html_e( 'Compliance & Eligibility', 'angel-network' ); ?></span>
+            <span class="badge badge-primary mb-2"><?php esc_html_e( 'Investor Eligibility', 'angel-network' ); ?></span>
             <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-primary">
-                Who Can Invest on Angel Network?
+                <?php esc_html_e( 'Who Can Explore Investment Opportunities?', 'angel-network' ); ?>
             </h2>
         </div>
 
         <div class="space-y-6 text-sm text-slate-600 leading-relaxed bg-slate-50 p-8 rounded-2xl border border-slate-200">
-            <p>
-                Under Canadian securities regulations, opportunities listed on the Investment Network are private placements offered pursuant to exemptions from prospectus requirements (such as the <strong>Accredited Investor Exemption</strong> under National Instrument 45-106).
+            <p class="text-base font-medium text-slate-800">
+                <?php esc_html_e( 'Investment Network Cuba is intended for adults and organizations legally permitted to consider private business opportunities in their jurisdiction. Access to a listing does not mean that a user is legally eligible or financially qualified to invest.', 'angel-network' ); ?>
             </p>
-            <p>
-                An individual is generally considered an accredited investor if they satisfy one of the following criteria:
+
+            <p class="font-semibold text-primary">
+                <?php esc_html_e( 'Before pursuing an opportunity, investors must:', 'angel-network' ); ?>
             </p>
+
             <ul class="list-disc pl-6 space-y-2 text-slate-700">
-                <li>Net financial assets (cash and securities excluding primary residence) exceeding <strong>CA$ 1,000,000</strong>; OR</li>
-                <li>Net income before taxes exceeding <strong>CA$ 200,000</strong> (or CA$ 300,000 combined with spouse) in each of the two most recent calendar years with reasonable expectation of the same in the current year; OR</li>
-                <li>Net assets (including real estate) of at least <strong>CA$ 5,000,000</strong>.</li>
+                <li><?php esc_html_e( 'Be at least 18 years old and have the legal capacity to enter into agreements.', 'angel-network' ); ?></li>
+                <li><?php esc_html_e( 'Confirm that the proposed activity is permitted under the laws applicable to them.', 'angel-network' ); ?></li>
+                <li><?php esc_html_e( 'Consider cross-border investment, sanctions, currency-transfer and foreign-ownership restrictions.', 'angel-network' ); ?></li>
+                <li><?php esc_html_e( 'Conduct independent financial, legal, tax and operational due diligence.', 'angel-network' ); ?></li>
+                <li><?php esc_html_e( 'Obtain qualified professional advice before entering into an investment agreement.', 'angel-network' ); ?></li>
             </ul>
-            <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
-                <span class="text-xs text-slate-500">Need clarification on your provincial qualification status?</span>
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="text-xs font-semibold text-primary hover:underline">Contact Compliance Desk →</a>
+
+            <p class="text-xs text-slate-500 pt-2 border-t border-slate-200">
+                <?php esc_html_e( 'Investment Network Cuba does not determine a user’s legal eligibility, recommend investments or guarantee any opportunity.', 'angel-network' ); ?>
+            </p>
+
+            <!-- Cross-Border & Sanctions Alert Box -->
+            <div class="p-4 bg-white rounded-xl border-l-4 border-gold border border-slate-200 text-xs text-slate-700 space-y-1.5">
+                <p class="font-bold text-primary"><?php esc_html_e( 'Notice Regarding Cross-Border Restrictions (U.S. & International):', 'angel-network' ); ?></p>
+                <p>
+                    <?php esc_html_e( 'Persons subject to United States jurisdiction face Cuba-related restrictions under U.S. sanctions regulations (OFAC) and generally cannot invest or conduct business in Cuba without specific authorization. International investors must independently determine that participation complies with their domestic laws and foreign investment regulations.', 'angel-network' ); ?>
+                </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="text-xs text-slate-500">
+                    <?php esc_html_e( 'Eligibility depends on your jurisdiction and individual circumstances.', 'angel-network' ); ?>
+                </span>
+                <div class="flex items-center gap-4">
+                    <a href="<?php echo esc_url( home_url( '/risk-disclosure/' ) ); ?>" class="text-xs font-bold text-primary hover:text-accent transition-colors">
+                        <?php esc_html_e( 'Read the Investment Notice →', 'angel-network' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="text-xs font-semibold text-slate-600 hover:text-primary transition-colors">
+                        <?php esc_html_e( 'Support →', 'angel-network' ); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

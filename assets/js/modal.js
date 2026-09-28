@@ -5,7 +5,10 @@
 
 window.AngelModal = {
     openModal(modalId, initialTab = 'register', initialRole = 'investor') {
-        const modal = document.getElementById(modalId);
+        let modal = document.getElementById(modalId);
+        if (!modal && (modalId === 'auth-modal' || modalId === 'choice-modal')) {
+            modal = document.getElementById('choice-modal') || document.getElementById('auth-modal');
+        }
         if (!modal) return;
 
         modal.classList.remove('hidden');
@@ -18,15 +21,18 @@ window.AngelModal = {
         // Set Role (investor or entrepreneur)
         this.switchRole(initialRole);
 
-        // Focus first input
-        const firstInput = modal.querySelector('input:not([type="hidden"])');
-        if (firstInput) {
-            setTimeout(() => firstInput.focus(), 50);
+        // Focus first interactive element or input
+        const firstFocusable = modal.querySelector('button:not([data-close-modal]), a, input:not([type="hidden"])');
+        if (firstFocusable) {
+            setTimeout(() => firstFocusable.focus(), 50);
         }
     },
 
     closeModal(modalId) {
-        const modal = document.getElementById(modalId);
+        let modal = document.getElementById(modalId);
+        if (!modal && (modalId === 'auth-modal' || modalId === 'choice-modal')) {
+            modal = document.getElementById('choice-modal') || document.getElementById('auth-modal');
+        }
         if (!modal) return;
 
         modal.classList.add('hidden');

@@ -28,12 +28,12 @@ $articles      = angel_get_blog_posts();
         <!-- Section Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 reveal-on-scroll">
             <div>
-                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Opportunities', 'angel-network' ); ?></span>
+                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Reviewed Opportunities', 'angel-network' ); ?></span>
                 <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
-                    <?php esc_html_e( 'Featured Investment Opportunities', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Cuba Investment Opportunities', 'angel-network' ); ?>
                 </h2>
                 <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Browse verified seed and growth-stage startup pitches actively raising capital.', 'angel-network' ); ?>
+                    <?php esc_html_e( 'Discover Cuban businesses seeking capital, strategic expertise, and international partnerships across a range of sectors.', 'angel-network' ); ?>
                 </p>
             </div>
 
@@ -97,7 +97,7 @@ $articles      = angel_get_blog_posts();
         <!-- Hub Action -->
         <div class="mt-14 text-center reveal-on-scroll">
             <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="btn btn-primary btn-lg">
-                <span><?php esc_html_e( 'View All Investment Pitches →', 'angel-network' ); ?></span>
+                <span><?php esc_html_e( 'Explore All Opportunities →', 'angel-network' ); ?></span>
             </a>
         </div>
     </div>
@@ -106,29 +106,31 @@ $articles      = angel_get_blog_posts();
 <!-- 5. Dual Pathway Section (For Investors vs For Business) -->
 <?php get_template_part( 'template-parts/sections/dual-pathway' ); ?>
 
-<!-- 6. Verified Investor Showcase -->
+<!-- 6. Investor Network Section (PDF Pages 28-30: No fake investors) -->
 <section id="investors" class="py-20 bg-white">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal-on-scroll">
-            <div>
-                <span class="badge badge-primary mb-3"><?php esc_html_e( 'Accredited Network', 'angel-network' ); ?></span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary">
-                    <?php esc_html_e( 'Meet Active Investors', 'angel-network' ); ?>
+        <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white relative overflow-hidden shadow-xl reveal-on-scroll">
+            <div class="max-w-2xl relative z-10">
+                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Investor Network', 'angel-network' ); ?></span>
+                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-4">
+                    <?php esc_html_e( 'Connect with Cuba’s Emerging Private Sector', 'angel-network' ); ?>
                 </h2>
-                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-xl">
-                    <?php esc_html_e( 'Connect with investors actively seeking promising investment opportunities.', 'angel-network' ); ?>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                    <?php esc_html_e( 'We introduce international investors, family offices, and strategic partners to business owners seeking growth capital and commercial partnerships across Cuba.', 'angel-network' ); ?>
                 </p>
-            </div>
-            <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="mt-4 md:mt-0 text-sm font-semibold text-primary hover:text-accent flex items-center gap-1.5 transition-colors">
-                <span><?php esc_html_e( 'Pitch to Our Network', 'angel-network' ); ?></span>
-                <?php echo angel_get_svg_icon( 'arrow-right', 'w-4 h-4' ); ?>
-            </a>
-        </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-group>
-            <?php foreach ( $investors as $investor ) : ?>
-                <?php get_template_part( 'template-parts/cards/card-investor', null, [ 'investor' => $investor ] ); ?>
-            <?php endforeach; ?>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="btn btn-accent btn-lg font-bold shadow-md">
+                        <?php esc_html_e( 'Investor Eligibility & Guidelines →', 'angel-network' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/contact/?type=investor' ) ); ?>" class="btn btn-secondary btn-lg font-bold">
+                        <?php esc_html_e( 'Register Investor Interest', 'angel-network' ); ?>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Background subtle accent -->
+            <div class="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-primary-light/40 rounded-full blur-3xl pointer-events-none"></div>
         </div>
     </div>
 </section>

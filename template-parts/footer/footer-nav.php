@@ -36,11 +36,8 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 </p>
 
                 <div class="flex items-center gap-3">
-                    <div class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
-                        🔒 256-Bit SSL Encrypted
-                    </div>
-                    <div class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
-                        ✓ International Standards
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-semibold text-slate-300 border border-slate-700">
+                        <span class="text-accent">🔒</span> <?php esc_html_e( 'Secure Platform', 'angel-network' ); ?>
                     </div>
                 </div>
             </div>
@@ -52,9 +49,9 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 </h4>
                 <ul class="space-y-3 text-sm text-slate-400">
                     <li><a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/invest/#criteria' ) ); ?>" data-open-modal="auth-modal" data-modal-tab="register" data-modal-role="investor" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor Registration', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor Registration', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investment Process', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/invest/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 
@@ -65,9 +62,9 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 </h4>
                 <ul class="space-y-3 text-sm text-slate-400">
                     <li><a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Submit Your Business', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#pricing' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Application Process', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Preparation Guide', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#faq' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Business Owner FAQ', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#before-you-apply' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Application Process', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/fundraise/#before-you-apply' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Preparation Guide', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/services/#business-owners' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Business Owner FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 
@@ -91,19 +88,13 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Investment Network. All rights reserved.</span>
                 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Privacy Policy', 'angel-network' ); ?></a>
                 <a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Terms of Service', 'angel-network' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/risk-disclosure/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Risk Disclosure', 'angel-network' ); ?></a>
             </div>
 
-            <!-- Payment & Security Indicators -->
-            <div class="flex items-center gap-4 text-[11px] text-slate-400 font-semibold tracking-wider uppercase">
-                <span>Visa</span>
-                <span>•</span>
-                <span>Mastercard</span>
-                <span>•</span>
-                <span>Amex</span>
-                <span>•</span>
-                <span>Wire Transfer</span>
-                <span>•</span>
-                <span class="text-accent font-bold">Secure Network</span>
+            <!-- Independent Platform Indicator (Removed unverified payment brands) -->
+            <div class="flex items-center gap-2.5 text-xs text-slate-400">
+                <span class="w-2 h-2 rounded-full bg-accent"></span>
+                <span class="font-medium text-slate-300"><?php esc_html_e( 'Connecting Cuba with the World', 'angel-network' ); ?></span>
             </div>
         </div>
     </div>

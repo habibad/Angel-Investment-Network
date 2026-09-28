@@ -10,18 +10,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Format currency amounts nicely (e.g. CA$ 25,000 or $1.5M)
+ * Format currency amounts with proper currency symbol (neutral, not hardcoded to CA$)
  */
-function angel_format_currency( $amount, $currency = 'CAD', $short = false ) {
-    $symbol = ( 'CAD' === $currency || 'USD' === $currency ) ? 'CA$' : '$';
+function angel_format_currency( $amount, $currency = 'USD', $short = false ) {
+    $currency = strtoupper( trim( $currency ) );
     
-    if ( $short && $amount >= 1000000 ) {
-        return $symbol . ' ' . round( $amount / 1000000, 1 ) . 'M';
-    } elseif ( $short && $amount >= 1000 ) {
-        return $symbol . ' ' . round( $amount / 1000, 0 ) . 'K';
+    switch ( $currency ) {
+        case 'EUR':
+            $symbol = '€';
+            break;
+        case 'CAD':
+            $symbol = 'CA$';
+            break;
+        case 'CUP':
+            $symbol = 'CUP $';
+            break;
+        case 'USD':
+        default:
+            $symbol = '$';
+            break;
     }
     
-    return $symbol . ' ' . number_format( (float) $amount, 0, '.', ',' );
+    if ( $short && $amount >= 1000000 ) {
+        return $symbol . round( $amount / 1000000, 1 ) . 'M ' . $currency;
+    } elseif ( $short && $amount >= 1000 ) {
+        return $symbol . round( $amount / 1000, 0 ) . 'K ' . $currency;
+    }
+    
+    return $symbol . number_format( (float) $amount, 0, '.', ',' ) . ' ' . $currency;
 }
 
 /**

@@ -1,6 +1,7 @@
 <?php
 /**
  * Primary Navigation Template Part
+ * Conforms to Cuba Investment Network audit guidelines (PDF Pages 20, 27, 30, 34)
  *
  * @package InvestmentNetwork
  */
@@ -13,9 +14,9 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
 <div class="flex items-center justify-between w-full h-20">
-    <!-- Brand Logo & Regional Tag -->
-    <div class="flex items-center gap-3">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1">
+    <!-- Brand Wordmark & Regional Tag -->
+    <div class="flex items-center gap-3 shrink-0">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1">
             <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-md group-hover:bg-primary-light transition-colors">
                 <span class="text-accent text-2xl leading-none">▲</span>
             </div>
@@ -31,91 +32,79 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
         </a>
     </div>
 
-    <!-- Desktop Navigation Menu -->
-    <nav class="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="<?php esc_attr_e( 'Primary Menu', 'angel-network' ); ?>">
-        <!-- Invest Dropdown -->
-        <div class="relative nav-item-dropdown group">
-            <button type="button" class="nav-dropdown-toggle flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20">
-                <span><?php esc_html_e( 'Invest', 'angel-network' ); ?></span>
-                <?php echo angel_get_svg_icon( 'chevron-down', 'w-4 h-4 text-slate-400 group-hover:text-primary transition-transform duration-200 group-hover:rotate-180' ); ?>
-            </button>
-            <div class="absolute top-full left-0 w-64 pt-2 hidden group-hover:block transition-all duration-200 z-50">
-                <div class="bg-white rounded-xl border border-slate-200 shadow-xl p-2 flex flex-col gap-1">
-                    <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="flex flex-col p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
-                        <span class="text-sm font-semibold text-slate-800"><?php esc_html_e( 'Browse Deals Hub', 'angel-network' ); ?></span>
-                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Explore verified active startup pitches', 'angel-network' ); ?></span>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/invest/#criteria' ) ); ?>" class="flex flex-col p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
-                        <span class="text-sm font-semibold text-slate-800"><?php esc_html_e( 'Investor Criteria & FAQ', 'angel-network' ); ?></span>
-                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Accreditation guidelines & ticket sizes', 'angel-network' ); ?></span>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- Desktop Navigation Menu (Organized & Styled) -->
+    <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5" aria-label="<?php esc_attr_e( 'Primary Menu', 'angel-network' ); ?>">
+        <!-- Opportunities -->
+        <a 
+            href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
+            <?php esc_html_e( 'Opportunities', 'angel-network' ); ?>
+        </a>
 
-        <!-- Fundraise Dropdown -->
-        <div class="relative nav-item-dropdown group">
-            <button type="button" class="nav-dropdown-toggle flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20">
-                <span><?php esc_html_e( 'Fundraise', 'angel-network' ); ?></span>
-                <?php echo angel_get_svg_icon( 'chevron-down', 'w-4 h-4 text-slate-400 group-hover:text-primary transition-transform duration-200 group-hover:rotate-180' ); ?>
-            </button>
-            <div class="absolute top-full left-0 w-64 pt-2 hidden group-hover:block transition-all duration-200 z-50">
-                <div class="bg-white rounded-xl border border-slate-200 shadow-xl p-2 flex flex-col gap-1">
-                    <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="flex flex-col p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
-                        <span class="text-sm font-semibold text-slate-800"><?php esc_html_e( 'Pitch Your Startup', 'angel-network' ); ?></span>
-                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Raise seed or growth capital from angels', 'angel-network' ); ?></span>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/fundraise/#pricing' ) ); ?>" class="flex flex-col p-2.5 rounded-lg hover:bg-slate-50 transition-colors">
-                        <span class="text-sm font-semibold text-slate-800"><?php esc_html_e( 'Listing Tiers & Pricing', 'angel-network' ); ?></span>
-                        <span class="text-xs text-slate-500"><?php esc_html_e( 'Standard, Pro & Global Network options', 'angel-network' ); ?></span>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <!-- For Investors -->
+        <a 
+            href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
+            <?php esc_html_e( 'For Investors', 'angel-network' ); ?>
+        </a>
 
-        <!-- Services -->
-        <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors">
+        <!-- For Business Owners -->
+        <a 
+            href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
+            <?php esc_html_e( 'For Business Owners', 'angel-network' ); ?>
+        </a>
+
+        <!-- How It Works -->
+        <a 
+            href="<?php echo esc_url( home_url( '/services/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
             <?php esc_html_e( 'How It Works', 'angel-network' ); ?>
         </a>
 
-        <!-- About Us -->
-        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors">
-            <?php esc_html_e( 'About Us', 'angel-network' ); ?>
-        </a>
-
         <!-- Insights -->
-        <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors">
+        <a 
+            href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
             <?php esc_html_e( 'Insights', 'angel-network' ); ?>
         </a>
 
+        <!-- About Us -->
+        <a 
+            href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
+            <?php esc_html_e( 'About', 'angel-network' ); ?>
+        </a>
+
         <!-- Contact -->
-        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors">
+        <a 
+            href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" 
+            class="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors"
+        >
             <?php esc_html_e( 'Contact', 'angel-network' ); ?>
         </a>
     </nav>
 
-    <!-- Header Actions (Language Switcher / Login / Join Modal Triggers) -->
-    <div class="hidden lg:flex items-center gap-3">
+    <!-- Header Actions (Language Switcher & Join Network) -->
+    <div class="hidden lg:flex items-center gap-3 shrink-0">
         <!-- Language Switcher -->
         <div class="header-language-switcher flex items-center">
             <?php echo do_shortcode( '[gtranslate]' ); ?>
         </div>
 
-        <button 
-            type="button" 
-            data-open-modal="auth-modal" 
-            data-modal-tab="login"
-            class="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-primary rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
-        >
-            <?php esc_html_e( 'Log In', 'angel-network' ); ?>
-        </button>
-
+        <!-- Join Network Action Button (Opens Auth Modal) -->
         <button 
             type="button" 
             data-open-modal="auth-modal" 
             data-modal-tab="register" 
             data-modal-role="investor"
-            class="btn btn-primary"
+            class="btn btn-primary btn-sm px-4 py-2 font-bold shadow-xs hover:shadow-md transition-all cursor-pointer"
         >
             <?php esc_html_e( 'Join Network', 'angel-network' ); ?>
         </button>
@@ -137,31 +126,41 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 </div>
 
 <!-- Mobile Navigation Drawer -->
-<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white py-4 px-2 shadow-lg transition-all duration-300">
+<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white py-4 px-3 shadow-xl transition-all duration-300">
     <div class="flex flex-col gap-1">
-        <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'Invest in Startups', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'Opportunities', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
-        <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'Raise Capital', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'For Investors', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
-        <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'How It Works', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'For Business Owners', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
-        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'About Us', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'How It Works', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
-        <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'Venture Insights', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'Insights', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
-        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="px-3 py-2 text-base font-semibold text-slate-800 hover:bg-slate-50 rounded-lg">
-            <?php esc_html_e( 'Contact Desk', 'angel-network' ); ?>
+        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'About', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
+        </a>
+        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold text-slate-800 hover:text-primary hover:bg-slate-50 rounded-lg transition-colors">
+            <span><?php esc_html_e( 'Contact', 'angel-network' ); ?></span>
+            <span class="text-slate-400">&rarr;</span>
         </a>
     </div>
 
-    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2 px-2">
+    <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2.5 px-1">
         <!-- Mobile Language Switcher -->
-        <div class="mobile-language-switcher flex items-center justify-between px-2 py-1 mb-1 bg-slate-50 rounded-lg border border-slate-200">
+        <div class="mobile-language-switcher flex items-center justify-between px-3 py-2 bg-slate-50 rounded-lg border border-slate-200">
             <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
                 <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -173,22 +172,17 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
             </div>
         </div>
 
-        <button 
-            type="button" 
-            data-open-modal="auth-modal" 
-            data-modal-tab="login"
-            class="btn btn-secondary w-full"
-        >
-            <?php esc_html_e( 'Log In', 'angel-network' ); ?>
-        </button>
-        <button 
-            type="button" 
-            data-open-modal="auth-modal" 
-            data-modal-tab="register" 
-            data-modal-role="investor"
-            class="btn btn-primary w-full"
-        >
-            <?php esc_html_e( 'Create Free Account', 'angel-network' ); ?>
-        </button>
+        <!-- Mobile Join Network -->
+        <div>
+            <button 
+                type="button" 
+                data-open-modal="auth-modal" 
+                data-modal-tab="register" 
+                data-modal-role="investor"
+                class="btn btn-primary w-full text-xs font-bold py-3 shadow-sm cursor-pointer"
+            >
+                <?php esc_html_e( 'Join Network', 'angel-network' ); ?>
+            </button>
+        </div>
     </div>
 </div>

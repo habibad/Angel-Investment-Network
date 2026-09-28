@@ -66,7 +66,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2.5 mt-2.5 border-t border-slate-800">
                 <div class="flex items-center gap-2 text-[11px] text-slate-400">
                     <span class="inline-block w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                    <span><?php esc_html_e( 'General Risk Disclosure • Investors & Business Owners', 'angel-network' ); ?></span>
+                    <a href="<?php echo esc_url( home_url( '/risk-disclosure/' ) ); ?>" class="text-slate-300 hover:text-white underline underline-offset-2 transition-colors">
+                        <?php esc_html_e( 'General Risk Disclosure • Investors & Business Owners', 'angel-network' ); ?> &rarr;
+                    </a>
                 </div>
 
                 <div class="flex items-center gap-2">

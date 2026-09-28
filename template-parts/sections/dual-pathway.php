@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-700">
                             <span class="text-accent"><?php echo angel_get_svg_icon( 'check', 'w-4 h-4' ); ?></span>
-                            <span><?php esc_html_e( 'Direct founder communication and pitch-deck access', 'angel-network' ); ?></span>
+                            <span><?php esc_html_e( 'Direct communication with business owners and pitch-deck access', 'angel-network' ); ?></span>
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-700">
                             <span class="text-accent"><?php echo angel_get_svg_icon( 'check', 'w-4 h-4' ); ?></span>

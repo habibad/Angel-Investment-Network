@@ -32,25 +32,25 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 
         <!-- Dual CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
-                type="button" 
+            <a 
+                href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" 
                 data-open-modal="auth-modal" 
                 data-modal-tab="register" 
                 data-modal-role="investor"
                 class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
             >
                 <?php esc_html_e( 'Join as an Investor', 'angel-network' ); ?>
-            </button>
+            </a>
 
-            <button 
-                type="button" 
+            <a 
+                href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
                 data-open-modal="auth-modal" 
                 data-modal-tab="register" 
                 data-modal-role="entrepreneur"
                 class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
             >
-                <?php esc_html_e( 'Apply as a Business Owner', 'angel-network' ); ?>
-            </button>
+                <?php esc_html_e( 'Join as a Fundraiser', 'angel-network' ); ?>
+            </a>
         </div>
 
         <p class="text-xs text-slate-400 mt-6">

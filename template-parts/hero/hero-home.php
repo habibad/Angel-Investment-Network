@@ -39,19 +39,19 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                     <?php esc_html_e( 'We bridge the funding gap between ambitious Cuban enterprises and global investors.', 'angel-network' ); ?>
                 </p>
 
-                <!-- Dual Intent Entry Point (Invest vs Fundraise) -->
+                <!-- Dual Intent Entry Point (PDF Page 34: Explore Opportunities vs Present Your Business) -->
                 <div class="w-full sm:w-fit max-w-2xl p-2.5 sm:p-3 bg-white rounded-2xl border border-slate-200 shadow-card mb-4 hero-pop-in delay-400">
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <div class="flex items-center gap-2 w-full sm:w-auto px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 shrink-0">
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
+                            <label for="hero-objective-select" class="text-xs font-bold text-slate-500 uppercase tracking-wider whitespace-nowrap">
                                 <?php esc_html_e( 'I want to', 'angel-network' ); ?>:
-                            </span>
+                            </label>
                             <select 
                                 id="hero-objective-select" 
                                 class="bg-transparent text-sm font-heading font-bold text-primary focus:outline-none cursor-pointer pr-3"
                             >
-                                <option value="invest"><?php esc_html_e( 'Invest in Startups', 'angel-network' ); ?></option>
-                                <option value="fundraise"><?php esc_html_e( 'Raise Capital (Fundraise)', 'angel-network' ); ?></option>
+                                <option value="invest"><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></option>
+                                <option value="fundraise"><?php esc_html_e( 'Present Your Business', 'angel-network' ); ?></option>
                             </select>
                         </div>
 
@@ -64,64 +64,61 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                         </a>
                     </div>
                 </div>
+
+                <!-- Trust Micro-Notice -->
+                <p class="text-xs text-slate-500 mt-2 flex items-center gap-1.5 hero-fade-up delay-500">
+                    <span class="text-accent"><?php echo angel_get_svg_icon( 'check', 'w-3.5 h-3.5' ); ?></span>
+                    <span><?php esc_html_e( 'Direct discussions between business owners and investors. Free during launch.', 'angel-network' ); ?></span>
+                </p>
             </div>
 
-            <!-- Right Column: Visual Composition with Floating Interactive Cards -->
+            <!-- Right Column: Cuba Silhouette & Authentic Business Composition (PDF Pages 28-30 & 34) -->
             <div class="lg:col-span-5 relative flex items-center justify-center">
                 <!-- Centerpiece Visual Canvas -->
                 <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 hero-scale-in delay-200">
                     <img 
-                        src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" 
-                        alt="Investment Network Boardroom" 
-                        class="w-full h-full object-cover opacity-80"
+                        src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" 
+                        alt="<?php esc_attr_e( 'Cuban Enterprise and Private Sector Growth', 'angel-network' ); ?>" 
+                        class="w-full h-full object-cover opacity-85"
                     >
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
 
-                    <!-- Bottom Overlay Stat Inside Photo -->
+                    <!-- Bottom Overlay Banner: Cuba Silhouette & Global Network -->
                     <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/95 backdrop-blur-md rounded-xl border border-white/40 shadow-lg">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">
                                     <?php echo angel_get_svg_icon( 'sparkles', 'w-5 h-5' ); ?>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider"><?php esc_html_e( 'Marketplace Dealflow', 'angel-network' ); ?></p>
-                                    <p class="text-sm font-heading font-extrabold text-primary"><?php esc_html_e( '18 New Deals This Week', 'angel-network' ); ?></p>
+                                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider"><?php esc_html_e( 'Connecting Cuba with the World', 'angel-network' ); ?></p>
+                                    <p class="text-sm font-heading font-extrabold text-primary"><?php esc_html_e( 'Private Enterprise Directory', 'angel-network' ); ?></p>
                                 </div>
                             </div>
-                            <span class="badge badge-accent text-[11px]"><?php esc_html_e( 'Live', 'angel-network' ); ?></span>
+                            <span class="badge badge-accent text-[11px] font-bold"><?php esc_html_e( 'Active', 'angel-network' ); ?></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Floating Card 1: Top Angel Badge (Top Right) -->
-                <div class="absolute -top-4 -right-4 sm:-right-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-subtle z-20 hero-pop-in delay-500">
-                    <img 
-                        src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" 
-                        alt="Christina S." 
-                        class="w-11 h-11 rounded-full object-cover border border-slate-200"
-                    >
+                <!-- Floating Card 1: Direct Communication Badge (Top Right) -->
+                <div class="absolute -top-4 -right-4 sm:-right-6 bg-white p-3.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 z-20 hero-pop-in delay-500">
+                    <div class="w-10 h-10 rounded-xl bg-primary-50 text-primary flex items-center justify-center shrink-0">
+                        <?php echo angel_get_svg_icon( 'activity', 'w-5 h-5 text-accent' ); ?>
+                    </div>
                     <div class="flex flex-col">
-                        <div class="flex items-center gap-1">
-                            <span class="text-xs font-bold text-slate-800">Christina S.</span>
-                            <?php echo angel_get_svg_icon( 'verified', 'w-3.5 h-3.5 text-accent' ); ?>
-                        </div>
-                        <span class="text-[10px] text-slate-400">Verified Angel Investor</span>
-                        <span class="text-[11px] font-bold text-accent font-heading">$25K - $500K Check</span>
+                        <span class="text-xs font-bold text-slate-800"><?php esc_html_e( 'Direct Connections', 'angel-network' ); ?></span>
+                        <span class="text-[10px] text-slate-500"><?php esc_html_e( 'No Intermediary Fees', 'angel-network' ); ?></span>
                     </div>
                 </div>
 
-                <!-- Floating Card 2: Pitch Milestone (Middle Left) -->
-                <div class="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1.5 z-20 max-w-[220px] hero-pop-in-center delay-650">
+                <!-- Floating Card 2: Initial Review Milestone (Middle Left) -->
+                <div class="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1.5 z-20 max-w-[210px] hero-pop-in-center delay-650">
                     <div class="flex items-center justify-between">
-                        <span class="badge badge-gold text-[10px] py-0.5 px-2 font-bold">Series Seed</span>
-                        <span class="text-[10px] text-slate-400 font-semibold">70% Funded</span>
+                        <span class="badge badge-primary text-[10px] py-0.5 px-2 font-bold"><?php esc_html_e( 'Reviewed Listings', 'angel-network' ); ?></span>
+                        <span class="text-[10px] text-accent font-semibold"><?php esc_html_e( 'Launch Phase', 'angel-network' ); ?></span>
                     </div>
-                    <span class="text-xs font-heading font-bold text-primary truncate">AeroPure CleanTech</span>
-                    <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                        <div class="h-full bg-accent rounded-full" style="width: 70%;"></div>
-                    </div>
-                    <span class="text-[10px] text-slate-500">$1.05M of $1.5M Goal</span>
+                    <span class="text-xs font-heading font-bold text-primary truncate"><?php esc_html_e( 'Emerging Enterprises', 'angel-network' ); ?></span>
+                    <span class="text-[10px] text-slate-500"><?php esc_html_e( 'Cuba-focused opportunities across key sectors', 'angel-network' ); ?></span>
                 </div>
             </div>
         </div>

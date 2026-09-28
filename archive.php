@@ -18,10 +18,10 @@ $articles      = angel_get_blog_posts();
 <!-- Subpage Hero -->
 <?php 
 get_template_part( 'template-parts/hero/hero-page', null, [
-    'title'    => esc_html( $archive_title ? $archive_title : 'Venture Insights & Market Research' ),
-    'subtitle' => esc_html__( 'Quarterly valuation reports, seed investment playbooks, and founder fundraising intelligence.', 'angel-network' ),
-    'badge'    => esc_html__( 'Editorial Archive', 'angel-network' ),
-    'bg_image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
+    'title'    => esc_html( $archive_title ? $archive_title : 'Insights & Resources' ),
+    'subtitle' => esc_html__( 'Articles, market observations, and practical resources for business owners and investors exploring opportunities connected to Cuba.', 'angel-network' ),
+    'badge'    => esc_html__( 'Insights & Resources', 'angel-network' ),
+    'bg_image' => 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>
 

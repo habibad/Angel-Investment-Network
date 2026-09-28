@@ -13,10 +13,25 @@ get_header();
 ?>
 
 <?php 
+$slug = get_post_field( 'post_name', get_post() );
+$badge = esc_html__( 'Platform Information', 'angel-network' );
+$subtitle = '';
+
+if ( 'privacy-policy' === $slug ) {
+    $badge = esc_html__( 'Legal & Governance', 'angel-network' );
+    $subtitle = esc_html__( 'How Cuba Investment Network collects, uses, and safeguards personal and business information.', 'angel-network' );
+} elseif ( 'terms-and-conditions' === $slug ) {
+    $badge = esc_html__( 'Terms of Service', 'angel-network' );
+    $subtitle = esc_html__( 'Operating rules, platform limitations, and user responsibilities across the network.', 'angel-network' );
+} elseif ( 'risk-disclosure' === $slug ) {
+    $badge = esc_html__( 'Investment Notice', 'angel-network' );
+    $subtitle = esc_html__( 'Important disclosures regarding private business opportunities, illiquidity, and cross-border regulatory considerations.', 'angel-network' );
+}
+
 get_template_part( 'template-parts/hero/hero-page', null, [
     'title'    => get_the_title(),
-    'subtitle' => '',
-    'badge'    => esc_html__( 'Platform Documentation', 'angel-network' ),
+    'subtitle' => $subtitle,
+    'badge'    => $badge,
     'bg_image' => 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
 ] ); 
 ?>

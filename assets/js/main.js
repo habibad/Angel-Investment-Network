@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const val = e.target.value;
             if (val === 'fundraise') {
                 heroGetStartedBtn.href = `${homeUrl}fundraise/`;
-                heroGetStartedBtn.innerHTML = '<span>Apply for Funding</span>&nbsp;&rarr;';
-                heroGetStartedBtn.setAttribute('data-modal-role', 'entrepreneur');
+                heroGetStartedBtn.innerHTML = '<span>Present Your Business</span>&nbsp;&rarr;';
+                heroGetStartedBtn.setAttribute('data-modal-role', 'business_owner');
             } else {
                 heroGetStartedBtn.href = `${homeUrl}invest/`;
                 heroGetStartedBtn.innerHTML = '<span>Explore Opportunities</span>&nbsp;&rarr;';

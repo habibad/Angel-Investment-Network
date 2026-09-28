@@ -12,35 +12,36 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$title    = isset( $args['title'] ) ? $args['title'] : get_the_title();
-$subtitle = isset( $args['subtitle'] ) ? $args['subtitle'] : '';
-$badge    = isset( $args['badge'] ) ? $args['badge'] : '';
-$bg_image = isset( $args['bg_image'] ) ? $args['bg_image'] : '';
+$title           = isset( $args['title'] ) ? $args['title'] : get_the_title();
+$subtitle        = isset( $args['subtitle'] ) ? $args['subtitle'] : '';
+$badge           = isset( $args['badge'] ) ? $args['badge'] : '';
+$bg_image        = isset( $args['bg_image'] ) ? $args['bg_image'] : '';
+$breadcrumb_text = isset( $args['breadcrumb_text'] ) ? $args['breadcrumb_text'] : '';
 
-// Meaningful contextual background image assignment if not explicitly passed
+// Contextual background image assignment avoiding crypto charts and generic stock executives
 if ( empty( $bg_image ) ) {
     if ( is_page( 'invest' ) ) {
-        // High-conviction dealflow & capital allocation desk
-        $bg_image = 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1600&q=80';
+        // International business network and connectivity
+        $bg_image = 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_page( 'fundraise' ) ) {
-        // Executive tech founder pitching with confidence on the right
-        $bg_image = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80';
+        // Authentic business operations, industry, and enterprise production
+        $bg_image = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_page( 'services' ) ) {
-        // High-growth venture workshop, diligence & platform mechanics
-        $bg_image = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80';
+        // Structured workflow, evaluation, and professional review
+        $bg_image = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_page( 'about-us' ) || is_page( 'about' ) ) {
-        // Investment leadership team & investment committee collaboration
-        $bg_image = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80';
+        // Enterprise collaboration, strategy, and multisector operations
+        $bg_image = 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_page( 'contact' ) ) {
-        // Financial district headquarters & corporate investment tower
-        $bg_image = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80';
+        // International communication, inquiry channels, and global connection
+        $bg_image = 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_home() || is_archive() || is_category() ) {
-        // Venture research, data analytics & market intelligence
+        // Economic research and market intelligence
         $bg_image = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80';
     } elseif ( has_post_thumbnail() ) {
         $bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
     } else {
-        // Institutional architectural perspective
+        // Understated modern architectural perspective
         $bg_image = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80';
     }
 }
@@ -73,7 +74,17 @@ if ( empty( $bg_image ) ) {
                     <span><?php esc_html_e( 'Home', 'angel-network' ); ?></span>
                 </a>
                 <span class="text-slate-600">/</span>
-                <span class="text-slate-300 truncate max-w-xs"><?php echo esc_html( ! empty( $badge ) ? $badge : $title ); ?></span>
+                <span class="text-slate-300 truncate max-w-xs">
+                    <?php 
+                    if ( ! empty( $breadcrumb_text ) ) {
+                        echo esc_html( $breadcrumb_text );
+                    } elseif ( ! empty( $badge ) ) {
+                        echo esc_html( $badge );
+                    } else {
+                        echo esc_html( $title );
+                    }
+                    ?>
+                </span>
             </nav>
 
             <!-- Pill Badge -->

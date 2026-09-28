@@ -26,6 +26,8 @@ function angel_add_rewrite_rules() {
     add_rewrite_rule( '^opportunity/([^/]+)/?$', 'index.php?angel_opportunity=$matches[1]', 'top' );
     add_rewrite_rule( '^investor/([^/]+)/?$', 'index.php?angel_investor=$matches[1]', 'top' );
     add_rewrite_rule( '^opportunities/?$', 'index.php?pagename=invest', 'top' );
+    add_rewrite_rule( '^blog/([^/]+)/?$', 'index.php?name=$matches[1]', 'top' );
+    add_rewrite_rule( '^insights/?$', 'index.php?pagename=blog', 'top' );
 }
 add_action( 'init', 'angel_add_rewrite_rules' );
 

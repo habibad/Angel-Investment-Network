@@ -28,7 +28,7 @@ if ( empty( $investor ) ) {
                     class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-md"
                 >
                 <?php if ( ! empty( $investor['verified'] ) ) : ?>
-                    <span class="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-xs" title="<?php esc_attr_e( 'Verified Accredited Angel', 'angel-network' ); ?>">
+                    <span class="absolute -bottom-1 -right-1 bg-white rounded-full p-0.5 shadow-xs" title="<?php esc_attr_e( 'Investor Profile', 'angel-network' ); ?>">
                         <?php echo angel_get_svg_icon( 'verified', 'w-5 h-5 text-accent' ); ?>
                     </span>
                 <?php endif; ?>
@@ -37,7 +37,7 @@ if ( empty( $investor ) ) {
             <div class="flex flex-col">
                 <div class="flex items-center gap-2">
                     <h3 class="text-base font-heading font-bold text-primary"><?php echo esc_html( $investor['name'] ); ?></h3>
-                    <span class="badge badge-accent text-[10px] py-0.5 px-2"><?php esc_html_e( 'Active Angel', 'angel-network' ); ?></span>
+                    <span class="badge badge-accent text-[10px] py-0.5 px-2"><?php esc_html_e( 'Investor Member', 'angel-network' ); ?></span>
                 </div>
                 <span class="text-xs text-slate-500 font-medium"><?php echo esc_html( $investor['role_title'] ); ?></span>
                 <span class="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
@@ -49,7 +49,7 @@ if ( empty( $investor ) ) {
 
         <!-- Investment Ticket Range Box -->
         <div class="bg-primary-50/60 border border-primary-100 rounded-xl p-3 mb-4">
-            <span class="block text-[11px] text-primary-600 font-semibold uppercase tracking-wider"><?php esc_html_e( 'Typical Check Size', 'angel-network' ); ?></span>
+            <span class="block text-[11px] text-primary-600 font-semibold uppercase tracking-wider"><?php esc_html_e( 'Investment Range', 'angel-network' ); ?></span>
             <p class="text-sm font-heading font-extrabold text-primary">
                 <?php echo esc_html( $investor['investment_range'] ); ?>
             </p>
@@ -75,14 +75,11 @@ if ( empty( $investor ) ) {
 
     <!-- Action Button -->
     <div class="pt-4 border-t border-slate-100">
-        <button 
-            type="button" 
-            data-open-modal="auth-modal" 
-            data-modal-tab="register" 
-            data-modal-role="entrepreneur"
+        <a 
+            href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" 
             class="btn btn-outline-primary btn-sm w-full hover:bg-primary hover:text-white transition-colors"
         >
-            <?php esc_html_e( 'Send Pitch to Investor', 'angel-network' ); ?>
-        </button>
+            <?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?> &rarr;
+        </a>
     </div>
 </article>

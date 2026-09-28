@@ -99,13 +99,13 @@ function angel_scripts() {
         'restUrl'       => esc_url_raw( rest_url( 'angel/v1' ) ),
         'nonce'         => wp_create_nonce( 'angel_public_nonce' ),
         'homeUrl'       => esc_url_raw( home_url( '/' ) ),
-        'currency'      => 'CAD',
-        'currencySymbol'=> 'CA$',
+        'currency'      => 'USD',
+        'currencySymbol'=> '$',
         'i18n'          => [
             'all'           => esc_html__( 'All Sectors', 'angel-network' ),
             'noDealsFound'  => esc_html__( 'No investment opportunities match the selected criteria.', 'angel-network' ),
             'investorTitle' => esc_html__( 'Connect as an Investor', 'angel-network' ),
-            'founderTitle'  => esc_html__( 'Apply as an Entrepreneur', 'angel-network' ),
+            'founderTitle'  => esc_html__( 'Apply as a Business Owner', 'angel-network' ),
         ]
     ] );
 }
