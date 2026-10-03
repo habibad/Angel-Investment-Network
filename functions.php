@@ -29,3 +29,6 @@ require_once ANGEL_THEME_DIR . '/inc/demo-data.php';
 
 // Custom Route Handlers
 require_once ANGEL_THEME_DIR . '/inc/routes.php';
+
+// Legal Pages Auto-Installer & Content Gateway
+require_once ANGEL_THEME_DIR . '/inc/legal-pages.php';

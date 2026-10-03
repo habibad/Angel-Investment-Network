@@ -95,7 +95,15 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
     <div class="hidden lg:flex items-center gap-3 shrink-0">
         <!-- Language Switcher -->
         <div class="header-language-switcher flex items-center">
-            <?php echo do_shortcode( '[gtranslate]' ); ?>
+            <?php 
+            if ( shortcode_exists( 'gtranslate' ) ) {
+                echo do_shortcode( '[gtranslate]' );
+            } else {
+                echo '<div class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-200 transition-colors" title="' . esc_attr__( 'Multi-Language Supported', 'angel-network' ) . '">';
+                echo '<span class="text-sm">🌐</span> <span>EN / ES</span>';
+                echo '</div>';
+            }
+            ?>
         </div>
 
         <!-- Join Network Action Button (Opens Auth Modal) -->
@@ -168,7 +176,13 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 <?php esc_html_e( 'Language', 'angel-network' ); ?>
             </span>
             <div class="w-auto">
-                <?php echo do_shortcode( '[gtranslate]' ); ?>
+                <?php 
+                if ( shortcode_exists( 'gtranslate' ) ) {
+                    echo do_shortcode( '[gtranslate]' );
+                } else {
+                    echo '<span class="text-xs font-semibold text-slate-700 bg-white px-2.5 py-1 rounded border border-slate-200">EN / ES</span>';
+                }
+                ?>
             </div>
         </div>
 

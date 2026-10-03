@@ -10,6 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Handle Reverse Proxy / SSL Termination (Cloudflare, cPanel, Nginx)
+ * Ensures WordPress correctly detects HTTPS and prevents mixed content blocking
+ */
+if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) ) ) {
+    $_SERVER['HTTPS'] = 'on';
+}
+
+/**
  * Add security headers to HTTP response
  */
 function angel_add_security_headers() {

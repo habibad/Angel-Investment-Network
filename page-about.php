@@ -86,13 +86,14 @@ get_template_part( 'template-parts/hero/hero-page', null, [
             </div>
 
             <!-- Right Column: Visual Frame with Docked Direct Connections Card -->
-            <div class="lg:col-span-6 relative flex flex-col">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 min-h-[440px] sm:min-h-[500px] lg:h-full lg:min-h-[540px] flex flex-col justify-between group">
-                    <!-- High-Resolution Image -->
+            <div class="lg:col-span-6 relative flex flex-col h-full">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 w-full flex-1 flex flex-col justify-between group min-h-[480px] sm:min-h-[520px] lg:min-h-[560px]" style="min-height: 540px;">
+                    <!-- High-Resolution Enterprise / Business Image -->
                     <img 
-                        src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80" 
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
                         alt="<?php esc_attr_e( 'Cuban Enterprise and Business Development', 'angel-network' ); ?>" 
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy"
                     >
 
                     <!-- Cinematic Gradient Overlays -->

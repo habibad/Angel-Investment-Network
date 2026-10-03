@@ -32,6 +32,8 @@ add_filter( 'wp_resource_hints', 'angel_preconnect_fonts', 10, 2 );
  */
 function angel_scripts() {
     $theme_version = wp_get_theme()->get( 'Version' );
+    $is_https      = is_ssl() || ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) ) );
+    $scheme        = $is_https ? 'https' : null;
 
     // Enqueue Google Fonts (Plus Jakarta Sans & Inter)
     wp_enqueue_style(
@@ -44,7 +46,7 @@ function angel_scripts() {
     // Enqueue Compiled Tailwind CSS
     wp_enqueue_style(
         'angel-tailwind',
-        get_template_directory_uri() . '/assets/css/tailwind.css',
+        set_url_scheme( get_template_directory_uri() . '/assets/css/tailwind.css', $scheme ),
         [],
         $theme_version
     );
@@ -52,7 +54,7 @@ function angel_scripts() {
     // Enqueue Theme Style.css
     wp_enqueue_style(
         'angel-style',
-        get_stylesheet_uri(),
+        set_url_scheme( get_stylesheet_uri(), $scheme ),
         [ 'angel-tailwind' ],
         $theme_version
     );
@@ -60,7 +62,7 @@ function angel_scripts() {
     // Enqueue Navigation Script
     wp_enqueue_script(
         'angel-navigation',
-        get_template_directory_uri() . '/assets/js/navigation.js',
+        set_url_scheme( get_template_directory_uri() . '/assets/js/navigation.js', $scheme ),
         [],
         $theme_version,
         true
@@ -69,7 +71,7 @@ function angel_scripts() {
     // Enqueue Modal Controller Script
     wp_enqueue_script(
         'angel-modal',
-        get_template_directory_uri() . '/assets/js/modal.js',
+        set_url_scheme( get_template_directory_uri() . '/assets/js/modal.js', $scheme ),
         [],
         $theme_version,
         true
@@ -78,7 +80,7 @@ function angel_scripts() {
     // Enqueue Filter Engine Script (for Opportunity filtering)
     wp_enqueue_script(
         'angel-filter-engine',
-        get_template_directory_uri() . '/assets/js/filter-engine.js',
+        set_url_scheme( get_template_directory_uri() . '/assets/js/filter-engine.js', $scheme ),
         [],
         $theme_version,
         true
@@ -87,7 +89,7 @@ function angel_scripts() {
     // Main App Script
     wp_enqueue_script(
         'angel-main',
-        get_template_directory_uri() . '/assets/js/main.js',
+        set_url_scheme( get_template_directory_uri() . '/assets/js/main.js', $scheme ),
         [ 'angel-navigation', 'angel-modal', 'angel-filter-engine' ],
         $theme_version,
         true
