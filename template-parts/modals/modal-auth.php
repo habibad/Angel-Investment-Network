@@ -26,18 +26,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <!-- Modal Header with Tab Switcher -->
         <div class="px-6 pt-6 pb-2 border-b border-slate-100 bg-white">
-            <div class="flex items-center gap-2 mb-4">
-                <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-extrabold text-sm shadow-sm">
-                    <span class="text-accent text-lg">▲</span>
-                </div>
-                <div>
-                    <h3 id="modal-title" class="text-lg font-heading font-bold text-primary tracking-tight">
-                        Investment<span class="text-accent">Network</span> Cuba
-                    </h3>
-                    <span class="text-[10px] uppercase font-semibold tracking-wider text-slate-400 block">
-                        <?php esc_html_e( 'Introduction & Opportunity Portal', 'angel-network' ); ?>
-                    </span>
-                </div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+                <img 
+                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" 
+                    alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
+                    class="h-9 w-auto object-contain"
+                >
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
+                    <?php esc_html_e( 'Opportunity Portal', 'angel-network' ); ?>
+                </span>
             </div>
 
             <!-- Tab Buttons -->

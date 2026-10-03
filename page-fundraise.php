@@ -19,82 +19,89 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'subtitle'        => esc_html__( 'Create a clear business profile, explain your capital requirements, and connect with investors interested in opportunities in or connected to Cuba.', 'angel-network' ),
     'badge'           => esc_html__( 'For Business Owners', 'angel-network' ),
     'breadcrumb_text' => esc_html__( 'For Business Owners', 'angel-network' ),
-    'bg_image'        => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80',
+    'bg_image'        => get_template_directory_uri() . '/assets/images/fundrise-herobg.jpg',
 ] ); 
 ?>
 
 <!-- Before You Apply Section (PDF Pages 11-12) -->
-<section id="before-you-apply" class="py-20 bg-white">
-    <div class="container mx-auto">
-        <div class="grid lg:grid-cols-12 gap-12 items-start">
-            <div class="lg:col-span-7">
-                <span class="badge badge-accent mb-3"><?php esc_html_e( 'Before You Apply', 'angel-network' ); ?></span>
-                <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary mb-4">
-                    <?php esc_html_e( 'Prepare Your Business Information', 'angel-network' ); ?>
-                </h2>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-                    <?php esc_html_e( 'Clear and complete information helps investors understand your business, capital requirements and proposed use of funds. Prepare the following information before submitting your application.', 'angel-network' ); ?>
-                </p>
+<section id="before-you-apply" class="py-20 bg-white relative overflow-hidden">
+    <!-- Subtle ambient decorative accents -->
+    <div class="absolute top-1/4 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
 
-                <!-- Four Information Groups -->
-                <div class="space-y-5">
-                    <!-- 1. Business Overview -->
-                    <div class="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-xs">
-                            01
-                        </div>
-                        <div>
-                            <h3 class="text-base font-heading font-bold text-primary mb-1">
-                                <?php esc_html_e( 'Business Overview', 'angel-network' ); ?>
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                <?php esc_html_e( 'Provide the legal business name, location, ownership structure, operating history, products or services, target customers and current market.', 'angel-network' ); ?>
-                            </p>
-                        </div>
-                    </div>
+    <div class="container mx-auto relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-stretch">
+            <!-- Left Column: Business Requirements & CTA -->
+            <div class="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                    <span class="badge badge-accent mb-3"><?php esc_html_e( 'Before You Apply', 'angel-network' ); ?></span>
+                    <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-primary mb-4">
+                        <?php esc_html_e( 'Prepare Your Business Information', 'angel-network' ); ?>
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                        <?php esc_html_e( 'Clear and complete information helps investors understand your business, capital requirements and proposed use of funds. Prepare the following information before submitting your application.', 'angel-network' ); ?>
+                    </p>
 
-                    <!-- 2. Capital Requirements and Use of Funds -->
-                    <div class="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-xs">
-                            02
+                    <!-- Four Information Groups -->
+                    <div class="space-y-4">
+                        <!-- 1. Business Overview -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-primary/20 hover:bg-slate-50/80 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-sm">
+                                01
+                            </div>
+                            <div>
+                                <h3 class="text-base font-heading font-bold text-primary mb-1">
+                                    <?php esc_html_e( 'Business Overview', 'angel-network' ); ?>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <?php esc_html_e( 'Provide the legal business name, location, ownership structure, operating history, products or services, target customers and current market.', 'angel-network' ); ?>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-base font-heading font-bold text-primary mb-1">
-                                <?php esc_html_e( 'Capital Requirements and Use of Funds', 'angel-network' ); ?>
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                <?php esc_html_e( 'State the amount and currency sought, how the capital will be used, the expected business impact and the proposed investment structure, if known.', 'angel-network' ); ?>
-                            </p>
-                        </div>
-                    </div>
 
-                    <!-- 3. Operating Performance and Milestones -->
-                    <div class="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-xs">
-                            03
+                        <!-- 2. Capital Requirements and Use of Funds -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-primary/20 hover:bg-slate-50/80 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-sm">
+                                02
+                            </div>
+                            <div>
+                                <h3 class="text-base font-heading font-bold text-primary mb-1">
+                                    <?php esc_html_e( 'Capital Requirements and Use of Funds', 'angel-network' ); ?>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <?php esc_html_e( 'State the amount and currency sought, how the capital will be used, the expected business impact and the proposed investment structure, if known.', 'angel-network' ); ?>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-base font-heading font-bold text-primary mb-1">
-                                <?php esc_html_e( 'Operating Performance and Milestones', 'angel-network' ); ?>
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                <?php esc_html_e( 'Summarize revenue history or range, customers, contracts, assets, licences, completed projects and significant growth milestones. Include supporting documents where available.', 'angel-network' ); ?>
-                            </p>
-                        </div>
-                    </div>
 
-                    <!-- 4. Management, Ownership and Key Risks -->
-                    <div class="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                        <div class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-xs">
-                            04
+                        <!-- 3. Operating Performance and Milestones -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-primary/20 hover:bg-slate-50/80 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-sm">
+                                03
+                            </div>
+                            <div>
+                                <h3 class="text-base font-heading font-bold text-primary mb-1">
+                                    <?php esc_html_e( 'Operating Performance and Milestones', 'angel-network' ); ?>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <?php esc_html_e( 'Summarize revenue history or range, customers, contracts, assets, licences, completed projects and significant growth milestones. Include supporting documents where available.', 'angel-network' ); ?>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-base font-heading font-bold text-primary mb-1">
-                                <?php esc_html_e( 'Management, Ownership and Key Risks', 'angel-network' ); ?>
-                            </h3>
-                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                                <?php esc_html_e( 'Introduce the business owners and management team, explain the ownership structure, and disclose significant liabilities, operational constraints and business risks.', 'angel-network' ); ?>
-                            </p>
+
+                        <!-- 4. Management, Ownership and Key Risks -->
+                        <div class="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-primary/20 hover:bg-slate-50/80 transition-all duration-300">
+                            <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-heading font-bold text-sm shrink-0 shadow-sm">
+                                04
+                            </div>
+                            <div>
+                                <h3 class="text-base font-heading font-bold text-primary mb-1">
+                                    <?php esc_html_e( 'Management, Ownership and Key Risks', 'angel-network' ); ?>
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                                    <?php esc_html_e( 'Introduce the business owners and management team, explain the ownership structure, and disclose significant liabilities, operational constraints and business risks.', 'angel-network' ); ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,32 +118,79 @@ get_template_part( 'template-parts/hero/hero-page', null, [
             </div>
 
             <!-- Right Column: Visual & Application Review Card -->
-            <div class="lg:col-span-5 relative mt-6 lg:mt-0">
-                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-4/3">
+            <div class="lg:col-span-5 relative flex flex-col justify-between h-full mt-8 lg:mt-0 space-y-6">
+                <!-- Visual Canvas: Generous Height, Rounded Frame with Cinematic Depth -->
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 w-full flex-1 min-h-[340px] sm:min-h-[380px] lg:min-h-[420px] group flex flex-col justify-between p-5 sm:p-6" style="min-height: 400px;">
+                    <!-- High-Resolution Image -->
                     <img 
-                        src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" 
+                        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/investment-network-cuba.jpg' ); ?>" 
                         alt="<?php esc_attr_e( 'Cuban Enterprise Operations and Production', 'angel-network' ); ?>" 
-                        class="w-full h-full object-cover"
+                        class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy"
                     >
+
+                    <!-- Cinematic Gradients -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-slate-950/40 pointer-events-none"></div>
+
+                    <!-- Top Pill Badge -->
+                    <div class="relative z-10 flex items-center justify-between">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-primary text-xs font-bold shadow-md border border-white/50">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <?php esc_html_e( 'Private Enterprise Ecosystem', 'angel-network' ); ?>
+                        </span>
+                        <span class="text-xs font-semibold text-white/90 bg-slate-900/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 hidden sm:inline-flex">
+                            <?php esc_html_e( 'Direct Capital Access', 'angel-network' ); ?>
+                        </span>
+                    </div>
+
+                    <!-- Bottom Ambient Pill on Image -->
+                    <div class="relative z-10 p-4 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-white/15 text-white shadow-xl">
+                        <p class="text-xs font-bold text-accent uppercase tracking-wider mb-1">
+                            <?php esc_html_e( 'Verified Cuban Business Profiles', 'angel-network' ); ?>
+                        </p>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            <?php esc_html_e( 'Direct communication between business owners and qualified investors with zero fund custody.', 'angel-network' ); ?>
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Application Review Info Card (PDF Page 12) -->
-                <div class="mt-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-200">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                            <?php esc_html_e( 'Application Review', 'angel-network' ); ?>
-                        </p>
+                <div class="bg-white p-6 sm:p-7 rounded-2xl shadow-xl border border-slate-200/90 shrink-0">
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                <?php esc_html_e( 'Application Review', 'angel-network' ); ?>
+                            </span>
+                        </div>
+                        <span class="badge badge-accent text-[10px] font-bold">
+                            <?php esc_html_e( 'Launch Phase', 'angel-network' ); ?>
+                        </span>
                     </div>
-                    <p class="text-base font-heading font-extrabold text-primary">
-                        <?php esc_html_e( 'Initial Review', 'angel-network' ); ?>
+
+                    <h3 class="text-base sm:text-lg font-heading font-extrabold text-primary mb-2">
+                        <?php esc_html_e( 'Initial Review & Listing Quality', 'angel-network' ); ?>
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        <?php esc_html_e( 'Submissions are reviewed for completeness and clarity before publication. Additional information may be requested to help investors understand your opportunity.', 'angel-network' ); ?>
                     </p>
-                    <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                        <?php esc_html_e( 'Submissions are reviewed for completeness and clarity before publication. Additional information may be requested.', 'angel-network' ); ?>
-                    </p>
-                    <div class="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                        <span><?php esc_html_e( 'Listing Period:', 'angel-network' ); ?></span>
-                        <span class="font-bold text-primary"><?php esc_html_e( 'Free During Launch Period', 'angel-network' ); ?></span>
+
+                    <!-- Feature Checkmarks -->
+                    <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-y-2 gap-x-4 text-xs text-slate-600 mb-4">
+                        <span class="flex items-center gap-1.5 font-medium">
+                            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <?php esc_html_e( 'Direct Negotiations', 'angel-network' ); ?>
+                        </span>
+                        <span class="flex items-center gap-1.5 font-medium">
+                            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                            <?php esc_html_e( 'Zero Intermediary Fees', 'angel-network' ); ?>
+                        </span>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span class="font-medium"><?php esc_html_e( 'Listing Period:', 'angel-network' ); ?></span>
+                        <span class="font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-md"><?php esc_html_e( 'Free During Launch Period', 'angel-network' ); ?></span>
                     </div>
                 </div>
             </div>

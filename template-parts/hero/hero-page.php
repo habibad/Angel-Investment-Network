@@ -18,14 +18,14 @@ $badge           = isset( $args['badge'] ) ? $args['badge'] : '';
 $bg_image        = isset( $args['bg_image'] ) ? $args['bg_image'] : '';
 $breadcrumb_text = isset( $args['breadcrumb_text'] ) ? $args['breadcrumb_text'] : '';
 
-// Contextual background image assignment avoiding crypto charts and generic stock executives
+// Contextual background image assignment
 if ( empty( $bg_image ) ) {
-    if ( is_page( 'invest' ) ) {
-        // International business network and connectivity
-        $bg_image = 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80';
-    } elseif ( is_page( 'fundraise' ) ) {
+    if ( is_page( 'invest' ) || is_page_template( 'page-invest.php' ) ) {
+        // Market analytics, financial indicators, and investment chart
+        $bg_image = get_template_directory_uri() . '/assets/images/hero-invest.jpg';
+    } elseif ( is_page( 'fundraise' ) || is_page( 'fundrise' ) || is_page_template( 'page-fundraise.php' ) || is_page_template( 'page-fundrise.php' ) ) {
         // Authentic business operations, industry, and enterprise production
-        $bg_image = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80';
+        $bg_image = get_template_directory_uri() . '/assets/images/fundrise-herobg.jpg';
     } elseif ( is_page( 'services' ) ) {
         // Structured workflow, evaluation, and professional review
         $bg_image = 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80';

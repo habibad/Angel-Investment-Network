@@ -12,12 +12,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
-<section id="hero-home" class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-10 pb-20 lg:pt-16 lg:pb-28">
-    <!-- Subtle Ambient Background Glows -->
-    <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-10 w-80 h-80 bg-accent-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+<section id="hero-home" class="relative isolate overflow-hidden bg-slate-50 pt-10 pb-20 lg:pt-16 lg:pb-28">
+    <!-- Contextual Background Image & Architectural Atmosphere -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <img 
+            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/main-hero-bg.jpg' ); ?>" 
+            alt="<?php esc_attr_e( 'Global Financial Hub and Strategic Capital Architecture', 'angel-network' ); ?>" 
+            class="w-full h-full object-cover object-[center_30%] opacity-35 sm:opacity-40"
+            loading="eager"
+        >
+        <!-- Directional Gradients: solid coverage on left behind text, transparent on right to showcase skyline -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-50 from-30% via-slate-50/90 via-50% to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-50/70 via-transparent to-slate-50"></div>
+    </div>
 
-    <div class="container mx-auto">
+    <!-- Subtle Ambient Background Glows -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-primary-100/30 rounded-full blur-3xl z-0 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-10 w-80 h-80 bg-accent-100/30 rounded-full blur-3xl z-0 pointer-events-none"></div>
+
+    <div class="container mx-auto relative z-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             <!-- Left Column: Copy & Dual Intent Selector -->
             <div class="lg:col-span-7 flex flex-col items-start text-left">
@@ -77,9 +90,9 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 <!-- Centerpiece Visual Canvas -->
                 <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 hero-scale-in delay-200">
                     <img 
-                        src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" 
+                        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/investment-network-cuba.jpg' ); ?>" 
                         alt="<?php esc_attr_e( 'Cuban Enterprise and Private Sector Growth', 'angel-network' ); ?>" 
-                        class="w-full h-full object-cover opacity-85"
+                        class="w-full h-full object-cover opacity-90 object-center"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
 

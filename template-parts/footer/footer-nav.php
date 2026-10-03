@@ -17,19 +17,18 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
             <!-- Brand Column -->
             <div class="lg:col-span-2">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 mb-5">
-                    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-md">
-                        <span class="text-accent text-2xl leading-none">▲</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-heading font-extrabold text-xl text-white tracking-tight">
-                            Investment<span class="text-accent">Network</span> Cuba
-                        </span>
-                        <span class="text-[10px] font-semibold text-accent tracking-wider uppercase">
-                            <?php esc_html_e( 'Connecting Cuba with the World', 'angel-network' ); ?>
-                        </span>
-                    </div>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="inline-flex items-center mb-4 group focus:outline-none focus:ring-2 focus:ring-accent rounded-lg" aria-label="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+                    <img 
+                        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo-white.png' ); ?>" 
+                        alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
+                        class="h-12 sm:h-14 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+                    >
                 </a>
+
+                <p class="text-[11px] font-semibold text-accent tracking-wider uppercase flex items-center gap-1.5 mb-5">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent"></span>
+                    <?php esc_html_e( 'Connecting Cuba with the World', 'angel-network' ); ?>
+                </p>
 
                 <p class="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
                     <?php esc_html_e( 'A platform connecting investors with Cuban business owners seeking capital, expertise, and international partnerships.', 'angel-network' ); ?>

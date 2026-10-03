@@ -14,21 +14,14 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 ?>
 
 <div class="flex items-center justify-between w-full h-20">
-    <!-- Brand Wordmark & Regional Tag -->
-    <div class="flex items-center gap-3 shrink-0">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1">
-            <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-heading font-extrabold text-xl shadow-md group-hover:bg-primary-light transition-colors">
-                <span class="text-accent text-2xl leading-none">▲</span>
-            </div>
-            <div class="flex flex-col">
-                <span class="font-heading font-extrabold text-xl leading-tight text-primary tracking-tight">
-                    Investment<span class="text-accent">Network</span>
-                </span>
-                <span class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase flex items-center gap-1">
-                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-accent"></span>
-                    <?php echo esc_html( $region_label ); ?>
-                </span>
-            </div>
+    <!-- Brand Logo -->
+    <div class="flex items-center shrink-0">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1" aria-label="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+            <img 
+                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo.png' ); ?>" 
+                alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" 
+                class="h-11 sm:h-12 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+            >
         </a>
     </div>
 

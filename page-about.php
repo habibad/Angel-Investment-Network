@@ -90,7 +90,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 w-full flex-1 flex flex-col justify-between group min-h-[480px] sm:min-h-[520px] lg:min-h-[560px]" style="min-height: 540px;">
                     <!-- High-Resolution Enterprise / Business Image -->
                     <img 
-                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
+                        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/investment-network-cuba.jpg' ); ?>" 
                         alt="<?php esc_attr_e( 'Cuban Enterprise and Business Development', 'angel-network' ); ?>" 
                         class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
