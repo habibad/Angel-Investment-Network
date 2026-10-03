@@ -38,7 +38,7 @@ $read_time = ! empty( $content ) ? angel_estimate_reading_time( $content ) : 5;
             if ( ! $post_thumb ) {
                 $slug = get_post_field( 'post_name', get_the_ID() );
                 if ( strpos( $slug, 'mipymes' ) !== false ) {
-                    $post_thumb = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80';
+                    $post_thumb = get_template_directory_uri() . '/assets/images/insights-herobg.jpg';
                 } elseif ( strpos( $slug, 'business-owners' ) !== false ) {
                     $post_thumb = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80';
                 } else {

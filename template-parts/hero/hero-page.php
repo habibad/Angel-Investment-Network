@@ -37,7 +37,7 @@ if ( empty( $bg_image ) ) {
         $bg_image = 'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1600&q=80';
     } elseif ( is_home() || is_archive() || is_category() ) {
         // Economic research and market intelligence
-        $bg_image = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80';
+        $bg_image = get_template_directory_uri() . '/assets/images/insights-herobg.jpg';
     } elseif ( has_post_thumbnail() ) {
         $bg_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
     } else {

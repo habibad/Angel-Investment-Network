@@ -36,7 +36,7 @@ if ( $db_posts->have_posts() ) {
             // Curated relevant business imagery
             $slug = get_post_field( 'post_name', get_the_ID() );
             if ( strpos( $slug, 'mipymes' ) !== false ) {
-                $thumbnail = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80';
+                $thumbnail = get_template_directory_uri() . '/assets/images/insights-herobg.jpg';
             } elseif ( strpos( $slug, 'business-owners' ) !== false ) {
                 $thumbnail = 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';
             } else {
@@ -82,7 +82,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'subtitle'        => esc_html__( 'Articles, market observations, and practical resources for business owners and investors exploring opportunities connected to Cuba.', 'angel-network' ),
     'badge'           => esc_html__( 'Insights & Resources', 'angel-network' ),
     'breadcrumb_text' => esc_html__( 'Insights', 'angel-network' ),
-    'bg_image'        => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
+    'bg_image'        => get_template_directory_uri() . '/assets/images/insights-herobg.jpg',
 ] ); 
 ?>
 

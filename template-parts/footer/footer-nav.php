@@ -72,12 +72,36 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 <h4 class="font-heading font-bold text-white text-sm uppercase tracking-wider mb-5">
                     <?php esc_html_e( 'Platform', 'angel-network' ); ?>
                 </h4>
-                <ul class="space-y-3 text-sm text-slate-400">
+                <ul class="space-y-3 text-sm text-slate-400 mb-5">
                     <li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'About Us', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'How It Works', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Market Insights', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Contact Us', 'angel-network' ); ?></a></li>
                 </ul>
+
+                <!-- Social Links -->
+                <div class="flex items-center gap-2.5">
+                    <a 
+                        href="<?php echo esc_url( get_theme_mod( 'angel_social_linkedin', 'https://www.linkedin.com' ) ); ?>" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 hover:border-slate-600 border border-slate-700 flex items-center justify-center transition-all duration-200 group"
+                        title="<?php esc_attr_e( 'LinkedIn', 'angel-network' ); ?>"
+                        aria-label="<?php esc_attr_e( 'LinkedIn', 'angel-network' ); ?>"
+                    >
+                        <?php echo angel_get_svg_icon( 'linkedin', 'w-4 h-4 transition-transform duration-200 group-hover:scale-110' ); ?>
+                    </a>
+                    <a 
+                        href="<?php echo esc_url( get_theme_mod( 'angel_social_facebook', 'https://www.facebook.com' ) ); ?>" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 hover:border-slate-600 border border-slate-700 flex items-center justify-center transition-all duration-200 group"
+                        title="<?php esc_attr_e( 'Facebook', 'angel-network' ); ?>"
+                        aria-label="<?php esc_attr_e( 'Facebook', 'angel-network' ); ?>"
+                    >
+                        <?php echo angel_get_svg_icon( 'facebook', 'w-4 h-4 transition-transform duration-200 group-hover:scale-110' ); ?>
+                    </a>
+                </div>
             </div>
         </div>
 

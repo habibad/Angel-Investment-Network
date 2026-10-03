@@ -18,7 +18,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
         <img 
             src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/main-hero-bg.jpg' ); ?>" 
             alt="<?php esc_attr_e( 'Global Financial Hub and Strategic Capital Architecture', 'angel-network' ); ?>" 
-            class="w-full h-full object-cover object-[center_30%] opacity-35 sm:opacity-40"
+            class="w-full h-full object-cover object-[center_30%] opacity-70 sm:opacity-80"
             loading="eager"
         >
         <!-- Directional Gradients: solid coverage on left behind text, transparent on right to showcase skyline -->
@@ -125,13 +125,23 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 </div>
 
                 <!-- Floating Card 2: Initial Review Milestone (Middle Left) -->
-                <div class="absolute top-1/2 -left-4 sm:-left-8 -translate-y-1/2 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-1.5 z-20 max-w-[210px] hero-pop-in-center delay-650">
-                    <div class="flex items-center justify-between">
-                        <span class="badge badge-primary text-[10px] py-0.5 px-2 font-bold"><?php esc_html_e( 'Reviewed Listings', 'angel-network' ); ?></span>
-                        <span class="text-[10px] text-accent font-semibold"><?php esc_html_e( 'Launch Phase', 'angel-network' ); ?></span>
+                <div class="absolute top-1/2 -left-4 sm:-left-8 lg:-left-10 -translate-y-1/2 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-slate-100 flex flex-col gap-2 z-20 w-[260px] sm:w-[275px] hero-pop-in-center delay-650">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="badge badge-primary text-[10px] py-0.5 px-2.5 font-bold whitespace-nowrap">
+                            <?php esc_html_e( 'Reviewed Listings', 'angel-network' ); ?>
+                        </span>
+                        <span class="text-[10px] text-accent font-bold whitespace-nowrap bg-accent-50 border border-accent-200/60 px-2 py-0.5 rounded-full">
+                            <?php esc_html_e( 'Launch Phase', 'angel-network' ); ?>
+                        </span>
                     </div>
-                    <span class="text-xs font-heading font-bold text-primary truncate"><?php esc_html_e( 'Emerging Enterprises', 'angel-network' ); ?></span>
-                    <span class="text-[10px] text-slate-500"><?php esc_html_e( 'Cuba-focused opportunities across key sectors', 'angel-network' ); ?></span>
+                    <div>
+                        <h4 class="text-xs sm:text-sm font-heading font-extrabold text-primary leading-tight">
+                            <?php esc_html_e( 'Emerging Enterprises', 'angel-network' ); ?>
+                        </h4>
+                        <p class="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed mt-0.5">
+                            <?php esc_html_e( 'Cuba-focused opportunities across key sectors', 'angel-network' ); ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

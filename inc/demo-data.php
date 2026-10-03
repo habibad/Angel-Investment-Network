@@ -226,7 +226,7 @@ function angel_get_demo_blog_posts() {
             'read_time'   => '5 min read',
             'author_name' => 'Research Desk',
             'author_role' => 'Cuba Investment Network',
-            'image'       => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80'
+            'image'       => get_template_directory_uri() . '/assets/images/insights-herobg.jpg'
         ],
         [
             'id'          => 302,

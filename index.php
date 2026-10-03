@@ -21,7 +21,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
     'subtitle'        => esc_html__( 'Articles, market observations, and practical resources for business owners and investors exploring opportunities connected to Cuba.', 'angel-network' ),
     'badge'           => esc_html__( 'Insights & Resources', 'angel-network' ),
     'breadcrumb_text' => esc_html__( 'Insights', 'angel-network' ),
-    'bg_image'        => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
+    'bg_image'        => get_template_directory_uri() . '/assets/images/insights-herobg.jpg',
 ] ); 
 ?>
 
@@ -52,7 +52,7 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <?php the_post_thumbnail( 'medium_large', [ 'class' => 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' ] ); ?>
                             <?php else : ?>
-                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" alt="<?php the_title_attribute(); ?>" class="w-full h-full object-cover">
+                                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/insights-herobg.jpg' ); ?>" alt="<?php the_title_attribute(); ?>" class="w-full h-full object-cover">
                             <?php endif; ?>
                         </div>
                         <div class="p-6 flex-1 flex flex-col justify-between">
