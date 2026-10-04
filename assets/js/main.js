@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const val = e.target.value;
             if (val === 'fundraise') {
                 heroGetStartedBtn.href = `${homeUrl}fundraise/`;
-                heroGetStartedBtn.innerHTML = '<span>Present Your Business</span>&nbsp;&rarr;';
+                heroGetStartedBtn.innerHTML = '<span>Submit your Pitch</span>&nbsp;&rarr;';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'business_owner');
             } else {
                 heroGetStartedBtn.href = `${homeUrl}invest/`;

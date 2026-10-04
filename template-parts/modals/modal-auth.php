@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </label>
                         <label id="label-role-entrepreneur" class="flex items-center justify-center gap-2 p-3 border-2 border-slate-200 rounded-xl cursor-pointer text-slate-600 font-semibold text-xs sm:text-sm transition-all hover:border-slate-300">
                             <input type="radio" name="account_role" id="role-entrepreneur" value="entrepreneur" class="text-primary focus:ring-primary">
-                            <span><?php esc_html_e( 'Join as a Fundraiser', 'angel-network' ); ?></span>
+                            <span><?php esc_html_e( 'Join as Business Owner', 'angel-network' ); ?></span>
                         </label>
                     </div>
                 </div>

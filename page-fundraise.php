@@ -109,7 +109,10 @@ get_template_part( 'template-parts/hero/hero-page', null, [
                 <!-- CTA Button -->
                 <div class="mt-8">
                     <a 
-                        href="<?php echo esc_url( home_url( '/contact/?type=business_owner' ) ); ?>" 
+                        href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
+                        data-open-modal="auth-modal" 
+                        data-modal-tab="register" 
+                        data-modal-role="entrepreneur" 
                         class="btn btn-accent btn-lg font-bold shadow-md hover:shadow-lg transition-all"
                     >
                         <?php esc_html_e( 'Start Your Application →', 'angel-network' ); ?>

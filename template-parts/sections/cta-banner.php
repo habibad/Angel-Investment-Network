@@ -49,7 +49,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                 data-modal-role="entrepreneur"
                 class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
             >
-                <?php esc_html_e( 'Join as a Fundraiser', 'angel-network' ); ?>
+                <?php esc_html_e( 'Join as a Business', 'angel-network' ); ?>
             </a>
         </div>
 
