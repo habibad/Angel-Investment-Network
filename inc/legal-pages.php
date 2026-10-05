@@ -51,7 +51,6 @@ function angel_get_privacy_policy_content() {
 
 <h2>5. Cross-Border Data Transfers &amp; International Users</h2>
 <p>Cuba Investment Network is an internationally accessible platform. Personal and business information submitted to the platform may be stored and processed on secure servers located in international jurisdictions. By submitting information, you acknowledge that international data transfers may occur in accordance with this Privacy Policy.</p>
-<p>If you are subject to Canadian privacy law, we note that the collection, use, and disclosure of personal information complies with the principles of the Personal Information Protection and Electronic Documents Act (PIPEDA) to the extent applicable to private commercial activities.</p>
 
 <h2>6. Data Retention and Security Controls</h2>
 <p>We retain personal information only for as long as necessary to fulfill the purposes for which it was collected or to satisfy legal, operational, and record-keeping requirements. We maintain reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, loss, alteration, or disclosure.</p>
