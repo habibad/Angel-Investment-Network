@@ -50,7 +50,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                     <li><a href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Explore Opportunities', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor Registration', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/services/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investment Process', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Investor FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 
@@ -63,7 +63,7 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
                     <li><a href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Submit Your Business', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/fundraise/#before-you-apply' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Application Process', 'angel-network' ); ?></a></li>
                     <li><a href="<?php echo esc_url( home_url( '/fundraise/#before-you-apply' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Preparation Guide', 'angel-network' ); ?></a></li>
-                    <li><a href="<?php echo esc_url( home_url( '/services/#business-owners' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Business Owner FAQ', 'angel-network' ); ?></a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>" class="hover:text-white transition-colors"><?php esc_html_e( 'Business Owner FAQ', 'angel-network' ); ?></a></li>
                 </ul>
             </div>
 

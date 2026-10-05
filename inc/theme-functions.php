@@ -76,3 +76,35 @@ function angel_estimate_reading_time( $content ) {
     $minutes = ceil( $word_count / 200 );
     return max( 1, $minutes );
 }
+
+/**
+ * Returns structured General FAQs for Cuba Investment Network
+ */
+function angel_get_faqs() {
+    return [
+        [
+            'q' => __( 'What is Cuba Investment Network?', 'angel-network' ),
+            'a' => __( 'Cuba Investment Network is an online platform that connects Cuban business owners seeking capital, expertise, or strategic partnerships with investors interested in exploring opportunities related to Cuba’s private sector. The platform facilitates introductions but does not act as an investment adviser, broker, or party to any transaction.', 'angel-network' ),
+        ],
+        [
+            'q' => __( 'Who can join the network?', 'angel-network' ),
+            'a' => __( 'The network is open to Cuban business owners with legitimate operating businesses or well-developed projects, as well as individual investors, angel investors, family offices, companies, and strategic partners interested in evaluating Cuba-related opportunities. Registration may be subject to an initial profile review.', 'angel-network' ),
+        ],
+        [
+            'q' => __( 'How does the platform work?', 'angel-network' ),
+            'a' => __( 'Business owners submit information about their company, operations, capital requirements, and growth plans. After an initial review, eligible opportunities may be published on the platform. Interested investors can review the available information and request a direct introduction to the business owner.', 'angel-network' ),
+        ],
+        [
+            'q' => __( 'Is it free to use the Cuba Investment Network?', 'angel-network' ),
+            'a' => __( 'Registration and participation are free during the platform’s launch phase. If paid services are introduced in the future, the applicable prices and conditions will be clearly communicated before a user chooses to purchase them. Cuba Investment Network does not currently charge commissions or success fees on investments completed between users.', 'angel-network' ),
+        ],
+        [
+            'q' => __( 'Does Cuba Investment Network verify or recommend investment opportunities?', 'angel-network' ),
+            'a' => __( 'The platform may conduct an initial review of submitted information before publishing a listing. However, this review is not a financial audit, legal verification, valuation, endorsement, or recommendation. Investors must conduct their own independent financial, legal, tax, sanctions, operational, and commercial due diligence before making any commitment.', 'angel-network' ),
+        ],
+        [
+            'q' => __( 'What happens after an investor and business owner connect?', 'angel-network' ),
+            'a' => __( 'The parties communicate directly and independently decide whether to continue discussions. Any negotiations, due diligence, professional advice, agreements, transfer of funds, and investment terms take place outside the platform and remain the responsibility of the investor and business owner. Cuba Investment Network does not hold investment funds or guarantee that a connection will result in financing.', 'angel-network' ),
+        ],
+    ];
+}

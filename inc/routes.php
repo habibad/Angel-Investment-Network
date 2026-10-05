@@ -36,6 +36,8 @@ function angel_add_rewrite_rules() {
     add_rewrite_rule( '^terms-of-service/?$', 'index.php?pagename=terms-and-conditions', 'top' );
     add_rewrite_rule( '^risk-disclosure/?$', 'index.php?pagename=risk-disclosure', 'top' );
     add_rewrite_rule( '^about-us/?$', 'index.php?pagename=about-us', 'top' );
+    add_rewrite_rule( '^faq/?$', 'index.php?pagename=faq', 'top' );
+    add_rewrite_rule( '^faqs/?$', 'index.php?pagename=faq', 'top' );
 }
 add_action( 'init', 'angel_add_rewrite_rules' );
 
@@ -117,6 +119,19 @@ function angel_template_router( $template ) {
             status_header( 200 );
         }
         $tpl = locate_template( [ 'page-about-us.php', 'page-about.php', 'page.php' ] );
+        if ( ! empty( $tpl ) ) {
+            return $tpl;
+        }
+    }
+
+    // 5. Frequently Asked Questions (FAQ) Router & Template mapping
+    if ( 'faq' === $path || 'faqs' === $path || is_page( 'faq' ) || is_page( 'faqs' ) ) {
+        if ( is_404() ) {
+            $wp_query->is_404 = false;
+            $wp_query->is_page = true;
+            status_header( 200 );
+        }
+        $tpl = locate_template( [ 'page-faq.php', 'page.php' ] );
         if ( ! empty( $tpl ) ) {
             return $tpl;
         }

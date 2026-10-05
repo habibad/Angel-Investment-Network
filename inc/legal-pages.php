@@ -177,6 +177,26 @@ function angel_get_risk_disclosure_content() {
 }
 
 /**
+ * Returns default content for Frequently Asked Questions (FAQ)
+ */
+function angel_get_faq_content() {
+    if ( function_exists( 'angel_get_faqs' ) ) {
+        $faqs = angel_get_faqs();
+        $html = '<div class="faq-accordion space-y-6">';
+        foreach ( $faqs as $index => $item ) {
+            $num = sprintf( '%02d', $index + 1 );
+            $html .= '<div class="faq-entry mb-6 pb-6 border-b border-slate-200 last:border-b-0">';
+            $html .= '<h3 class="text-lg font-bold text-slate-900 mb-2">' . esc_html( $num . '. ' . $item['q'] ) . '</h3>';
+            $html .= '<p class="text-slate-600 leading-relaxed">' . esc_html( $item['a'] ) . '</p>';
+            $html .= '</div>';
+        }
+        $html .= '</div>';
+        return $html;
+    }
+    return '';
+}
+
+/**
  * Automatically create and publish essential legal pages
  * if they do not already exist in the database.
  */
@@ -193,6 +213,10 @@ function angel_ensure_legal_pages() {
         'risk-disclosure' => [
             'title'   => 'Risk Disclosure',
             'content' => angel_get_risk_disclosure_content(),
+        ],
+        'faq' => [
+            'title'   => 'Frequently Asked Questions',
+            'content' => angel_get_faq_content(),
         ],
     ];
 
@@ -311,7 +335,14 @@ function angel_sync_legal_pages_content() {
             }
         }
 
-        update_option( 'angel_legal_pages_sync_version', $sync_version );
+        // Ensure FAQ page exists and permalinks flushed
+        $faq_page = get_page_by_path( 'faq', OBJECT, 'page' );
+        if ( ! $faq_page ) {
+            angel_ensure_legal_pages();
+            flush_rewrite_rules();
+        }
+
+        update_option( 'angel_legal_pages_sync_version', 4 );
     }
 }
 add_action( 'init', 'angel_sync_legal_pages_content' );
