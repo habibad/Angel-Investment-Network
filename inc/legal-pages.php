@@ -52,6 +52,7 @@ function angel_get_privacy_policy_content() {
 <h2>5. Cross-Border Data Transfers &amp; International Users</h2>
 <p>Cuba Investment Network is an internationally accessible platform. Personal and business information submitted to the platform may be stored and processed on secure servers located in international jurisdictions. By submitting information, you acknowledge that international data transfers may occur in accordance with this Privacy Policy.</p>
 
+
 <h2>6. Data Retention and Security Controls</h2>
 <p>We retain personal information only for as long as necessary to fulfill the purposes for which it was collected or to satisfy legal, operational, and record-keeping requirements. We maintain reasonable technical, organizational, and administrative safeguards designed to protect personal data against unauthorized access, loss, alteration, or disclosure.</p>
 
@@ -279,3 +280,38 @@ function angel_admin_init_check_pages() {
     }
 }
 add_action( 'admin_init', 'angel_admin_init_check_pages' );
+
+/**
+ * Automatically sync and clean up legacy text from legal pages in WordPress database (Local & Live)
+ */
+function angel_sync_legal_pages_content() {
+    $sync_version = 3;
+    $current_sync = (int) get_option( 'angel_legal_pages_sync_version', 0 );
+    if ( $current_sync < $sync_version ) {
+        $privacy_page = get_page_by_path( 'privacy-policy', OBJECT, 'page' );
+        if ( ! $privacy_page ) {
+            $privacy_page_id = get_option( 'wp_page_for_privacy_policy' );
+            if ( $privacy_page_id ) {
+                $privacy_page = get_post( $privacy_page_id );
+            }
+        }
+
+        if ( $privacy_page && ! empty( $privacy_page->post_content ) ) {
+            $updated_content = preg_replace(
+                '/<p>\s*If you are subject to Canadian privacy law.*?<\/p>\s*/is',
+                '',
+                $privacy_page->post_content
+            );
+
+            if ( $updated_content !== $privacy_page->post_content ) {
+                wp_update_post( [
+                    'ID'           => $privacy_page->ID,
+                    'post_content' => $updated_content,
+                ] );
+            }
+        }
+
+        update_option( 'angel_legal_pages_sync_version', $sync_version );
+    }
+}
+add_action( 'init', 'angel_sync_legal_pages_content' );
