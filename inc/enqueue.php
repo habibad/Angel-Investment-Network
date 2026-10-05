@@ -43,12 +43,33 @@ function angel_scripts() {
         null
     );
 
+    $theme_dir = get_template_directory();
+
+    // Dynamic filemtime versioning to prevent browser/CDN caching issues on live updates
+    $tailwind_path = $theme_dir . '/assets/css/tailwind.css';
+    $tailwind_ver  = file_exists( $tailwind_path ) ? filemtime( $tailwind_path ) : $theme_version;
+
+    $style_path    = get_stylesheet_directory() . '/style.css';
+    $style_ver     = file_exists( $style_path ) ? filemtime( $style_path ) : $theme_version;
+
+    $nav_path      = $theme_dir . '/assets/js/navigation.js';
+    $nav_ver       = file_exists( $nav_path ) ? filemtime( $nav_path ) : $theme_version;
+
+    $modal_path    = $theme_dir . '/assets/js/modal.js';
+    $modal_ver     = file_exists( $modal_path ) ? filemtime( $modal_path ) : $theme_version;
+
+    $filter_path   = $theme_dir . '/assets/js/filter-engine.js';
+    $filter_ver    = file_exists( $filter_path ) ? filemtime( $filter_path ) : $theme_version;
+
+    $main_path     = $theme_dir . '/assets/js/main.js';
+    $main_ver      = file_exists( $main_path ) ? filemtime( $main_path ) : $theme_version;
+
     // Enqueue Compiled Tailwind CSS
     wp_enqueue_style(
         'angel-tailwind',
         set_url_scheme( get_template_directory_uri() . '/assets/css/tailwind.css', $scheme ),
         [],
-        $theme_version
+        $tailwind_ver
     );
 
     // Enqueue Theme Style.css
@@ -56,7 +77,7 @@ function angel_scripts() {
         'angel-style',
         set_url_scheme( get_stylesheet_uri(), $scheme ),
         [ 'angel-tailwind' ],
-        $theme_version
+        $style_ver
     );
 
     // Enqueue Navigation Script
@@ -64,7 +85,7 @@ function angel_scripts() {
         'angel-navigation',
         set_url_scheme( get_template_directory_uri() . '/assets/js/navigation.js', $scheme ),
         [],
-        $theme_version,
+        $nav_ver,
         true
     );
 
@@ -73,7 +94,7 @@ function angel_scripts() {
         'angel-modal',
         set_url_scheme( get_template_directory_uri() . '/assets/js/modal.js', $scheme ),
         [],
-        $theme_version,
+        $modal_ver,
         true
     );
 
@@ -82,7 +103,7 @@ function angel_scripts() {
         'angel-filter-engine',
         set_url_scheme( get_template_directory_uri() . '/assets/js/filter-engine.js', $scheme ),
         [],
-        $theme_version,
+        $filter_ver,
         true
     );
 
@@ -91,7 +112,7 @@ function angel_scripts() {
         'angel-main',
         set_url_scheme( get_template_directory_uri() . '/assets/js/main.js', $scheme ),
         [ 'angel-navigation', 'angel-modal', 'angel-filter-engine' ],
-        $theme_version,
+        $main_ver,
         true
     );
 

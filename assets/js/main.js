@@ -10,18 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (heroObjectiveSelector && heroGetStartedBtn) {
         const homeUrl = window.angelNetworkConfig?.homeUrl || '/';
-        heroObjectiveSelector.addEventListener('change', (e) => {
-            const val = e.target.value;
+        const updateHeroButton = () => {
+            const val = heroObjectiveSelector.value;
             if (val === 'fundraise') {
                 heroGetStartedBtn.href = `${homeUrl}fundraise/`;
-                heroGetStartedBtn.innerHTML = '<span>Submit your Pitch</span>&nbsp;&rarr;';
+                heroGetStartedBtn.innerHTML = '<span>Submit a Pitch</span>&nbsp;&rarr;';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'business_owner');
             } else {
                 heroGetStartedBtn.href = `${homeUrl}invest/`;
                 heroGetStartedBtn.innerHTML = '<span>Explore Opportunities</span>&nbsp;&rarr;';
                 heroGetStartedBtn.setAttribute('data-modal-role', 'investor');
             }
-        });
+        };
+
+        heroObjectiveSelector.addEventListener('change', updateHeroButton);
+        if (heroObjectiveSelector.value === 'fundraise') {
+            updateHeroButton();
+        }
     }
 
     // =========================================================================
