@@ -340,9 +340,15 @@ function angel_sync_legal_pages_content() {
         if ( ! $faq_page ) {
             angel_ensure_legal_pages();
             flush_rewrite_rules();
+        } elseif ( ! empty( $faq_page->post_content ) ) {
+            // Keep post_content clean so page-faq.php handles the interactive accordion layout
+            wp_update_post( [
+                'ID'           => $faq_page->ID,
+                'post_content' => '',
+            ] );
         }
 
-        update_option( 'angel_legal_pages_sync_version', 4 );
+        update_option( 'angel_legal_pages_sync_version', 5 );
     }
 }
 add_action( 'init', 'angel_sync_legal_pages_content' );
