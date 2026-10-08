@@ -4,7 +4,8 @@ module.exports = {
     './*.php',
     './template-parts/**/*.php',
     './inc/**/*.php',
-    './assets/js/**/*.js'
+    './assets/js/**/*.js',
+    '../../plugins/cuba-investment-core/**/*.php'
   ],
   theme: {
     container: {

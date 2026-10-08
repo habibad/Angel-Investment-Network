@@ -116,10 +116,12 @@ function angel_scripts() {
         true
     );
 
-    // Pass dynamic configuration to front-end JavaScript
-    wp_localize_script( 'angel-main', 'angelNetworkConfig', [
+    // Pass dynamic configuration to front-end JavaScript (accessible by modal and main scripts)
+    wp_localize_script( 'angel-modal', 'angelNetworkConfig', [
         'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
         'restUrl'       => esc_url_raw( rest_url( 'angel/v1' ) ),
+        'cinRestUrl'    => esc_url_raw( rest_url( 'cin/v1' ) ),
+        'restNonce'     => wp_create_nonce( 'wp_rest' ),
         'nonce'         => wp_create_nonce( 'angel_public_nonce' ),
         'homeUrl'       => esc_url_raw( home_url( '/' ) ),
         'currency'      => 'USD',

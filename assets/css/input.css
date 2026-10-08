@@ -540,4 +540,16 @@ html[data-scroll-dir="up"] .reveal-scale:not(.is-revealed) {
   color: #334155;
 }
 
+/* Header User Navigation Dropdown */
+.nav-item-dropdown.is-open .header-user-dropdown-panel {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.nav-item-dropdown.is-open .header-chevron-icon {
+  transform: rotate(180deg) !important;
+}
+
 

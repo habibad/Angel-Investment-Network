@@ -65,3 +65,15 @@ if ( ! function_exists( 'angel_theme_setup' ) ) :
     }
 endif;
 add_action( 'after_setup_theme', 'angel_theme_setup' );
+
+/**
+ * Disable WordPress default Admin Bar on frontend for non-administrators
+ */
+function angel_disable_frontend_admin_bar() {
+    if ( ! is_admin() && ! current_user_can( 'manage_options' ) ) {
+        show_admin_bar( false );
+        add_filter( 'show_admin_bar', '__return_false' );
+    }
+}
+add_action( 'after_setup_theme', 'angel_disable_frontend_admin_bar' );
+
