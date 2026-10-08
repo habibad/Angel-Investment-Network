@@ -108,15 +108,28 @@ get_template_part( 'template-parts/hero/hero-page', null, [
 
                 <!-- CTA Button -->
                 <div class="mt-8">
-                    <a 
-                        href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
-                        data-open-modal="auth-modal" 
-                        data-modal-tab="register" 
-                        data-modal-role="entrepreneur" 
-                        class="btn btn-accent btn-lg font-bold shadow-md hover:shadow-lg transition-all"
-                    >
-                        <?php esc_html_e( 'Start Your Application →', 'angel-network' ); ?>
-                    </a>
+                    <?php if ( is_user_logged_in() ) : 
+                        $user_roles = (array) wp_get_current_user()->roles;
+                        $is_biz = in_array( 'cin_business_owner', $user_roles, true ) || ( class_exists( '\CubaInvestment\Core\Common\Constants' ) && in_array( \CubaInvestment\Core\Common\Constants::ROLE_BUSINESS_OWNER, $user_roles, true ) );
+                        $btn_target = $is_biz ? home_url( '/business-owner/business-profile/' ) : home_url( '/dashboard/' );
+                    ?>
+                        <a 
+                            href="<?php echo esc_url( $btn_target ); ?>" 
+                            class="btn btn-accent btn-lg font-bold shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2"
+                        >
+                            <span><?php echo $is_biz ? esc_html__( 'Manage Business Profile →', 'angel-network' ) : esc_html__( 'Go to Dashboard →', 'angel-network' ); ?></span>
+                        </a>
+                    <?php else : ?>
+                        <a 
+                            href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
+                            data-open-modal="auth-modal" 
+                            data-modal-tab="register" 
+                            data-modal-role="entrepreneur" 
+                            class="btn btn-accent btn-lg font-bold shadow-md hover:shadow-lg transition-all inline-flex items-center gap-2"
+                        >
+                            <span><?php esc_html_e( 'Start Your Application →', 'angel-network' ); ?></span>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
 

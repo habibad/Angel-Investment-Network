@@ -10,6 +10,17 @@ window.AngelModal = {
     currentPendingEmail: '',
 
     openModal(modalId, initialTab = 'register', initialRole = 'investor') {
+        // If user is already logged in, auth modal should never open
+        if (modalId === 'auth-modal' || modalId === 'choice-modal') {
+            const isLoggedIn = document.body.classList.contains('logged-in') || 
+                               (window.angelNetworkConfig && window.angelNetworkConfig.isLoggedIn);
+            if (isLoggedIn) {
+                const targetUrl = window.angelNetworkConfig?.dashboardUrl || '/dashboard/';
+                window.location.href = targetUrl;
+                return;
+            }
+        }
+
         let modal = document.getElementById(modalId);
         if (!modal && (modalId === 'auth-modal' || modalId === 'choice-modal')) {
             modal = document.getElementById('choice-modal') || document.getElementById('auth-modal');
@@ -168,8 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------------------------------------------
     document.querySelectorAll('[data-open-modal]').forEach(trigger => {
         trigger.addEventListener('click', (e) => {
-            e.preventDefault();
             const modalId = trigger.getAttribute('data-open-modal');
+            const isLoggedIn = document.body.classList.contains('logged-in') || 
+                               (window.angelNetworkConfig && window.angelNetworkConfig.isLoggedIn);
+
+            if (isLoggedIn && (modalId === 'auth-modal' || modalId === 'choice-modal')) {
+                e.preventDefault();
+                const href = trigger.getAttribute('href');
+                const targetUrl = (href && !href.startsWith('#')) ? href : (window.angelNetworkConfig?.dashboardUrl || '/dashboard/');
+                window.location.href = targetUrl;
+                return;
+            }
+
+            e.preventDefault();
             const initialTab = trigger.getAttribute('data-modal-tab') || 'register';
             let initialRole = trigger.getAttribute('data-modal-role') || 'investor';
             if (initialRole === 'business_owner') initialRole = 'entrepreneur';

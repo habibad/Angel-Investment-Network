@@ -10,6 +10,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
+$is_logged_in = is_user_logged_in();
+$current_user = $is_logged_in ? wp_get_current_user() : null;
+$roles        = $is_logged_in ? (array) $current_user->roles : [];
+$is_investor  = in_array( 'cin_investor', $roles, true ) || ( class_exists( '\CubaInvestment\Core\Common\Constants' ) && in_array( \CubaInvestment\Core\Common\Constants::ROLE_INVESTOR, $roles, true ) );
+$is_business  = in_array( 'cin_business_owner', $roles, true ) || ( class_exists( '\CubaInvestment\Core\Common\Constants' ) && in_array( \CubaInvestment\Core\Common\Constants::ROLE_BUSINESS_OWNER, $roles, true ) );
+
+$dashboard_url = home_url( '/dashboard/' );
+if ( $is_logged_in && class_exists( '\CubaInvestment\Core\Auth\AuthManager' ) ) {
+    $dashboard_url = \CubaInvestment\Core\Auth\AuthManager::get_user_dashboard_url( $current_user );
+}
 ?>
 
 <section class="py-20 lg:py-24 bg-gradient-to-br from-primary-900 via-primary to-primary-950 text-white relative overflow-hidden">
@@ -32,29 +42,78 @@ $region_label = get_theme_mod( 'angel_region_label', 'Cuba' );
 
         <!-- Dual CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-                href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" 
-                data-open-modal="auth-modal" 
-                data-modal-tab="register" 
-                data-modal-role="investor"
-                class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
-            >
-                <?php esc_html_e( 'Join as an Investor', 'angel-network' ); ?>
-            </a>
+            <?php if ( $is_logged_in ) : ?>
+                <?php if ( $is_investor ) : ?>
+                    <a 
+                        href="<?php echo esc_url( $dashboard_url ); ?>" 
+                        class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
+                    >
+                        <?php esc_html_e( 'Go to Investor Dashboard →', 'angel-network' ); ?>
+                    </a>
+                    <a 
+                        href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" 
+                        class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
+                    >
+                        <?php esc_html_e( 'Explore Opportunities →', 'angel-network' ); ?>
+                    </a>
+                <?php elseif ( $is_business ) : ?>
+                    <a 
+                        href="<?php echo esc_url( $dashboard_url ); ?>" 
+                        class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
+                    >
+                        <?php esc_html_e( 'Go to Business Dashboard →', 'angel-network' ); ?>
+                    </a>
+                    <a 
+                        href="<?php echo esc_url( home_url( '/business-owner/business-profile/' ) ); ?>" 
+                        class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
+                    >
+                        <?php esc_html_e( 'Manage Business Profile →', 'angel-network' ); ?>
+                    </a>
+                <?php else : ?>
+                    <a 
+                        href="<?php echo esc_url( $dashboard_url ); ?>" 
+                        class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
+                    >
+                        <?php esc_html_e( 'Access Portal Dashboard →', 'angel-network' ); ?>
+                    </a>
+                    <a 
+                        href="<?php echo esc_url( home_url( '/invest/' ) ); ?>" 
+                        class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
+                    >
+                        <?php esc_html_e( 'Explore Opportunities →', 'angel-network' ); ?>
+                    </a>
+                <?php endif; ?>
+            <?php else : ?>
+                <a 
+                    href="<?php echo esc_url( home_url( '/invest/#eligibility' ) ); ?>" 
+                    data-open-modal="auth-modal" 
+                    data-modal-tab="register" 
+                    data-modal-role="investor"
+                    class="btn btn-primary btn-lg w-full sm:w-auto bg-white text-primary hover:bg-slate-100 shadow-lg font-bold"
+                >
+                    <?php esc_html_e( 'Join as an Investor', 'angel-network' ); ?>
+                </a>
 
-            <a 
-                href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
-                data-open-modal="auth-modal" 
-                data-modal-tab="register" 
-                data-modal-role="entrepreneur"
-                class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
-            >
-                <?php esc_html_e( 'Join as a Business', 'angel-network' ); ?>
-            </a>
+                <a 
+                    href="<?php echo esc_url( home_url( '/fundraise/' ) ); ?>" 
+                    data-open-modal="auth-modal" 
+                    data-modal-tab="register" 
+                    data-modal-role="entrepreneur"
+                    class="btn btn-accent btn-lg w-full sm:w-auto font-bold shadow-lg"
+                >
+                    <?php esc_html_e( 'Join as a Business', 'angel-network' ); ?>
+                </a>
+            <?php endif; ?>
         </div>
 
-        <p class="text-xs text-slate-400 mt-6">
-            <?php esc_html_e( 'Registration is free. Business opportunities are reviewed before publication.', 'angel-network' ); ?>
-        </p>
+        <?php if ( $is_logged_in ) : ?>
+            <p class="text-xs text-slate-300 mt-6">
+                <?php echo esc_html( sprintf( __( 'You are currently signed in as %s.', 'angel-network' ), $current_user->display_name ) ); ?>
+            </p>
+        <?php else : ?>
+            <p class="text-xs text-slate-400 mt-6">
+                <?php esc_html_e( 'Registration is free. Business opportunities are reviewed before publication.', 'angel-network' ); ?>
+            </p>
+        <?php endif; ?>
     </div>
 </section>

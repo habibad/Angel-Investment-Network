@@ -124,6 +124,10 @@ function angel_scripts() {
         'restNonce'     => wp_create_nonce( 'wp_rest' ),
         'nonce'         => wp_create_nonce( 'angel_public_nonce' ),
         'homeUrl'       => esc_url_raw( home_url( '/' ) ),
+        'isLoggedIn'    => is_user_logged_in(),
+        'dashboardUrl'  => is_user_logged_in() && class_exists( '\CubaInvestment\Core\Auth\AuthManager' ) 
+            ? esc_url_raw( \CubaInvestment\Core\Auth\AuthManager::get_user_dashboard_url( wp_get_current_user() ) ) 
+            : esc_url_raw( home_url( '/dashboard/' ) ),
         'currency'      => 'USD',
         'currencySymbol'=> '$',
         'i18n'          => [

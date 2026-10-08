@@ -16,8 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php get_template_part( 'template-parts/footer/footer-nav' ); ?>
 </footer>
 
-<!-- Authentication Modal (Login / Register) -->
-<?php get_template_part( 'template-parts/modals/modal-auth' ); ?>
+<!-- Authentication Modal (Login / Register - Guests Only) -->
+<?php 
+if ( ! is_user_logged_in() ) {
+    get_template_part( 'template-parts/modals/modal-auth' ); 
+}
+?>
 
 <?php wp_footer(); ?>
 </body>

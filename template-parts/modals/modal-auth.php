@@ -10,6 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// Never render authentication modal for already logged-in users
+if ( is_user_logged_in() ) {
+    return;
+}
+
 $cuban_provinces = [
     'La Habana'           => 'La Habana (Havana)',
     'Santiago de Cuba'    => 'Santiago de Cuba',
