@@ -24,6 +24,11 @@ $status_label   = isset( $deal['status_label'] ) ? $deal['status_label'] : $stat
 $ownership      = isset( $deal['ownership_structure'] ) ? $deal['ownership_structure'] : 'Private Enterprise (MIPYME)';
 $history        = isset( $deal['operating_history'] ) ? $deal['operating_history'] : 'Operating Business';
 $last_updated   = isset( $deal['last_updated'] ) ? $deal['last_updated'] : 'September 2026';
+$deal_id        = ! empty( $deal['id'] ) ? (int) $deal['id'] : 0;
+
+$current_user_id = get_current_user_id();
+$is_user_inv     = class_exists( '\CubaInvestment\Core\Auth\Permissions' ) && ( \CubaInvestment\Core\Auth\Permissions::is_investor( $current_user_id ) || \CubaInvestment\Core\Auth\Permissions::is_admin_or_reviewer( $current_user_id ) );
+$is_deal_saved   = ( $current_user_id && $deal_id && class_exists( '\CubaInvestment\Core\Services\SavedOpportunityService' ) ) ? \CubaInvestment\Core\Services\SavedOpportunityService::is_saved( $current_user_id, $deal_id ) : false;
 ?>
 
 <article 
@@ -38,14 +43,28 @@ $last_updated   = isset( $deal['last_updated'] ) ? $deal['last_updated'] : 'Sept
             loading="lazy"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         >
-        <!-- Top Overlay Badges: Status & Sector -->
+        <!-- Top Overlay Badges: Status, Sector & Bookmark -->
         <div class="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
             <span class="badge badge-accent bg-accent text-white font-bold shadow-sm">
                 <?php echo esc_html( $status_label ); ?>
             </span>
-            <span class="badge badge-slate bg-white/95 text-slate-800 backdrop-blur-xs font-semibold shadow-sm">
-                <?php echo esc_html( $deal['industry'] ); ?>
-            </span>
+            <div class="flex items-center gap-1.5 pointer-events-auto">
+                <span class="badge badge-slate bg-white/95 text-slate-800 backdrop-blur-xs font-semibold shadow-sm">
+                    <?php echo esc_html( $deal['industry'] ); ?>
+                </span>
+                <?php if ( is_user_logged_in() && $is_user_inv && $deal_id ) : ?>
+                    <button 
+                        type="button" 
+                        onclick="cinToggleCardBookmark(event, <?php echo esc_attr( $deal_id ); ?>, this)" 
+                        title="<?php echo $is_deal_saved ? esc_attr__( 'Remove from saved', 'angel-network' ) : esc_attr__( 'Save opportunity', 'angel-network' ); ?>"
+                        class="cin-card-save-btn p-1.5 rounded-lg bg-white/95 hover:bg-white text-slate-700 shadow-sm backdrop-blur-xs transition-all cursor-pointer <?php echo $is_deal_saved ? 'text-accent' : ''; ?>"
+                    >
+                        <svg class="w-4 h-4 <?php echo $is_deal_saved ? 'fill-accent text-accent' : 'fill-none text-slate-600'; ?>" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                        </svg>
+                    </button>
+                <?php endif; ?>
+            </div>
         </div>
         
         <!-- Bottom Overlay: Location in Cuba -->

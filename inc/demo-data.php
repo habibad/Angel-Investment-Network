@@ -259,7 +259,81 @@ function angel_get_demo_blog_posts() {
  * Unified Abstraction Gateway
  */
 function angel_get_opportunities( $args = [] ) {
-    return angel_get_demo_opportunities();
+    $real_posts = get_posts([
+        'post_type'      => 'cin_opportunity',
+        'post_status'    => 'publish',
+        'posts_per_page' => isset( $args['limit'] ) ? (int) $args['limit'] : 20,
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+    ]);
+
+    $deals = [];
+    if ( ! empty( $real_posts ) ) {
+        foreach ( $real_posts as $p ) {
+            $opp_id = $p->ID;
+            $company_name = get_post_meta( $opp_id, '_cin_company_name', true ) ?: $p->post_title;
+            $sector_terms = wp_get_object_terms( $opp_id, 'cin_sector' );
+            $sector_name  = ! empty( $sector_terms ) && ! is_wp_error( $sector_terms ) ? $sector_terms[0]->name : ( get_post_meta( $opp_id, '_cin_sector', true ) ?: 'Agriculture & Food Processing' );
+            $sector_slug  = ! empty( $sector_terms ) && ! is_wp_error( $sector_terms ) ? $sector_terms[0]->slug : 'agriculture';
+            $province     = get_post_meta( $opp_id, '_cin_location_province', true ) ?: ( get_post_meta( $opp_id, '_cin_company_city', true ) ?: 'La Habana' );
+            $capital      = (float) get_post_meta( $opp_id, '_cin_capital_required', true ) ?: 150000;
+            $currency     = get_post_meta( $opp_id, '_cin_currency', true ) ?: 'USD';
+            $min_inv      = (float) get_post_meta( $opp_id, '_cin_minimum_investment', true ) ?: 10000;
+            $ownership    = get_post_meta( $opp_id, '_cin_ownership_structure', true ) ?: 'Private Cuban Enterprise (MIPYME)';
+            $summary      = get_post_meta( $opp_id, '_cin_summary', true ) ?: ( $p->post_content ?: $p->post_title );
+            $stage        = get_post_meta( $opp_id, '_cin_deal_stage', true ) ?: 'Operating Business';
+            $partnership  = get_post_meta( $opp_id, '_cin_partnership_structure', true ) ?: 'Direct Investment / Partnership';
+            $purpose      = get_post_meta( $opp_id, '_cin_use_of_funds', true ) ?: 'Expansion & Modernization';
+            $history      = get_post_meta( $opp_id, '_cin_operating_history', true ) ?: 'Operating Business';
+            $highlights   = get_post_meta( $opp_id, '_cin_highlights', true );
+            if ( ! is_array( $highlights ) || empty( $highlights ) ) {
+                $highlights = [
+                    'Operating facility in Cuba with verified commercial activity',
+                    'Direct founder communication channel'
+                ];
+            }
+
+            // Image
+            $feat_img = get_the_post_thumbnail_url( $opp_id, 'large' );
+            if ( ! $feat_img ) {
+                $feat_img = 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=900&q=80';
+            }
+
+            $deals[] = [
+                'id'                  => $opp_id,
+                'title'               => $p->post_title,
+                'slug'                => $p->post_name,
+                'company_name'        => $company_name,
+                'location'            => $province,
+                'country'             => 'Cuba',
+                'industry'            => $sector_name,
+                'industry_slug'       => $sector_slug,
+                'stage'               => $stage,
+                'status'              => 'publish',
+                'status_label'        => 'Published Opportunity',
+                'description'         => $summary,
+                'highlights'          => $highlights,
+                'capital_sought'      => $capital,
+                'total_required'      => $capital,
+                'amount_raised'       => 0,
+                'minimum_investment'  => $min_inv,
+                'currency'            => $currency,
+                'ownership_structure' => $ownership,
+                'capital_purpose'     => $purpose,
+                'partnership_type'    => $partnership,
+                'operating_history'   => $history,
+                'last_updated'        => date_i18n( 'F Y', strtotime( $p->post_modified ) ),
+                'info_source'         => 'Information supplied by the business owner',
+                'image'               => $feat_img,
+                'owner_title'         => 'Business Owner',
+                'author_id'           => (int) $p->post_author,
+                'featured'            => true,
+            ];
+        }
+    }
+
+    $demo = angel_get_demo_opportunities();
+    return array_merge( $deals, $demo );
 }
 
 function angel_get_investors( $args = [] ) {

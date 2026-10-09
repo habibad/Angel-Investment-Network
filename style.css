@@ -216,3 +216,15 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   color: #334155;
 }
 
+/* Header User Navigation Dropdown */
+.nav-item-dropdown.is-open .header-user-dropdown-panel {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}
+
+.nav-item-dropdown.is-open .header-chevron-icon {
+  transform: rotate(180deg) !important;
+}
+

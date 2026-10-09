@@ -41,6 +41,12 @@ $purpose        = isset( $deal['capital_purpose'] ) ? $deal['capital_purpose'] :
 $history        = isset( $deal['operating_history'] ) ? $deal['operating_history'] : 'Operating Business';
 $last_updated   = isset( $deal['last_updated'] ) ? $deal['last_updated'] : 'September 2026';
 $info_source    = isset( $deal['info_source'] ) ? $deal['info_source'] : 'Information supplied by the business owner';
+
+$current_user_id = get_current_user_id();
+$deal_id         = ! empty( $deal['id'] ) ? (int) $deal['id'] : 0;
+$is_user_inv     = class_exists( '\CubaInvestment\Core\Auth\Permissions' ) && ( \CubaInvestment\Core\Auth\Permissions::is_investor( $current_user_id ) || \CubaInvestment\Core\Auth\Permissions::is_admin_or_reviewer( $current_user_id ) );
+$is_deal_saved   = ( $current_user_id && $deal_id && class_exists( '\CubaInvestment\Core\Services\SavedOpportunityService' ) ) ? \CubaInvestment\Core\Services\SavedOpportunityService::is_saved( $current_user_id, $deal_id ) : false;
+$is_owner        = ( ! empty( $deal['author_id'] ) && (int) $deal['author_id'] === (int) $current_user_id );
 ?>
 
 <!-- Opportunity Breadcrumb & Sub-Hero -->
@@ -79,13 +85,28 @@ $info_source    = isset( $deal['info_source'] ) ? $deal['info_source'] : 'Inform
             </div>
 
             <!-- Header Action -->
-            <div class="flex items-center gap-3">
-                <a 
-                    href="<?php echo esc_url( home_url( '/contact/?type=investor&opportunity=' . urlencode( $deal['title'] ) ) ); ?>" 
-                    class="btn btn-accent btn-lg font-bold shadow-lg hover:shadow-xl transition-all"
+            <div class="flex flex-wrap items-center gap-3">
+                <?php if ( is_user_logged_in() && $is_user_inv ) : ?>
+                    <button 
+                        type="button" 
+                        onclick="cinToggleSingleBookmark(<?php echo esc_attr( $deal_id ); ?>)"
+                        id="cin-header-bookmark-btn" 
+                        class="px-4 py-3 rounded-xl border border-white/30 text-white hover:bg-white/10 font-bold text-sm transition-all flex items-center gap-2 cursor-pointer <?php echo $is_deal_saved ? 'bg-white/20' : ''; ?>"
+                    >
+                        <svg id="cin-header-bookmark-icon" class="w-5 h-5 <?php echo $is_deal_saved ? 'text-accent fill-accent' : 'text-white fill-none'; ?>" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                        </svg>
+                        <span id="cin-header-bookmark-label"><?php echo $is_deal_saved ? esc_html__( 'Saved in Dealflow', 'angel-network' ) : esc_html__( 'Save Opportunity', 'angel-network' ); ?></span>
+                    </button>
+                <?php endif; ?>
+
+                <button 
+                    type="button" 
+                    onclick="cinOpenEnquiryModal()" 
+                    class="btn btn-accent btn-lg font-bold shadow-lg hover:shadow-xl transition-all cursor-pointer"
                 >
                     <?php esc_html_e( 'Request Business Introduction →', 'angel-network' ); ?>
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -219,12 +240,29 @@ $info_source    = isset( $deal['info_source'] ) ? $deal['info_source'] : 'Inform
 
                     <!-- Action Buttons -->
                     <div class="space-y-3">
-                        <a 
-                            href="<?php echo esc_url( home_url( '/contact/?type=investor&opportunity=' . urlencode( $deal['title'] ) ) ); ?>" 
-                            class="btn btn-accent btn-lg w-full font-bold shadow-md hover:shadow-lg transition-all text-center"
+                        <button 
+                            type="button"
+                            onclick="cinOpenEnquiryModal()"
+                            id="cin-sidebar-enquiry-btn"
+                            class="btn btn-accent btn-lg w-full font-bold shadow-md hover:shadow-lg transition-all text-center cursor-pointer"
                         >
                             <?php esc_html_e( 'Request Introduction', 'angel-network' ); ?>
-                        </a>
+                        </button>
+
+                        <?php if ( is_user_logged_in() && $is_user_inv ) : ?>
+                            <button 
+                                type="button" 
+                                onclick="cinToggleSingleBookmark(<?php echo esc_attr( $deal_id ); ?>)"
+                                id="cin-sidebar-bookmark-btn" 
+                                class="btn btn-outline-primary btn-sm w-full font-bold text-center flex items-center justify-center gap-2 cursor-pointer transition-all <?php echo $is_deal_saved ? 'bg-primary/5 text-accent border-accent' : ''; ?>"
+                            >
+                                <svg id="cin-sidebar-bookmark-icon" class="w-4 h-4 <?php echo $is_deal_saved ? 'text-accent fill-accent' : 'text-slate-600 fill-none'; ?>" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                </svg>
+                                <span id="cin-sidebar-bookmark-label"><?php echo $is_deal_saved ? esc_html__( 'Saved in Dealflow', 'angel-network' ) : esc_html__( 'Save Opportunity', 'angel-network' ); ?></span>
+                            </button>
+                        <?php endif; ?>
+
                         <a 
                             href="<?php echo esc_url( home_url( '/risk-disclosure/' ) ); ?>" 
                             class="btn btn-outline-primary btn-sm w-full text-center"
@@ -262,8 +300,288 @@ $info_source    = isset( $deal['info_source'] ) ? $deal['info_source'] : 'Inform
     </div>
 </section>
 
+<!-- ========================================================= -->
+<!-- INVESTOR ENQUIRY MODAL                                    -->
+<!-- ========================================================= -->
+<div id="cin-enquiry-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs hidden" role="dialog" aria-modal="true" aria-labelledby="cin-modal-title">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-slate-200 animate-fadeIn">
+        <!-- Modal Header -->
+        <div class="p-5 border-b border-slate-100 flex items-start justify-between bg-slate-50/50">
+            <div>
+                <span class="text-[11px] font-bold text-accent uppercase tracking-wider block mb-0.5">
+                    <?php esc_html_e( 'Direct Deal Inquiry', 'angel-network' ); ?>
+                </span>
+                <h3 id="cin-modal-title" class="text-lg font-heading font-bold text-slate-900">
+                    <?php esc_html_e( 'Contact Business Owner', 'angel-network' ); ?>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">
+                    <?php echo esc_html( $deal['title'] ); ?> &bull; <?php echo esc_html( $deal['company_name'] ); ?>
+                </p>
+            </div>
+            <button type="button" onclick="cinCloseEnquiryModal()" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors" aria-label="<?php esc_attr_e( 'Close', 'angel-network' ); ?>">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Body / Form -->
+        <form id="cin-enquiry-form" onsubmit="cinSubmitEnquiry(event)" class="p-6 space-y-4">
+            <div id="cin-enquiry-alert" class="hidden p-3 rounded-xl text-xs font-medium"></div>
+
+            <?php if ( is_user_logged_in() ) : 
+                $curr_user = wp_get_current_user();
+                $inv_name  = trim( $curr_user->first_name . ' ' . $curr_user->last_name ) ?: $curr_user->display_name;
+            ?>
+                <!-- Investor Info Preview Strip -->
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-xs text-slate-600">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block"><?php esc_html_e( 'Inquiring As', 'angel-network' ); ?></span>
+                        <span class="font-bold text-slate-800"><?php echo esc_html( $inv_name ); ?></span>
+                    </div>
+                    <span class="badge badge-accent text-[10px] font-bold"><?php esc_html_e( 'Registered Investor', 'angel-network' ); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <div>
+                <label for="cin-enquiry-subject" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <?php esc_html_e( 'Subject', 'angel-network' ); ?> <span class="text-red-500">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    id="cin-enquiry-subject" 
+                    name="subject" 
+                    required 
+                    value="<?php echo esc_attr( sprintf( __( 'Investment Inquiry: %s', 'angel-network' ), $deal['title'] ) ); ?>" 
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
+                >
+            </div>
+
+            <div>
+                <label for="cin-enquiry-message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <?php esc_html_e( 'Message to Founder', 'angel-network' ); ?> <span class="text-red-500">*</span>
+                </label>
+                <textarea 
+                    id="cin-enquiry-message" 
+                    name="message" 
+                    rows="4" 
+                    required 
+                    placeholder="<?php esc_attr_e( 'Introduce yourself, state your investment interest, proposed capital range, and any preliminary questions...', 'angel-network' ); ?>"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm font-medium focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none resize-none"
+                ></textarea>
+                <p class="text-[11px] text-slate-400 mt-1">
+                    <?php esc_html_e( 'Please provide clear, professional context. Do not include sensitive banking details.', 'angel-network' ); ?>
+                </p>
+            </div>
+
+            <div class="text-[11px] text-slate-400 leading-relaxed bg-amber-50/60 p-2.5 rounded-lg border border-amber-100 text-amber-800">
+                <?php esc_html_e( 'Submitting an inquiry does not constitute a commitment. All discussions occur directly between parties.', 'angel-network' ); ?>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-3">
+                <button 
+                    type="button" 
+                    onclick="cinCloseEnquiryModal()" 
+                    class="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors"
+                >
+                    <?php esc_html_e( 'Cancel', 'angel-network' ); ?>
+                </button>
+                <button 
+                    type="submit" 
+                    id="cin-enquiry-submit-btn" 
+                    class="btn btn-accent btn-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                >
+                    <span id="cin-enquiry-submit-label"><?php esc_html_e( 'Send Enquiry', 'angel-network' ); ?></span>
+                    <svg id="cin-enquiry-spinner" class="w-4 h-4 animate-spin hidden" viewBox="0 0 24 24" fill="none">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+let cinIsDealSaved = <?php echo $is_deal_saved ? 'true' : 'false'; ?>;
+const cinDealId = <?php echo esc_js( $deal_id ); ?>;
+const cinIsLoggedIn = <?php echo is_user_logged_in() ? 'true' : 'false'; ?>;
+const cinIsInvestor = <?php echo $is_user_inv ? 'true' : 'false'; ?>;
+const cinRestNonce = '<?php echo esc_js( wp_create_nonce( 'wp_rest' ) ); ?>';
+const cinRestBase = '<?php echo esc_js( rest_url( 'cin/v1' ) ); ?>';
+
+function cinToggleSingleBookmark(dealId) {
+    if (!cinIsLoggedIn) {
+        window.location.href = '<?php echo esc_url( home_url( '/login/?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] ?? '' ) ) ); ?>';
+        return;
+    }
+    if (!cinIsInvestor) {
+        alert('<?php echo esc_js( __( 'Only registered investors can save opportunities.', 'angel-network' ) ); ?>');
+        return;
+    }
+
+    const method = cinIsDealSaved ? 'DELETE' : 'POST';
+    const headerBtn = document.getElementById('cin-header-bookmark-btn');
+    const sidebarBtn = document.getElementById('cin-sidebar-bookmark-btn');
+
+    if (headerBtn) headerBtn.style.opacity = '0.5';
+    if (sidebarBtn) sidebarBtn.style.opacity = '0.5';
+
+    fetch(`${cinRestBase}/opportunities/${dealId}/save`, {
+        method: method,
+        headers: {
+            'X-WP-Nonce': cinRestNonce,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.is_saved !== undefined) {
+            cinIsDealSaved = !!data.is_saved;
+        } else if (data.saved !== undefined) {
+            cinIsDealSaved = !!data.saved;
+        } else {
+            cinIsDealSaved = !cinIsDealSaved;
+        }
+        updateBookmarkUI();
+    })
+    .catch(err => {
+        console.error('Bookmark error:', err);
+        alert('Could not update saved status. Please try again.');
+    })
+    .finally(() => {
+        if (headerBtn) headerBtn.style.opacity = '1';
+        if (sidebarBtn) sidebarBtn.style.opacity = '1';
+    });
+}
+
+function updateBookmarkUI() {
+    const headerIcon = document.getElementById('cin-header-bookmark-icon');
+    const headerLabel = document.getElementById('cin-header-bookmark-label');
+    const headerBtn = document.getElementById('cin-header-bookmark-btn');
+    const sidebarIcon = document.getElementById('cin-sidebar-bookmark-icon');
+    const sidebarLabel = document.getElementById('cin-sidebar-bookmark-label');
+    const sidebarBtn = document.getElementById('cin-sidebar-bookmark-btn');
+
+    const labelText = cinIsDealSaved ? '<?php echo esc_js( __( 'Saved in Dealflow', 'angel-network' ) ); ?>' : '<?php echo esc_js( __( 'Save Opportunity', 'angel-network' ) ); ?>';
+
+    if (headerLabel) headerLabel.textContent = labelText;
+    if (sidebarLabel) sidebarLabel.textContent = labelText;
+
+    if (headerIcon) {
+        if (cinIsDealSaved) {
+            headerIcon.classList.remove('text-white', 'fill-none');
+            headerIcon.classList.add('text-accent', 'fill-accent');
+            if (headerBtn) headerBtn.classList.add('bg-white/20');
+        } else {
+            headerIcon.classList.remove('text-accent', 'fill-accent');
+            headerIcon.classList.add('text-white', 'fill-none');
+            if (headerBtn) headerBtn.classList.remove('bg-white/20');
+        }
+    }
+
+    if (sidebarIcon) {
+        if (cinIsDealSaved) {
+            sidebarIcon.classList.remove('text-slate-600', 'fill-none');
+            sidebarIcon.classList.add('text-accent', 'fill-accent');
+            if (sidebarBtn) sidebarBtn.classList.add('bg-primary/5', 'text-accent', 'border-accent');
+        } else {
+            sidebarIcon.classList.remove('text-accent', 'fill-accent');
+            sidebarIcon.classList.add('text-slate-600', 'fill-none');
+            if (sidebarBtn) sidebarBtn.classList.remove('bg-primary/5', 'text-accent', 'border-accent');
+        }
+    }
+}
+
+function cinOpenEnquiryModal() {
+    if (!cinIsLoggedIn) {
+        window.location.href = '<?php echo esc_url( home_url( '/login/?redirect_to=' . urlencode( $_SERVER['REQUEST_URI'] ?? '' ) ) ); ?>';
+        return;
+    }
+    if (!cinIsInvestor) {
+        alert('<?php echo esc_js( __( 'Business owners cannot submit investment enquiries. Please log in with an Investor account.', 'angel-network' ) ); ?>');
+        return;
+    }
+    <?php if ( $is_owner ) : ?>
+        alert('<?php echo esc_js( __( 'You cannot submit an inquiry to your own opportunity.', 'angel-network' ) ); ?>');
+        return;
+    <?php endif; ?>
+
+    const modal = document.getElementById('cin-enquiry-modal');
+    if (modal) modal.classList.remove('hidden');
+}
+
+function cinCloseEnquiryModal() {
+    const modal = document.getElementById('cin-enquiry-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function cinSubmitEnquiry(e) {
+    e.preventDefault();
+    const alertBox = document.getElementById('cin-enquiry-alert');
+    const submitBtn = document.getElementById('cin-enquiry-submit-btn');
+    const spinner = document.getElementById('cin-enquiry-spinner');
+    const label = document.getElementById('cin-enquiry-submit-label');
+    const subject = document.getElementById('cin-enquiry-subject').value.trim();
+    const message = document.getElementById('cin-enquiry-message').value.trim();
+
+    if (!subject || !message) {
+        alertBox.className = 'p-3 rounded-xl text-xs font-medium bg-red-50 text-red-700 border border-red-200 block';
+        alertBox.textContent = 'Please fill in both subject and message fields.';
+        return;
+    }
+
+    if (message.length < 10) {
+        alertBox.className = 'p-3 rounded-xl text-xs font-medium bg-red-50 text-red-700 border border-red-200 block';
+        alertBox.textContent = 'Please provide a more detailed inquiry message (at least 10 characters).';
+        return;
+    }
+
+    submitBtn.disabled = true;
+    spinner.classList.remove('hidden');
+    label.textContent = 'Sending...';
+    alertBox.className = 'hidden';
+
+    fetch(`${cinRestBase}/inquiries`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-WP-Nonce': cinRestNonce
+        },
+        body: JSON.stringify({
+            opportunity_id: cinDealId,
+            subject: subject,
+            message: message
+        })
+    })
+    .then(async res => {
+        const data = await res.json();
+        if (!res.ok) {
+            throw new Error(data.message || 'Failed to submit inquiry.');
+        }
+        return data;
+    })
+    .then(data => {
+        alertBox.className = 'p-3 rounded-xl text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 block';
+        alertBox.textContent = 'Your enquiry has been successfully delivered to the business owner! Redirecting to your enquiries dashboard...';
+        setTimeout(() => {
+            window.location.href = '<?php echo esc_url( home_url( '/investor/enquiries/' ) ); ?>';
+        }, 1200);
+    })
+    .catch(err => {
+        alertBox.className = 'p-3 rounded-xl text-xs font-medium bg-red-50 text-red-700 border border-red-200 block';
+        alertBox.textContent = err.message || 'An error occurred while submitting your enquiry.';
+        submitBtn.disabled = false;
+        spinner.classList.add('hidden');
+        label.textContent = 'Send Enquiry';
+    });
+}
+</script>
+
 <!-- Bottom CTA -->
 <?php get_template_part( 'template-parts/sections/cta-banner' ); ?>
 
 <?php
 get_footer();
+

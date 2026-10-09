@@ -26,8 +26,20 @@ $roles = $is_logged_in ? (array) $current_user->roles : [];
 
 $is_investor = in_array( 'cin_investor', $roles, true ) || ( class_exists( '\CubaInvestment\Core\Common\Constants' ) && in_array( \CubaInvestment\Core\Common\Constants::ROLE_INVESTOR, $roles, true ) );
 $is_business = in_array( 'cin_business_owner', $roles, true ) || ( class_exists( '\CubaInvestment\Core\Common\Constants' ) && in_array( \CubaInvestment\Core\Common\Constants::ROLE_BUSINESS_OWNER, $roles, true ) );
+$is_admin    = in_array( 'administrator', $roles, true );
 
-$profile_url = $is_investor ? home_url( '/investor/profile/' ) : ( $is_business ? home_url( '/business-owner/profile/' ) : home_url( '/account/' ) );
+if ( $is_admin ) {
+    $current_req_path = trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+    if ( false !== strpos( $current_req_path, 'investor' ) ) {
+        $profile_url   = home_url( '/investor/profile/' );
+        $dashboard_url = home_url( '/investor/dashboard/' );
+    } else {
+        $profile_url   = home_url( '/business-owner/profile/' );
+        $dashboard_url = home_url( '/business-owner/dashboard/' );
+    }
+} else {
+    $profile_url   = $is_investor ? home_url( '/investor/profile/' ) : home_url( '/business-owner/profile/' );
+}
 
 $avatar_url = $is_logged_in ? get_user_meta( $user_id, '_cin_avatar_url', true ) : '';
 if ( empty( $avatar_url ) && $is_business ) {
@@ -38,7 +50,7 @@ $initials = $is_logged_in ? strtoupper( substr( $first_name ?: ( $current_user->
 if ( empty( $initials ) ) {
     $initials = 'CIN';
 }
-$role_badge = $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_business ? __( 'Verified Business Owner', 'angel-network' ) : __( 'Member', 'angel-network' ) );
+$role_badge = $is_admin ? __( 'Administrator', 'angel-network' ) : ( $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_business ? __( 'Verified Business Owner', 'angel-network' ) : __( 'Member', 'angel-network' ) ) );
 ?>
 
 <div class="flex items-center justify-between w-full h-20">
@@ -207,7 +219,7 @@ $role_badge = $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_
                                 <span><?php esc_html_e( 'My Profile', 'angel-network' ); ?></span>
                             </a>
 
-                            <?php if ( $is_business ) : ?>
+                            <?php if ( $is_business || $is_admin ) : ?>
                                 <!-- Business Profile -->
                                 <a 
                                     href="<?php echo esc_url( home_url( '/business-owner/business-profile/' ) ); ?>" 
@@ -218,6 +230,31 @@ $role_badge = $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
                                     <span><?php esc_html_e( 'Business Profile', 'angel-network' ); ?></span>
+                                </a>
+                            <?php endif; ?>
+
+                            <?php if ( $is_admin ) : ?>
+                                <!-- Investor Profile for Admin -->
+                                <a 
+                                    href="<?php echo esc_url( home_url( '/investor/profile/' ) ); ?>" 
+                                    class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-700 hover:text-primary hover:bg-slate-50 transition-colors"
+                                    role="menuitem"
+                                >
+                                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span><?php esc_html_e( 'Investor Profile', 'angel-network' ); ?></span>
+                                </a>
+                                <a 
+                                    href="<?php echo esc_url( admin_url() ); ?>" 
+                                    class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-700 hover:text-primary hover:bg-slate-50 transition-colors"
+                                    role="menuitem"
+                                >
+                                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.065-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span><?php esc_html_e( 'WordPress Admin Area', 'angel-network' ); ?></span>
                                 </a>
                             <?php endif; ?>
 
@@ -393,7 +430,7 @@ $role_badge = $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_
                     <span class="text-slate-400">&rarr;</span>
                 </a>
 
-                <?php if ( $is_business ) : ?>
+                <?php if ( $is_business || $is_admin ) : ?>
                     <!-- Business Profile -->
                     <a 
                         href="<?php echo esc_url( home_url( '/business-owner/business-profile/' ) ); ?>" 
@@ -404,6 +441,22 @@ $role_badge = $is_investor ? __( 'Verified Investor', 'angel-network' ) : ( $is_
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                             <span><?php esc_html_e( 'Business Profile', 'angel-network' ); ?></span>
+                        </span>
+                        <span class="text-slate-400">&rarr;</span>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ( $is_admin ) : ?>
+                    <!-- Investor Profile for Admin -->
+                    <a 
+                        href="<?php echo esc_url( home_url( '/investor/profile/' ) ); ?>" 
+                        class="flex items-center justify-between px-3.5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors"
+                    >
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                            <span><?php esc_html_e( 'Investor Profile', 'angel-network' ); ?></span>
                         </span>
                         <span class="text-slate-400">&rarr;</span>
                     </a>

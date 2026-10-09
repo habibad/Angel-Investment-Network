@@ -56,10 +56,20 @@ function angel_template_router( $template ) {
     }
 
     $inv_id = get_query_var( 'angel_investor' );
-    if ( ! empty( $inv_id ) ) {
-        $custom_template = locate_template( [ 'single-investor.php' ] );
-        if ( ! empty( $custom_template ) ) {
-            return $custom_template;
+    $cin_page = get_query_var( 'cin_auth_page' );
+    $portal_slugs = [ 'profile', 'dashboard', 'saved-opportunities', 'enquiries', 'connections', 'messages' ];
+    if ( ! empty( $inv_id ) && ! in_array( $inv_id, $portal_slugs, true ) && empty( $cin_page ) ) {
+        // Also ensure request path is not an investor portal route
+        $check_path = trim( parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+        $site_sub   = trim( parse_url( home_url(), PHP_URL_PATH ), '/' );
+        if ( ! empty( $site_sub ) && 0 === strpos( $check_path, $site_sub ) ) {
+            $check_path = trim( substr( $check_path, strlen( $site_sub ) ), '/' );
+        }
+        if ( 0 !== strpos( $check_path, 'investor/' ) && 0 !== strpos( $check_path, 'dashboard/investor' ) ) {
+            $custom_template = locate_template( [ 'single-investor.php' ] );
+            if ( ! empty( $custom_template ) ) {
+                return $custom_template;
+            }
         }
     }
 

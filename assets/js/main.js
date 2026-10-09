@@ -220,3 +220,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Global Bookmark Toggle for Opportunity Cards
+window.cinToggleCardBookmark = function(e, dealId, btn) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    if (!dealId || !btn) return;
+
+    const icon = btn.querySelector('svg');
+    const isSaved = icon && icon.classList.contains('fill-accent');
+    const method = isSaved ? 'DELETE' : 'POST';
+    const restBase = window.angelNetworkConfig?.cinRestUrl || '/wp-json/cin/v1';
+    const restNonce = window.angelNetworkConfig?.restNonce || '';
+
+    btn.style.opacity = '0.5';
+
+    fetch(`${restBase}/opportunities/${dealId}/save`, {
+        method: method,
+        headers: {
+            'X-WP-Nonce': restNonce,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(r => r.json())
+    .then(data => {
+        const nowSaved = data.saved !== undefined ? data.saved : !isSaved;
+        if (nowSaved) {
+            if (icon) {
+                icon.classList.remove('fill-none', 'text-slate-600');
+                icon.classList.add('fill-accent', 'text-accent');
+            }
+            btn.classList.add('text-accent');
+            btn.setAttribute('title', 'Remove from saved');
+        } else {
+            if (icon) {
+                icon.classList.remove('fill-accent', 'text-accent');
+                icon.classList.add('fill-none', 'text-slate-600');
+            }
+            btn.classList.remove('text-accent');
+            btn.setAttribute('title', 'Save opportunity');
+        }
+    })
+    .catch(err => {
+        console.error('Bookmark error:', err);
+    })
+    .finally(() => {
+        btn.style.opacity = '1';
+    });
+};
+
+
